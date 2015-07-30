@@ -12,9 +12,9 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
-// Framework requires PHP 5.6 or newer
-if ( version_compare( PHP_VERSION, '5.6.0', '<' ) ) {
-	exit( 'xu for WordPress requires PHP version 5.6 or higher.' );
+// Framework requires PHP 5.4 or newer
+if ( version_compare( PHP_VERSION, '5.4.0', '<' ) ) {
+	exit( 'xu for WordPress requires PHP version 5.4 or higher.' );
 }
 
 // Load Composer autoload if it exists.
