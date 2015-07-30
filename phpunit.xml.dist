@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-  bootstrap="vendor/frozzare/wp-test-suite/bootstrap.php"
-  backupGlobals="false"
+<phpunit backupGlobals="false"
+  backupStaticAttributes="false"
+  beStrictAboutTestsThatDoNotTestAnything="true"
+  beStrictAboutOutputDuringTests="true"
+  bootstrap="tests/bootstrap.php"
   colors="true"
   convertErrorsToExceptions="true"
   convertNoticesToExceptions="true"
   convertWarningsToExceptions="true"
+  processIsolation="false"
+  stopOnError="false"
+  stopOnFailure="false"
+  syntaxCheck="true"
+  verbose="true"
   >
-  <php>
-    <const name="WTB_PLUGIN_FILE_NAME" value="xu.php" />
-  </php>
   <testsuites>
-    <testsuite name="Fred Test Suite">
+    <testsuite name="xu Test Suite">
       <directory suffix=".php">./tests/</directory>
     </testsuite>
   </testsuites>
+  <filter>
+    <whitelist addUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">src</directory>
+    </whitelist>
+  </filter>
   <logging>
     <log type="coverage-clover" target="./tmp/clover.xml" charset="UTF-8" />
   </logging>

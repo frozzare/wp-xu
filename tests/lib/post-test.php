@@ -1,6 +1,8 @@
 <?php
 
-class Post_Test extends WP_UnitTestCase {
+namespace Xu\Tests\Lib;
+
+class Post_Test extends \WP_UnitTestCase {
 
 	public function test_xu_is_post_type() {
 		$post_id = $this->factory->post->create();
@@ -18,7 +20,7 @@ class Post_Test extends WP_UnitTestCase {
         try {
             xu_is_post_type( $post_id, false );
             $this->assertTrue( false );
-        } catch ( Exception $e ) {
+        } catch ( \Exception $e ) {
             $this->assertNotEmpty( $e->getMessage() );
         }
 	}

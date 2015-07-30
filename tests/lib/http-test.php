@@ -1,6 +1,8 @@
 <?php
 
-class HTTP_Test extends WP_UnitTestCase {
+namespace Xu\Tests\Lib;
+
+class HTTP_Test extends \WP_UnitTestCase {
 
 	public function test_xu_current_url() {
 		$this->assertEquals( 'http://example.org/', xu_current_url() );
