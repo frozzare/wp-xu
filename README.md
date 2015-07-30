@@ -15,7 +15,7 @@ $ composer install wp-xu/xu
 
 > WIP
 
-You can call xu functions with `xu_` prefix or `xu::`
+You can call xu functions with `xu_` prefix or `xu::` for static methods.
 
 Example:
 
