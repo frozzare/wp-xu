@@ -35,17 +35,17 @@ function xu_current_url( $parse = false, $obj = true ) {
 	$url = ltrim( $url, '/' );
 	$url = home_url() . '/' . $url;
 
-	if ( ! $parse ) {
+	if ( ! (bool) $parse ) {
 		return $url;
 	}
 
 	$parts = parse_url( $url );
 
-	if ( $parts === false ) {
+	if ( (bool) $parts === false ) {
 		$parts = [];
 	}
 
-	if ( $obj ) {
+	if ( (bool) $obj ) {
 		return (object) $parts;
 	}
 

@@ -1,8 +1,8 @@
 <?php
 
-class Post_Test extends \WP_UnitTestCase {
+class Post_Test extends WP_UnitTestCase {
 
-	public function test_fred_is_post_type() {
+	public function test_xu_is_post_type() {
 		$post_id = $this->factory->post->create();
 		global $post;
 		$post = get_post( $post_id );
@@ -14,6 +14,13 @@ class Post_Test extends \WP_UnitTestCase {
         $this->assertFalse( xu_is_post_type( 1 ) );
         $this->assertFalse( xu_is_post_type( [] ) );
         $this->assertFalse( xu_is_post_type( (object)[] ) );
+
+        try {
+            xu_is_post_type( $post_id, false );
+            $this->assertTrue( false );
+        } catch ( Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
 	}
 
 }
