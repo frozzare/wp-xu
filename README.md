@@ -4,7 +4,7 @@
 
 > Requires PHP 5.6
 
-[WIP] A collection of useful WordPress functions
+[WIP] Collection of useful WordPress functions
 
 ## Install
 
