@@ -28,7 +28,7 @@ class Utils_Test extends \WP_UnitTestCase {
 
 	public function test_xu_get_class_name() {
         $class_name = xu_get_class_name( __FILE__ );
-		$this->assertEquals( '\Xu\Tests\Lib\Utilities_Test', $class_name );
+		$this->assertEquals( '\Xu\Tests\Lib\Utils_Test', $class_name );
 
 		$this->assertEmpty( xu_get_class_name( null ) );
 		$this->assertEmpty( xu_get_class_name( true ) );
