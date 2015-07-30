@@ -19,13 +19,14 @@ function xu_dashify( $str ) {
 }
 
 /**
- * Get namespace name and/or class name from page type file.
+ * Get namespace name and/or class name from file.
  *
  * @param string $file
+ * @param bool $trait
  *
  * @return string
  */
-function xu_get_class_name( $file ) {
+function xu_get_class_name( $file, $trait = false ) {
 	if ( ! is_string( $file ) ) {
 		return '';
 	}
@@ -48,20 +49,43 @@ function xu_get_class_name( $file ) {
 			}
 		}
 
-		if ( $tokens[$i][0] === T_CLASS ) {
-			for ( $j = $i + 1; $j < $len; $j++ ) {
-				if ( $tokens[$j] === '{' ) {
-					$class_name = $tokens[$i + 2][1];
-				}
-			}
-		}
+        if ( (bool) $trait ) {
+            if ( $tokens[$i][0] === T_TRAIT ) {
+    			for ( $j = $i + 1; $j < $len; $j++ ) {
+    				if ( $tokens[$j] === '{' ) {
+    					$class_name = $tokens[$i + 2][1];
+    				}
+    			}
+    		}
+        } else {
+    		if ( $tokens[$i][0] === T_CLASS ) {
+    			for ( $j = $i + 1; $j < $len; $j++ ) {
+    				if ( $tokens[$j] === '{' ) {
+    					$class_name = $tokens[$i + 2][1];
+    				}
+    			}
+    		}
+        }
 	}
 
 	if ( empty( $namespace_name ) ) {
 		return $class_name;
-	}
+	} else if ( empty( $class_name ) ) {
+        return '';
+    }
 
 	return $namespace_name . '\\' . $class_name;
+}
+
+/**
+ * Get namespace name and/or trait name from file.
+ *
+ * @param string $file
+ *
+ * @return string
+ */
+function xu_get_trait_name( $file ) {
+    return xu_get_class_name( $file, true );
 }
 
 /**

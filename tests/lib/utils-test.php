@@ -27,9 +27,6 @@ class Utils_Test extends \WP_UnitTestCase {
 	}
 
 	public function test_xu_get_class_name() {
-        $class_name = xu_get_class_name( __FILE__ );
-		$this->assertEquals( '\Xu\Tests\Lib\Utils_Test', $class_name );
-
 		$this->assertEmpty( xu_get_class_name( null ) );
 		$this->assertEmpty( xu_get_class_name( true ) );
 		$this->assertEmpty( xu_get_class_name( false ) );
@@ -37,8 +34,38 @@ class Utils_Test extends \WP_UnitTestCase {
 		$this->assertEmpty( xu_get_class_name( [] ) );
 		$this->assertEmpty( xu_get_class_name( (object) [] ) );
 
+        $class_name = xu_get_class_name( XU_FIXTURE_DIR . '/traits/trait-hello-world.php' );
+        $this->assertEmpty( $class_name );
+
+		$class_name = xu_get_class_name( XU_FIXTURE_DIR . '/traits/trait-hello-world-namespace.php' );
+        $this->assertEmpty( $class_name );
+
+        $class_name = xu_get_class_name( __FILE__ );
+		$this->assertEquals( '\Xu\Tests\Lib\Utils_Test', $class_name );
+
 		$class_name = xu_get_class_name( XU_FIXTURE_DIR . '/classes/class-hello-world.php' );
-		$this->assertEquals( 'HelloWorld', $class_name );
+		$this->assertEquals( 'HelloWorldClass', $class_name );
+	}
+
+	public function test_xu_get_trait_name() {
+		$this->assertEmpty( xu_get_trait_name( null ) );
+		$this->assertEmpty( xu_get_trait_name( true ) );
+		$this->assertEmpty( xu_get_trait_name( false ) );
+		$this->assertEmpty( xu_get_trait_name( 1 ) );
+		$this->assertEmpty( xu_get_trait_name( [] ) );
+		$this->assertEmpty( xu_get_trait_name( (object) [] ) );
+
+        $trait_name = xu_get_trait_name( __FILE__ );
+        $this->assertEmpty( $trait_name );
+
+		$trait_name = xu_get_trait_name( XU_FIXTURE_DIR . '/classes/class-hello-world.php' );
+        $this->assertEmpty( $trait_name );
+
+        $trait_name = xu_get_trait_name( XU_FIXTURE_DIR . '/traits/trait-hello-world.php' );
+        $this->assertEquals( 'HelloWorldTrait', $trait_name );
+
+		$trait_name = xu_get_trait_name( XU_FIXTURE_DIR . '/traits/trait-hello-world-namespace.php' );
+		$this->assertEquals( '\Xu\Tests\Fixtures\Traits\HelloWorldTrait', $trait_name );
 	}
 
 	public function test_xu_is_empty() {
