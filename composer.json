@@ -2,7 +2,7 @@
   "name": "wp-xu/xu",
   "type": "wordpress-plugin",
   "license": "MIT",
-  "description": "Collection of useful WordPress functions",
+  "description": "Collection of useful WordPress and PHP functions",
   "homepage": "https://github.com/wp-xu/xu",
   "authors": [
     {

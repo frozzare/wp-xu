@@ -4,7 +4,7 @@
 
 > Requires PHP 5.6
 
-Collection of useful WordPress functions
+Collection of useful WordPress and PHP functions
 
 ## Install
 
