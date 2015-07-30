@@ -15,9 +15,9 @@ function xu_is_http_method( $method ) {
 		return false;
 	}
 
-    if ( ! is_string( $method ) ) {
-        return false;
-    }
+	if ( ! is_string( $method ) ) {
+		return false;
+	}
 
 	return $_SERVER ['REQUEST_METHOD'] == strtoupper( $method );
 }
@@ -40,10 +40,7 @@ function xu_current_url( $parse = false, $obj = true ) {
 	}
 
 	$parts = parse_url( $url );
-
-	if ( (bool) $parts === false ) {
-		$parts = [];
-	}
+	$parts = $parts === false ? [] : $parts;
 
 	if ( (bool) $obj ) {
 		return (object) $parts;

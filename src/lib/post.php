@@ -17,9 +17,9 @@ function xu_is_post_type( $id, $post_type = '' ) {
 		$id        = get_the_id();
 	}
 
-    if ( ! is_string( $post_type ) ) {
-        throw new Exception( sprintf( '%s requires a valid post type.', __FUNCTION__ ) );
-    }
+	if ( ! is_string( $post_type ) ) {
+		throw new Exception( sprintf( '%s requires a valid post type.', __FUNCTION__ ) );
+	}
 
 	return $post_type === get_post_type( $id );
 }
