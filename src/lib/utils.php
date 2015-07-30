@@ -11,11 +11,11 @@ defined( 'ABSPATH' ) || exit;
  * @return string
  */
 function xu_dashify( $str ) {
-    if ( ! is_string( $str ) ) {
-        return '';
-    }
+	if ( ! is_string( $str ) ) {
+		return '';
+	}
 
-    return str_replace( ' ', '-', str_replace( '_', '-', $str ) );
+	return str_replace( ' ', '-', str_replace( '_', '-', $str ) );
 }
 
 /**
@@ -27,15 +27,15 @@ function xu_dashify( $str ) {
  * @return bool
  */
 function xu_is_empty( $obj ) {
-    if ( is_string( $obj ) ) {
+	if ( is_string( $obj ) ) {
 		return empty( $obj ) && ! is_numeric( $obj );
 	}
 
-    if ( is_bool( $obj ) || is_numeric( $obj ) ) {
+	if ( is_bool( $obj ) || is_numeric( $obj ) ) {
 		return false;
 	}
 
-    return empty( $obj );
+	return empty( $obj );
 }
 
 /**
@@ -50,5 +50,5 @@ function xu_underscorify( $str ) {
 		return '';
 	}
 
-    return str_replace( ' ', '_', str_replace( '-', '_', $str ) );
+	return str_replace( ' ', '_', str_replace( '-', '_', $str ) );
 }

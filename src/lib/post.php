@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function xu_is_post_type( $id, $post_type = '' ) {
 	if ( ! is_numeric( $id ) ) {
-        $post_type = is_string( $id ) ? $id : '';
+		$post_type = is_string( $id ) ? $id : '';
 		$id        = get_the_id();
 	}
 
