@@ -1,0 +1,42 @@
+{
+  "name": "wp-xu/xu",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "A collection of useful WordPress functions",
+  "homepage": "https://github.com/wp-xu/xu",
+  "authors": [
+    {
+      "name": "Fredrik Forsmo",
+      "email": "fredrik.forsmo@gmail.com",
+      "homepage": "https://github.com/frozzare"
+    },
+    {
+      "name": "Johnie Hjelm",
+      "email": "johnie@hjelm.im",
+      "homepage": "http://github.com/johnie"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "src/lib/http.php",
+      "src/lib/post.php"
+    ]
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "utilities"
+  ],
+  "support": {
+    "issues": "https://github.com/wp-xu/xu/issues"
+  },
+  "require": {
+    "php": ">=5.4",
+    "composer/installers": "~1.0"
+  },
+  "require-dev": {
+    "frozzare/wp-test-suite": "~1.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
