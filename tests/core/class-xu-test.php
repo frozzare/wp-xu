@@ -14,6 +14,13 @@ class Xu_Test extends \WP_UnitTestCase {
         unset( $_SERVER['REQUEST_METHOD'] );
         $this->assertFalse( xu::is_http_method( 'POST' ) );
         $_SERVER['REQUEST_METHOD'] = 'POST';
+
+        try {
+            xu::fake_method();
+            $this->assertTrue( false );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
     }
 
 }

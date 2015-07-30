@@ -22,7 +22,7 @@ class xu {
 		$method = 'xu_' . $method;
 
 		if ( ! function_exists( $method ) ) {
-			throw new xu\Errors\Exception;
+			throw new \Exception( sprintf( '%s function does not exists', $method ) );
 		}
 
 		return call_user_func_array( $method, $args );
