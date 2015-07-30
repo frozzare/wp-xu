@@ -11,7 +11,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return bool
  */
-
 function xu_is_post_type( $id, $post_type = '' ) {
 	if ( ! is_numeric( $id ) ) {
 		$post_type = $id;

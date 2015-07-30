@@ -10,7 +10,6 @@ defined( 'ABSPATH' ) || exit;
  *
  * @return bool
  */
-
 function xu_is_http_method( $method ) {
 	if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
 		return false;
@@ -31,7 +30,6 @@ function xu_is_http_method( $method ) {
  *
  * @return mixed
  */
-
 function xu_current_url( $parse = false, $obj = true ) {
 	$url = $_SERVER['REQUEST_URI'];
 	$url = ltrim( $url, '/' );

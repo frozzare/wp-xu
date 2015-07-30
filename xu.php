@@ -3,8 +3,8 @@
 /**
  * Plugin Name: xu
  * Description: A collection of useful WordPress functions
- * Author: Fredrik Forsmo
- * Author URI: http://forsmo.me
+ * Author: xu contributors
+ * Author URI: https://github.com/wp-xu/xu/graphs/contributors
  * Version: 1.0.0
  * Plugin URI: https://github.com/wp-xu/xu
  */
