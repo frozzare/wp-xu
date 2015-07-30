@@ -11,6 +11,11 @@ Collection of useful WordPress and PHP functions
 ```
 $ composer install wp-xu/xu
 ```
+## Documentation
+
+You can call xu functions with `xu_` prefix or `xu::`.
+
+TBA.
 
 ## License
 
