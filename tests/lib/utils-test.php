@@ -12,7 +12,7 @@ class Utils_Test extends \WP_UnitTestCase {
 
 	public function tearDown() {
 		parent::tearDown();
-		$_GET = [];
+		$_GET  = [];
 		$_POST = [];
 	}
 
