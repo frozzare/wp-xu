@@ -13,9 +13,19 @@ $ composer install wp-xu/xu
 ```
 ## Documentation
 
-You can call xu functions with `xu_` prefix or `xu::`.
+> WIP
 
-TBA.
+You can call xu functions with `xu_` prefix or `xu::`
+
+Example:
+
+```php
+xu_is_post_type( 123, 'post' );
+
+// or
+
+xu::is_post_type( 123, 'post' );
+``
 
 ## License
 
