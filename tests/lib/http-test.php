@@ -29,7 +29,7 @@ class HTTP_Test extends WP_UnitTestCase {
         $this->assertTrue( xu_is_http_method( 'GET' ) );
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $this->assertTrue( xu_is_http_method( 'POST' ) );
-        $_SERVER['REQUEST_METHOD'] = '';
+        unset( $_SERVER['REQUEST_METHOD'] );
         $this->assertFalse( xu_is_http_method( 'POST' ) );
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $this->assertFalse( xu_is_http_method( false ) );
