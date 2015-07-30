@@ -25,7 +25,7 @@ xu_is_post_type( 123, 'post' );
 // or
 
 xu::is_post_type( 123, 'post' );
-``
+```
 
 ## License
 
