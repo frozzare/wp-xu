@@ -1,15 +1,17 @@
 <?php
 
-namespace Xu\Core;
+use Xu\Container\Container;
 
 /**
  * xu class.
  *
  * @package xu
  */
+
 // @codingStandardsIgnoreStart
-class xu {
+class xu extends Container {
 // @codingStandardsIgnoreEnd
+
 	/**
 	 * Call xu functions as a static method.
 	 *

@@ -2,7 +2,7 @@
 
 namespace Xu\Tests\Core;
 
-use Xu\Core\xu;
+use xu;
 
 class Xu_Test extends \WP_UnitTestCase {
 

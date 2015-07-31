@@ -42,3 +42,8 @@ foreach ( $xu_includes as $file ) {
 		trigger_error( sprintf( __( 'Error locating %s for inclusion', 'xu' ), $file ), E_USER_ERROR );
 	}
 }
+
+unset( $file );
+
+// Load xu main class.
+require_once __DIR__ . '/src/core/class-xu.php';
