@@ -2,28 +2,48 @@
 
 namespace Xu\Tests\Lib;
 
+use InvalidArgumentException;
+
 class Utils_Test extends \WP_UnitTestCase {
-
-	public function setUp() {
-		parent::setUp();
-		$_GET  = [];
-		$_POST = [];
-	}
-
-	public function tearDown() {
-		parent::tearDown();
-		$_GET  = [];
-		$_POST = [];
-	}
 
 	public function test_xu_dashify() {
 		$this->assertEquals( 'hello-world', xu_dashify( 'hello world' ) );
-		$this->assertEmpty( xu_dashify( null ) );
-		$this->assertEmpty( xu_dashify( true ) );
-		$this->assertEmpty( xu_dashify( false ) );
-		$this->assertEmpty( xu_dashify( 1 ) );
-		$this->assertEmpty( xu_dashify( [] ) );
-		$this->assertEmpty( xu_dashify( (object) [] ) );
+
+		try {
+			xu_dashify( null );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_dashify( true );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_dashify( false );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_dashify( 1 );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_dashify( [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_dashify( (object) [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
 	}
 
 	public function test_xu_is_empty() {
@@ -36,14 +56,85 @@ class Utils_Test extends \WP_UnitTestCase {
 		$this->assertFalse( xu_is_empty( "0" ) );
 	}
 
+	public function test_xu_strip_spaces() {
+		$this->assertEquals( 'hello world!', xu_strip_spaces( ' hello world! ' ) );
+		$this->assertEquals( 'hello world!', xu_strip_spaces( 'hello world!' ) );
+
+		try {
+			xu_strip_spaces( null );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_strip_spaces( true );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_strip_spaces( false );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_strip_spaces( 1 );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_strip_spaces( [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_strip_spaces( (object) [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+	}
+
 	public function test_xu_underscorify() {
 		$this->assertEquals( 'hello_world_it', xu_underscorify( 'hello world-it' ) );
-		$this->assertEmpty( xu_underscorify( null ) );
-		$this->assertEmpty( xu_underscorify( true ) );
-		$this->assertEmpty( xu_underscorify( false ) );
-		$this->assertEmpty( xu_underscorify( 1 ) );
-		$this->assertEmpty( xu_underscorify( [] ) );
-		$this->assertEmpty( xu_underscorify( (object) [] ) );
+
+		try {
+			xu_underscorify( null );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_underscorify( true );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_underscorify( false );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_underscorify( 1 );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_underscorify( [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
+
+		try {
+			xu_underscorify( (object) [] );
+		} catch( InvalidArgumentException $e ) {
+			$this->assertEquals( 'Invalid argument. Must be string.', $e->getMessage() );
+		}
 	}
 
 }

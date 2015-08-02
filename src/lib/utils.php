@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function xu_dashify( $str ) {
 	if ( ! is_string( $str ) ) {
-		return '';
+		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
 	}
 
 	return str_replace( ' ', '-', str_replace( '_', '-', $str ) );
@@ -39,15 +39,32 @@ function xu_is_empty( $obj ) {
 }
 
 /**
- * Replacing whitespace and dash with a underscore.
+ * Strip spaces from string.
  *
  * @param string $str
  *
  * @return string
  */
+function xu_strip_spaces( $str ) {
+	if ( ! is_string( $str ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+	}
+
+	return  trim( preg_replace( '/\s+/', ' ', $str ) );
+}
+
+/**
+ * Replacing whitespace and dash with a underscore.
+ *
+ * @param string $str
+ *
+ * @throws Exception
+ *
+ * @return string
+ */
 function xu_underscorify( $str ) {
 	if ( ! is_string( $str ) ) {
-		return '';
+		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
 	}
 
 	return str_replace( ' ', '_', str_replace( '-', '_', $str ) );
