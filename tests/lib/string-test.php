@@ -8,9 +8,7 @@ class String_Test extends Unit_Test_Case {
 
 	public function test_xu_dashify() {
 		$this->assertEquals( 'hello-world', xu_dashify( 'hello world' ) );
-		$this->invalidArgumentTest( [
-			'fn' => 'xu_dashify'
-		] );
+		$this->invalidArgumentTest( 'xu_dashify' );
 	}
 
 	public function test_xu_ends_with() {
@@ -33,9 +31,7 @@ class String_Test extends Unit_Test_Case {
 
 	public function test_xu_underscorify() {
 		$this->assertEquals( 'hello_world_it', xu_underscorify( 'hello world-it' ) );
-		$this->invalidArgumentTest( [
-			'fn' => 'xu_underscorify'
-		] );
+		$this->invalidArgumentTest( 'xu_underscorify' );
 	}
 
 }
