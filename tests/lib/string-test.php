@@ -29,6 +29,12 @@ class String_Test extends Unit_Test_Case {
 		] );
 	}
 
+	public function test_xu_strip_spaces() {
+		$this->assertEquals( 'hello world!', xu_strip_spaces( ' hello world! ' ) );
+		$this->assertEquals( 'hello world!', xu_strip_spaces( 'hello world!' ) );
+		$this->invalidArgumentTest( 'xu_strip_spaces' );
+	}
+
 	public function test_xu_underscorify() {
 		$this->assertEquals( 'hello_world_it', xu_underscorify( 'hello world-it' ) );
 		$this->invalidArgumentTest( 'xu_underscorify' );
