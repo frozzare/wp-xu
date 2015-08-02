@@ -36,8 +36,7 @@ class Unit_Test_Case extends \WP_UnitTestCase {
         }
 
         $defaults = [
-            'args' => ['string'],
-            'type' => 'string'
+            'args' => ['string']
         ];
 
         $options = array_merge( $defaults, $options );
