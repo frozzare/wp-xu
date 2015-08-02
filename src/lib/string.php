@@ -8,6 +8,8 @@ defined( 'ABSPATH' ) || exit;
  *
  * @param string $str
  *
+ * @throws InvalidArgumentException if an argument is not of the expected type.
+ *
  * @return string
  */
 function xu_dashify( $str ) {
@@ -19,9 +21,67 @@ function xu_dashify( $str ) {
 }
 
 /**
+ * Determine if a given string ends with a given substring.
+ *
+ * @param string $haystack
+ * @param string|array $needles
+ *
+ * @throws InvalidArgumentException if an arguments is not of the expected types.
+ *
+ * @return bool
+ */
+function xu_ends_with( $haystack, $needles ) {
+	if ( ! is_string( $haystack ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+	}
+
+	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+	}
+
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle === substr( $haystack, -strlen( $needle ) ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Determine if a given string starts with a given substring.
+ *
+ * @param string $haystack
+ * @param string|array $needles
+ *
+ * @throws InvalidArgumentException if an arguments is not of the expected types.
+ *
+ * @return bool
+ */
+function xu_starts_with( $haystack, $needles ) {
+	if ( ! is_string( $haystack ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+	}
+
+	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+	}
+
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle !== '' && strpos( $haystack, $needle ) === 0 ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
  * Strip spaces from string.
  *
  * @param string $str
+ *
+ * @throws InvalidArgumentException if an argument is not of the expected type.
  *
  * @return string
  */
@@ -38,7 +98,7 @@ function xu_strip_spaces( $str ) {
  *
  * @param string $str
  *
- * @throws Exception
+ * @throws InvalidArgumentException if an argument is not of the expected type.
  *
  * @return string
  */
