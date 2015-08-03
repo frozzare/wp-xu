@@ -13,6 +13,12 @@ class String_Test extends Unit_Test_Case {
 		$this->invalidArgumentTest( 'xu_camel_case' );
 	}
 
+	public function test_xu_contains() {
+		$this->assertTrue( xu_contains( 'foobar', 'bar' ) );
+		$this->assertFalse( xu_contains( 'foobar', 'foobars' ) );
+		$this->invalidArgumentTest( 'xu_contains', ['string', 'string'] );
+	}
+
 	public function test_xu_dashify() {
 		$this->assertEquals( 'hello-world', xu_dashify( 'hello world' ) );
 		$this->invalidArgumentTest( 'xu_dashify' );

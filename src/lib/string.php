@@ -21,6 +21,34 @@ function xu_camel_case( $str ) {
 }
 
 /**
+ * Determine if a given string contains a given substring.
+ *
+ * @param string $haystack
+ * @param string|array $needles
+ *
+ * @throws InvalidArgumentException if an arguments is not of the expected types.
+ *
+ * @return bool
+ */
+function xu_contains( $haystack, $needles ) {
+	if ( ! is_string( $haystack ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+	}
+
+	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+	}
+
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle !== '' && strpos( $haystack, $needle ) !== false ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
  * Replacing whitespace and underscore with a dash.
  *
  * @param string $str
