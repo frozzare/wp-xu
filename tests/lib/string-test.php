@@ -14,19 +14,13 @@ class String_Test extends Unit_Test_Case {
 	public function test_xu_ends_with() {
 		$this->assertTrue( xu_ends_with( 'hello world', 'world' ) );
 		$this->assertFalse( xu_ends_with( 'hello world', 'hello' ) );
-		$this->invalidArgumentTest( [
-			'args' => ['string', ['array', 'string']],
-			'fn'   => 'xu_ends_with'
-		] );
+		$this->invalidArgumentTest( 'xu_ends_with', ['string', ['array', 'string']] );
 	}
 
 	public function test_xu_starts_with() {
 		$this->assertTrue( xu_starts_with( 'hello world', 'hello' ) );
 		$this->assertFalse( xu_starts_with( 'hello world', 'world' ) );
-		$this->invalidArgumentTest( [
-			'args' => ['string', ['array', 'string']],
-			'fn'   => 'xu_starts_with'
-		] );
+		$this->invalidArgumentTest( 'xu_starts_with', ['string', ['array', 'string']] );
 	}
 
 	public function test_xu_strip_spaces() {

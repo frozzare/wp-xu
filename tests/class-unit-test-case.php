@@ -18,28 +18,13 @@ class Unit_Test_Case extends \WP_UnitTestCase {
     /**
      * Test invalid argument in given function.
      *
-     * @param array|string $options
+     * @param string $fn
+     * @param array $args
      */
-    public function invalidArgumentTest( $options = [] ) {
-        if ( ! is_array( $options ) && ! is_string( $options ) ) {
-            throw new InvalidArgumentException( 'Invalid argument. Must be array or string.' );
+    public function invalidArgumentTest( $fn, array $types_args = [] ) {
+        if ( ! is_string( $fn ) ) {
+            throw new InvalidArgumentException( 'Invalid argument. `$fn` must be string.' );
         }
-
-        if ( is_string( $options ) ) {
-            $options = [
-                'fn' => $options
-            ];
-        }
-
-        if ( ! isset( $options['fn'] ) ) {
-            throw new InvalidArgumentException( '`fn` is missing from options array' );
-        }
-
-        $defaults = [
-            'args' => ['string']
-        ];
-
-        $options = array_merge( $defaults, $options );
 
         $types = [
             'array'  => [],
@@ -54,8 +39,8 @@ class Unit_Test_Case extends \WP_UnitTestCase {
 
         $done = [];
 
-        for ( $i = 0, $l = count( $options['args'] ); $i < $l; $i++ ) {
-            $type = $options['args'][$i];
+        for ( $i = 0, $l = count( $types_args ); $i < $l; $i++ ) {
+            $type = $types_args[$i];
 
             if ( ! is_array( $type ) ) {
                 $type = [$type];
@@ -75,7 +60,7 @@ class Unit_Test_Case extends \WP_UnitTestCase {
             $args = [];
 
             for ( $j = 0; $j < $l; $j++ ) {
-                $arg = $options['args'][$j];
+                $arg = $types_args[$j];
                 if ( ! is_array( $arg ) ) {
                     $arg = [$arg];
                 }
@@ -91,7 +76,7 @@ class Unit_Test_Case extends \WP_UnitTestCase {
                 }
             }
 
-            $this->runInvalidArgumentExceptionTest( $options['fn'], $args );
+            $this->runInvalidArgumentExceptionTest( $fn, $args );
         }
     }
 
