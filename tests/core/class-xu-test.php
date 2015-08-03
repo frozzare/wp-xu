@@ -45,6 +45,18 @@ class Xu_Test extends \WP_UnitTestCase {
         } catch ( \Exception $e ) {
             $this->assertNotEmpty( $e->getMessage() );
         }
+
+        try {
+            xu()->register_alias( 'dashify', null );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
+
+        try {
+            xu()->register_alias( null, 'dashify' );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
     }
 
     public function test_component() {
@@ -55,6 +67,24 @@ class Xu_Test extends \WP_UnitTestCase {
         $this->assertTrue( xu( 'test_version' ) instanceof xu );
         xu()->register_component( 'test_version', 'Xu\\Components\\Version' );
         $this->assertEquals( constant( 'xu::VERSION' ), xu( 'test_version' ) );
+
+        try {
+            xu()->register_component( 'dashify', null );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
+
+        try {
+            xu()->register_component( null, 'dashify' );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
+
+        try {
+            xu()->register_component( 'version', 'dashify' );
+        } catch ( \Exception $e ) {
+            $this->assertNotEmpty( $e->getMessage() );
+        }
     }
 
     public function test_get_method() {
