@@ -65,7 +65,11 @@ class xu extends Container {
 	 * @return array
 	 */
 	private function load_aliases() {
-		$this->bind( 'aliases', require_once __DIR__ . '/aliases.php' );
+		$aliases = require_once __DIR__ . '/aliases.php';
+
+		foreach ( $aliases as $alias => $fn ) {
+			$this->register_alias( $alias, $fn );
+		}
 	}
 
 	/**
@@ -87,11 +91,11 @@ class xu extends Container {
 	 * @return string
 	 */
 	public function get_method( $fn ) {
-		$alias  = $this->make( 'aliases' );
-		$method = strpos( $fn, 'xu_' ) === 0 ? '' : 'xu_';
+		$fn     = preg_replace( '/^xu\_/', '', $fn );
+		$method = 'xu_';
 
-		if ( isset( $alias[$fn] ) ) {
-			$method .= $alias[$fn];
+		if ( $this->exists( 'alias.' . $fn ) ) {
+			$method .= $this->make( 'alias.' . $fn );
 		} else {
 			$method .= $fn;
 		}
@@ -156,18 +160,15 @@ class xu extends Container {
 			throw new InvalidArgumentException( 'Invalid argument. `$fn` must be string.' );
 		}
 
-		$method  = $this->get_method( $fn );
-		$aliases = $this->make( 'aliases' );
-		$alias   = preg_replace( '/xu\_/', '', $alias );
-		$fn      = preg_replace( '/xu\_/', '', $fn );
+		$alias  = 'alias.' . preg_replace( '/^xu\_/', '', $alias );
+		$method = $this->get_method( $fn );
+		$fn     = preg_replace( '/^xu\_/', '', $fn );
 
-		if ( ! function_exists( $method ) || isset( $aliases[$alias] ) ) {
+		if ( ! function_exists( $method ) || $this->exists( $alias ) ) {
 			throw new Exception( sprintf( '`%s` already exists', $alias ) );
 		}
 
-		$tmp = [];
-		$tmp[$alias] = $fn;
-		$this->bind( 'aliases', array_merge( $aliases, $tmp ) );
+		$this->bind( $alias, $fn );
 	}
 
 	/**
