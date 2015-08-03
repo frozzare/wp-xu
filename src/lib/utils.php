@@ -22,3 +22,14 @@ function xu_is_empty( $obj ) {
 
 	return empty( $obj );
 }
+
+/**
+ * Return the given object. Useful for chaining.
+ *
+ * @param mixed $obj
+ *
+ * @return mixed
+ */
+function xu_with( $obj ) {
+	return $obj;
+}
