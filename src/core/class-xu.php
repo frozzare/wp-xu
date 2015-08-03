@@ -13,6 +13,13 @@ class xu extends Container {
 // @codingStandardsIgnoreEnd
 
 	/**
+	 * The xu version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.0.0-alpha';
+
+	/**
 	 * The instance of xu class.
 	 *
 	 * @var xu
@@ -35,7 +42,8 @@ class xu extends Container {
 	 * The constructor.
 	 */
 	private function __construct() {
-		$this->load_alias();
+		$this->load_aliases();
+		$this->load_components();
 	}
 
 	/**
@@ -56,10 +64,18 @@ class xu extends Container {
 	 *
 	 * @return array
 	 */
-	public function load_alias() {
-		if ( ! $this->exists( 'xu.alias' ) ) {
-			$alias = require_once __DIR__ . '/alias.php';
-			$this->bind( 'xu.alias', $alias );
+	private function load_aliases() {
+		$this->bind( 'aliases', require_once __DIR__ . '/aliases.php' );
+	}
+
+	/**
+	 * Load components.
+	 */
+	private function load_components() {
+		$components = require_once __DIR__ . '/components.php';
+
+		foreach ( $components as $component => $path ) {
+			$this->register_component( $component, $path );
 		}
 	}
 
@@ -71,7 +87,7 @@ class xu extends Container {
 	 * @return string
 	 */
 	public function get_method( $fn ) {
-		$alias  = $this->make( 'xu.alias' );
+		$alias  = $this->make( 'aliases' );
 		$method = strpos( $fn, 'xu_' ) === 0 ? '' : 'xu_';
 
 		if ( isset( $alias[$fn] ) ) {
@@ -101,10 +117,92 @@ class xu extends Container {
 		}
 
 		if ( ! function_exists( $method ) ) {
-			throw new \Exception( sprintf( '%s function does not exists', $method ) );
+			throw new Exception( sprintf( '`%s` function does not exists', $method ) );
 		}
 
 		return call_user_func_array( $method, $args );
+	}
+
+	/**
+	 * Call component class.
+	 *
+	 * @param string $component
+	 *
+	 * @return object|xu
+	 */
+	public function component( $component, $path = null, $replace = false ) {
+		if ( is_string( $component ) && $this->exists( $component ) ) {
+			return $this->make( $component );
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Register alias.
+	 *
+	 * @param string $alias
+	 * @param string $fn
+	 *
+	 * @throws Exception if alias or function exists.
+	 * @throws InvalidArgumentException if an argument is not of the expected type.
+	 */
+	public function register_alias( $alias, $fn ) {
+		if ( ! is_string( $alias ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$alias` must be string.' );
+		}
+
+		if ( ! is_string( $fn ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$fn` must be string.' );
+		}
+
+		$method  = $this->get_method( $fn );
+		$aliases = $this->make( 'aliases' );
+		$alias   = preg_replace( '/xu\_/', '', $alias );
+		$fn      = preg_replace( '/xu\_/', '', $fn );
+
+		if ( ! function_exists( $method ) || isset( $aliases[$alias] ) ) {
+			throw new Exception( sprintf( '`%s` already exists', $alias ) );
+		}
+
+		$tmp = [];
+		$tmp[$alias] = $fn;
+		$this->bind( 'aliases', array_merge( $aliases, $tmp ) );
+	}
+
+	/**
+	 * Register component.
+	 *
+	 * @param string $component
+	 * @param string $path
+	 *
+	 * @throws Exception if component exists.
+	 * @throws InvalidArgumentException if an argument is not of the expected type.
+	 */
+	public function register_component( $component, $path ) {
+		if ( ! is_string( $component ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
+		}
+
+		if ( ! is_string( $path ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$path` must be string.' );
+		}
+
+		$component = strtolower( $component );
+
+		if ( $this->exists( $component ) ) {
+			throw new Exception( sprintf( '`%s` component exists.', $component ) );
+		}
+
+		$instance = new $path( $this );
+		$value    = $instance->bootstrap();
+
+		if ( is_null( $value ) ) {
+			$this->singleton( $component, $instance );
+		} else {
+			$this->singleton( $component, $value );
+		}
+
 	}
 
 }
@@ -114,6 +212,6 @@ class xu extends Container {
  *
  * @return xu
  */
-function xu() {
-	return xu::instance();
+function xu( $component = null ) {
+	return xu::instance()->component( $component );
 }

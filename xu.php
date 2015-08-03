@@ -49,3 +49,8 @@ unset( $file );
 
 // Load xu main class.
 require_once __DIR__ . '/src/core/class-xu.php';
+
+#$c = xu('version');
+#var_dump($c);
+
+#exit;

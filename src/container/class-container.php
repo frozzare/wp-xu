@@ -17,6 +17,13 @@ class Container implements \ArrayAccess {
 	protected $keys = [];
 
 	/**
+	 * The singletons holder.
+	 *
+	 * @var array
+	 */
+	protected $singletons = [];
+
+	/**
 	 * The values holder.
 	 *
 	 * @var array
@@ -30,6 +37,10 @@ class Container implements \ArrayAccess {
 	 * @param mixed $value
 	 */
 	public function bind( $id, $value ) {
+		if ( isset( $this->singletons[$id] ) && $this->values[$id] === false ) {
+			throw new \Exception( sprintf( 'Identifier [%s] is a singleton and cannot be rebind', $id ) );
+		}
+
 		if ( ! $value instanceof Closure ) {
 			$value = function() use ( $value ) {
 				return $value;
@@ -62,7 +73,33 @@ class Container implements \ArrayAccess {
 			throw new \InvalidArgumentException( sprintf( 'Identifier [%s] is not defined', $id ) );
 		}
 
+		if ( isset( $this->singletons[$id] ) ) {
+			return $this->singletons[$id]();
+		}
+
 		return $this->values[$id]();
+	}
+
+	/**
+	 * Set a parameter or an object.
+	 *
+	 * @param string $id
+	 * @param mixed $value
+	 */
+	public function singleton( $id, $value ) {
+		if ( isset( $this->singletons[$id] ) && $this->values[$id] === false ) {
+			throw new \Exception( sprintf( 'Identifier [%s] is a singleton and cannot be rebind', $id ) );
+		}
+
+		if ( ! $value instanceof Closure ) {
+			$value = function() use( $value ) {
+				return $value;
+			};
+		}
+
+		$this->keys[$id] = true;
+		$this->singletons[$id] = $value;
+		$this->values[$id] = false;
 	}
 
 	/**

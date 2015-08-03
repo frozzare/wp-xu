@@ -4,7 +4,7 @@
  * Alias.
  *
  * Example:
- * 	my_alias_fn => xu_fn
+ *   my_alias_fn => xu_fn
  *
  * @var array
  */

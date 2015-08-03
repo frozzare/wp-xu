@@ -35,6 +35,25 @@ class Container_Test extends \WP_UnitTestCase {
 		$this->assertFalse( isset( $this->container['plugin'] ) );
 	}
 
+	public function test_singleton() {
+		$this->container->singleton( 'Singleton', 'App' );
+		$this->assertEquals( 'App', $this->container->make( 'Singleton' ) );
+
+		try {
+			$this->container->bind( 'Singleton', 'App' );
+		} catch ( \Exception $e ) {
+			$this->assertNotEmpty( $e->getMessage() );
+		}
+
+		try {
+			$this->container->singleton( 'Singleton', 'App' );
+		} catch ( \Exception $e ) {
+			$this->assertNotEmpty( $e->getMessage() );
+		}
+
+		$this->assertEquals( 'App', $this->container->make( 'Singleton' ) );
+	}
+
 	public function test_offset_exists() {
 		$this->container->bind( 'name', 'Fredrik' );
 		$this->assertTrue( isset( $this->container['name'] ) );
