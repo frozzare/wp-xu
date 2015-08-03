@@ -39,13 +39,13 @@ function xu_contains( $haystack, $needles ) {
 		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
 	}
 
-    foreach ( (array) $needles as $needle ) {
-        if ( (string) $needle !== '' && strpos( $haystack, $needle ) !== false ) {
-            return true;
-        }
-    }
+	foreach ( (array) $needles as $needle ) {
+		if ( (string) $needle !== '' && strpos( $haystack, $needle ) !== false ) {
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 
 /**
@@ -84,13 +84,13 @@ function xu_ends_with( $haystack, $needles ) {
 		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
 	}
 
-    foreach ( (array) $needles as $needle ) {
-        if ( (string) $needle === substr( $haystack, -strlen( $needle ) ) ) {
-            return true;
-        }
-    }
+	foreach ( (array) $needles as $needle ) {
+		if ( (string) $needle === substr( $haystack, -strlen( $needle ) ) ) {
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 
 /**
@@ -112,13 +112,13 @@ function xu_starts_with( $haystack, $needles ) {
 		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
 	}
 
-    foreach ( (array) $needles as $needle ) {
-        if ( (string) $needle !== '' && strpos( $haystack, $needle ) === 0 ) {
-            return true;
-        }
-    }
+	foreach ( (array) $needles as $needle ) {
+		if ( (string) $needle !== '' && strpos( $haystack, $needle ) === 0 ) {
+			return true;
+		}
+	}
 
-    return false;
+	return false;
 }
 
 /**
