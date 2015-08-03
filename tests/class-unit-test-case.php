@@ -26,6 +26,10 @@ class Unit_Test_Case extends \WP_UnitTestCase {
             throw new InvalidArgumentException( 'Invalid argument. `$fn` must be string.' );
         }
 
+        if ( empty( $types_args ) ) {
+            $types_args = ['string'];
+        }
+
         $types = [
             'array'  => [],
             'false'  => false,
@@ -61,18 +65,17 @@ class Unit_Test_Case extends \WP_UnitTestCase {
 
             for ( $j = 0; $j < $l; $j++ ) {
                 $arg = $types_args[$j];
+
                 if ( ! is_array( $arg ) ) {
                     $arg = [$arg];
                 }
 
-                if ( in_array( $arg, $done ) ) {
+                if ( isset( $done[$j] ) ) {
                     $args[] = $types[$arg[0]];
                     $continue = false;
                 } else {
                     $args[] = $types[array_rand( $temp )];
-                    if ( ! in_array( $type, $done ) ) {
-                        $done[] = $type;
-                    }
+                    $done[$j] = $type;
                 }
             }
 
