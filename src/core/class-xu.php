@@ -168,7 +168,7 @@ class xu extends Container {
 			throw new Exception( sprintf( '`%s` already exists', $alias ) );
 		}
 
-		$this->bind( $alias, $fn );
+		$this->singleton( $alias, $fn );
 	}
 
 	/**
