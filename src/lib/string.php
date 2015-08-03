@@ -36,7 +36,7 @@ function xu_contains( $haystack, $needles ) {
 	}
 
 	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
 	}
 
 	foreach ( (array) $needles as $needle ) {
@@ -81,7 +81,7 @@ function xu_ends_with( $haystack, $needles ) {
 	}
 
 	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
 	}
 
 	foreach ( (array) $needles as $needle ) {
