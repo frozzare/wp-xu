@@ -70,12 +70,12 @@ class Unit_Test_Case extends \WP_UnitTestCase {
                     $arg = [$arg];
                 }
 
-                if ( isset( $done[$j] ) ) {
+                if ( isset( $done[$i] ) ) {
                     $args[] = $types[$arg[0]];
                     $continue = false;
                 } else {
                     $args[] = $types[array_rand( $temp )];
-                    $done[$j] = $type;
+                    $done[$i] = $type;
                 }
             }
 
