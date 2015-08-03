@@ -29,8 +29,8 @@ class Xu_Test extends \WP_UnitTestCase {
     }
 
     public function test_call_fn() {
-        $this->assertEquals( 'xu-dashify', xu()->call_fn( 'xu_dashify', ['xu_dashify'] ) );
-        $this->assertEquals( 'xu-dashify', xu()->call_fn( 'dashify', 'xu_dashify' ) );
+        $this->assertEquals( 'xu-dashify', xu()->fn( 'xu_dashify', ['xu_dashify'] ) );
+        $this->assertEquals( 'xu-dashify', xu()->fn( 'dashify', 'xu_dashify' ) );
     }
 
 }

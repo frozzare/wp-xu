@@ -8,4 +8,6 @@
  *
  * @var array
  */
-return [];
+return [
+    'test' => 'is_http_method'
+];

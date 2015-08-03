@@ -28,7 +28,7 @@ class xu extends Container {
 	 * @return mixed
 	 */
 	public static function __callStatic( $method, $args ) {
-		return xu()->call_fn( $method, $args );
+		return xu()->fn( $method, $args );
 	}
 
 	/**
@@ -93,7 +93,7 @@ class xu extends Container {
 	 *
 	 * @return mixed
 	 */
-	public function call_fn( $method, $args ) {
+	public function fn( $method, $args ) {
 		$method = $this->get_method( $method );
 
 		if ( ! is_array( $args ) ) {
