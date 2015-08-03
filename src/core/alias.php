@@ -9,5 +9,4 @@
  * @var array
  */
 return [
-    'test' => 'is_http_method'
 ];
