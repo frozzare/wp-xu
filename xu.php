@@ -29,10 +29,11 @@ register_wp_autoload( 'Xu\\', __DIR__ . '/src' );
 // Load xu functions files.
 // Please note that missing files will produce a fatal error.
 $xu_includes = [
-	'src/lib/utils.php',  // Utility functions
-	'src/lib/http.php',   // HTTP functions
-	'src/lib/post.php',   // Post functions
-	'src/lib/string.php', // String functions
+	'src/lib/utils.php',       // Utility functions
+	'src/lib/conditional.php', // Conditional functions
+	'src/lib/http.php',        // HTTP functions
+	'src/lib/post.php',        // Post functions
+	'src/lib/string.php',      // String functions
 ];
 
 foreach ( $xu_includes as $file ) {
