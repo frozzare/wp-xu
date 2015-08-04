@@ -12,6 +12,13 @@ use xu;
 abstract class Component {
 
     /**
+     * xu instance.
+     *
+     * @var \xu
+     */
+    protected $xu;
+
+    /**
      * Create a new component instance.
      *
      * @param xu $xu
@@ -24,5 +31,16 @@ abstract class Component {
      * Bootstrap the component.
      */
     abstract public function bootstrap();
+
+    /**
+     * Return the given object. Useful for chaining.
+     *
+     * @param mixed $obj
+     *
+     * @return mixed
+     */
+    protected function with( $obj ) {
+        return $obj;
+    }
 
 }

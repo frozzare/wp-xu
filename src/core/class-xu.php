@@ -131,15 +131,29 @@ class xu extends Container {
 	 * Call component class.
 	 *
 	 * @param string $component
+	 * @param array $arguments
 	 *
 	 * @return object|xu
 	 */
-	public function component( $component, $path = null, $replace = false ) {
-		if ( is_string( $component ) && $this->exists( $component ) ) {
-			return $this->make( $component );
+	public function component( $component, array $arguments = [] ) {
+		if ( ! is_string( $component ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
 		}
 
-		return $this;
+		if ( ! $this->exists( $component ) ) {
+			throw new Exception( sprintf( '`%s` component does not exist', $component ) );
+		}
+
+		$instance = $this->make( $component );
+
+		switch ( get_class( $instance ) ) {
+			case 'ReflectionClass':
+				return $instance->newInstanceArgs( $arguments );
+			case 'ReflectioFunction':
+				return $instance->invokeArgs( $arguments );
+			default:
+				return $instance;
+		}
 	}
 
 	/**
@@ -211,8 +225,17 @@ class xu extends Container {
 /**
  * Get the xu class instance.
  *
+ * @param string $component
+ * @param array $arguments
+ *
  * @return xu
  */
-function xu( $component = null ) {
-	return xu::instance()->component( $component );
+function xu( $component = '', array $arguments = [] ) {
+	$instance = xu::instance();
+
+	if ( is_string( $component ) && ! empty( $component ) ) {
+		return $instance->component( $component, $arguments );
+	}
+
+	return $instance;
 }
