@@ -133,7 +133,7 @@ class xu extends Container {
 	 * @param string $component
 	 * @param array $arguments
 	 *
-	 * @return object|xu
+	 * @return object
 	 */
 	public function component( $component, array $arguments = [] ) {
 		if ( ! is_string( $component ) ) {
@@ -144,7 +144,11 @@ class xu extends Container {
 			throw new Exception( sprintf( '`%s` component does not exist', $component ) );
 		}
 
-		$instance = $this->make( $component );
+		$instance = $this->make( strtolower( $component ) );
+
+		if ( ! is_object( $instance ) ) {
+			return $instance;
+		}
 
 		switch ( get_class( $instance ) ) {
 			case 'ReflectionClass':
@@ -209,15 +213,14 @@ class xu extends Container {
 			throw new Exception( sprintf( '`%s` component exists.', $component ) );
 		}
 
+		if ( ! class_exists( $path ) ) {
+			throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
+		}
+
 		$instance = new $path( $this );
 		$value    = $instance->bootstrap();
 
-		if ( is_null( $value ) ) {
-			$this->singleton( $component, $instance );
-		} else {
-			$this->singleton( $component, $value );
-		}
-
+		$this->singleton( $component, $instance );
 	}
 
 }

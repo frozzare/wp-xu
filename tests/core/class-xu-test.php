@@ -60,30 +60,43 @@ class Xu_Test extends \WP_UnitTestCase {
     }
 
     public function test_component() {
-        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'version' ) );
+        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'xu' )->version() );
     }
 
     public function test_register_component() {
-        $this->assertTrue( xu( 'test_version' ) instanceof xu );
-        xu()->register_component( 'test_version', 'Xu\\Components\\Version' );
-        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'test_version' ) );
+        $this->assertTrue( xu( '' ) instanceof xu );
 
         try {
-            xu()->register_component( 'dashify', null );
+            $test = xu( 'test_version' ) instanceof xu;
         } catch ( \Exception $e ) {
             $this->assertNotEmpty( $e->getMessage() );
         }
+
+        xu()->register_component( 'test_xu', 'Xu\\Components\\xu' );
+        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'test_xu' )->version() );
 
         try {
             xu()->register_component( null, 'dashify' );
         } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
+            $this->assertEquals( 'Invalid argument. `$component` must be string.', $e->getMessage() );
         }
 
         try {
-            xu()->register_component( 'version', 'dashify' );
+            xu()->register_component( 'dashify', null );
         } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
+            $this->assertEquals( 'Invalid argument. `$path` must be string.', $e->getMessage() );
+        }
+
+        try {
+            xu()->register_component( 'xu', 'dashify' );
+        } catch ( \Exception $e ) {
+            $this->assertEquals( '`xu` component exists.', $e->getMessage() );
+        }
+
+        try {
+            xu()->register_component( 'dashify', 'xu\\fake\\test' );
+        } catch ( \Exception $e ) {
+            $this->assertEquals( '`xu\fake\test` class does not exists.', $e->getMessage() );
         }
     }
 
