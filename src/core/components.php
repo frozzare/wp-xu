@@ -9,5 +9,6 @@
  * @var array
  */
 return [
-    'version' => 'Xu\\Components\\Version'
+    'hashids' => 'Xu\\Components\\Hashids',
+    'xu'      => 'Xu\\Components\\xu'
 ];
