@@ -220,7 +220,11 @@ class xu extends Container {
 		$instance = new $path( $this );
 		$value    = $instance->bootstrap();
 
-		$this->singleton( $component, $instance );
+		if ( is_object( $value ) && class_exists( get_class( $value ) ) ) {
+			$this->singleton( $component, $value );
+		} else {
+			$this->singleton( $component, $instance );
+		}
 	}
 
 }
