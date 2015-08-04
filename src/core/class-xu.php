@@ -24,7 +24,7 @@ class xu extends Container {
 	 *
 	 * @var xu
 	 */
-	private static $instance;
+	protected static $instance;
 
 	/**
 	 * Call xu functions as a static method.
@@ -41,7 +41,7 @@ class xu extends Container {
 	/**
 	 * The constructor.
 	 */
-	private function __construct() {
+	protected function __construct() {
 		$this->load_aliases();
 		$this->load_components();
 	}
@@ -64,7 +64,7 @@ class xu extends Container {
 	 *
 	 * @return array
 	 */
-	private function load_aliases() {
+	protected function load_aliases() {
 		$aliases = require_once __DIR__ . '/aliases.php';
 
 		foreach ( $aliases as $alias => $fn ) {
@@ -75,7 +75,7 @@ class xu extends Container {
 	/**
 	 * Load components.
 	 */
-	private function load_components() {
+	protected function load_components() {
 		$components = require_once __DIR__ . '/components.php';
 
 		foreach ( $components as $component => $path ) {
@@ -90,7 +90,7 @@ class xu extends Container {
 	 *
 	 * @return string
 	 */
-	public function get_method( $fn ) {
+	protected function get_method( $fn ) {
 		$fn     = preg_replace( '/^xu\_/', '', $fn );
 		$method = 'xu_';
 
