@@ -4,7 +4,11 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "645eea0a622fafcc953e474f2ce10ce3",
+=======
+    "hash": "37d0ec933fa88a2ede834a52175080fb",
+>>>>>>> origin/master
     "packages": [
         {
             "name": "composer/installers",
@@ -102,6 +106,109 @@
             "time": "2015-02-18 17:17:01"
         },
         {
+<<<<<<< HEAD
+=======
+            "name": "frozzare/wp-autoload",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/frozzare/wp-autoload.git",
+                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/frozzare/wp-autoload/zipball/79e6ed282bd675b5cc102f998e7d49b9c616159e",
+                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fredrik Forsmo",
+                    "email": "fredrik.forsmo@gmail.com"
+                }
+            ],
+            "description": "Simple autoloader that will autoload classes or traits with namespace prefix",
+            "keywords": [
+                "autoload",
+                "namespace",
+                "wordpress"
+            ],
+            "time": "2015-06-15 09:31:40"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanakimov/hashids.php.git",
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/991a88b01b01b053fbd39a56780a66e572f1dc1a",
+                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Hashids": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com",
+                    "homepage": "https://twitter.com/IvanAkimov"
+                }
+            ],
+            "description": "Generate hashids like YouTube or Bitly from numbers to obfuscate your database primary ids, or navigate to the right shard.",
+            "homepage": "http://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decrypt",
+                "encrypt",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2015-01-21 00:49:41"
+        }
+    ],
+    "packages-dev": [
+        {
+>>>>>>> origin/master
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -1269,8 +1376,13 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
                 "reference": "5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
+=======
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/84074c8865e042054f4f2cbdf8b0185485705f5b",
+                "reference": "4e56965cc862043254e3ef7fc1d09bbf1a219fb8",
+>>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
@@ -1299,7 +1411,11 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+<<<<<<< HEAD
         "frozzare/tank": 20,
+=======
+        "hashids/hashids": 20,
+>>>>>>> origin/master
         "wp-coding-standards/wpcs": 20
     },
     "prefer-stable": true,

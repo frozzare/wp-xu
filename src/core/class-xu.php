@@ -23,7 +23,7 @@ class xu extends Container {
 	 *
 	 * @var xu
 	 */
-	private static $instance;
+	protected static $instance;
 
 	/**
 	 * Call xu functions as a static method.
@@ -40,7 +40,7 @@ class xu extends Container {
 	/**
 	 * The constructor.
 	 */
-	private function __construct() {
+	protected function __construct() {
 		$this->load_aliases();
 		$this->load_components();
 	}
@@ -63,7 +63,7 @@ class xu extends Container {
 	 *
 	 * @return array
 	 */
-	private function load_aliases() {
+	protected function load_aliases() {
 		$aliases = require_once __DIR__ . '/aliases.php';
 
 		foreach ( $aliases as $alias => $fn ) {
@@ -74,7 +74,7 @@ class xu extends Container {
 	/**
 	 * Load components.
 	 */
-	private function load_components() {
+	protected function load_components() {
 		$components = require_once __DIR__ . '/components.php';
 
 		foreach ( $components as $component => $path ) {
@@ -89,7 +89,7 @@ class xu extends Container {
 	 *
 	 * @return string
 	 */
-	public function get_method( $fn ) {
+	protected function get_method( $fn ) {
 		$fn     = preg_replace( '/^xu\_/', '', $fn );
 		$method = 'xu_';
 
@@ -130,15 +130,33 @@ class xu extends Container {
 	 * Call component class.
 	 *
 	 * @param string $component
+	 * @param array $arguments
 	 *
-	 * @return object|xu
+	 * @return object
 	 */
-	public function component( $component, $path = null, $replace = false ) {
-		if ( is_string( $component ) && $this->exists( $component ) ) {
-			return $this->make( $component );
+	public function component( $component, array $arguments = [] ) {
+		if ( ! is_string( $component ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
 		}
 
-		return $this;
+		if ( ! $this->exists( $component ) ) {
+			throw new Exception( sprintf( '`%s` component does not exist', $component ) );
+		}
+
+		$instance = $this->make( strtolower( $component ) );
+
+		if ( ! is_object( $instance ) ) {
+			return $instance;
+		}
+
+		switch ( get_class( $instance ) ) {
+			case 'ReflectionClass':
+				return $instance->newInstanceArgs( $arguments );
+			case 'ReflectioFunction':
+				return $instance->invokeArgs( $arguments );
+			default:
+				return $instance;
+		}
 	}
 
 	/**
@@ -194,15 +212,18 @@ class xu extends Container {
 			throw new Exception( sprintf( '`%s` component exists.', $component ) );
 		}
 
+		if ( ! class_exists( $path ) ) {
+			throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
+		}
+
 		$instance = new $path( $this );
 		$value    = $instance->bootstrap();
 
-		if ( is_null( $value ) ) {
-			$this->singleton( $component, $instance );
-		} else {
+		if ( is_object( $value ) && class_exists( get_class( $value ) ) ) {
 			$this->singleton( $component, $value );
+		} else {
+			$this->singleton( $component, $instance );
 		}
-
 	}
 
 }
@@ -210,8 +231,17 @@ class xu extends Container {
 /**
  * Get the xu class instance.
  *
+ * @param string $component
+ * @param array $arguments
+ *
  * @return xu
  */
-function xu( $component = null ) {
-	return xu::instance()->component( $component );
+function xu( $component = '', array $arguments = [] ) {
+	$instance = xu::instance();
+
+	if ( is_string( $component ) && ! empty( $component ) ) {
+		return $instance->component( $component, $arguments );
+	}
+
+	return $instance;
 }
