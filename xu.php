@@ -19,7 +19,7 @@ if ( version_compare( PHP_VERSION, '5.4.0', '<' ) ) {
 
 // Load Composer autoload if it exists.
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-	require 'vendor/autoload.php';
+	require __DIR__ . '/vendor/autoload.php';
 }
 
 // Register the WordPress autoload.
