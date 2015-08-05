@@ -4,11 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "645eea0a622fafcc953e474f2ce10ce3",
-=======
-    "hash": "37d0ec933fa88a2ede834a52175080fb",
->>>>>>> origin/master
+    "hash": "5f06ff55e2d4dd7d6b3de1c6fdf60dc8",
     "packages": [
         {
             "name": "composer/installers",
@@ -106,8 +102,107 @@
             "time": "2015-02-18 17:17:01"
         },
         {
-<<<<<<< HEAD
-=======
+            "name": "doctrine/instantiator",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3,<8.0-DEV"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://github.com/doctrine/instantiator",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "frozzare/tank",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/frozzare/tank.git",
+                "reference": "b24177a567f741bfc9637c378c38d8fa3d2ea535"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/frozzare/tank/zipball/b24177a567f741bfc9637c378c38d8fa3d2ea535",
+                "reference": "b24177a567f741bfc9637c378c38d8fa3d2ea535",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.4",
+                "phpunit/phpunit": "4.7"
+            },
+            "require-dev": {
+                "wp-coding-standards/wpcs": "dev-develop"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tank\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fredrik Forsmo",
+                    "email": "fredrik.forsmo@gmail.com",
+                    "homepage": "https://github.com/frozzare"
+                }
+            ],
+            "description": "WordPress Container",
+            "homepage": "https://github.com/frozzare/tank",
+            "keywords": [
+                "utilities",
+                "wordpress"
+            ],
+            "time": "2015-08-05 20:41:21"
+        },
+        {
             "name": "frozzare/wp-autoload",
             "version": "v2.0.1",
             "source": {
@@ -204,151 +299,6 @@
                 "youtube"
             ],
             "time": "2015-01-21 00:49:41"
-        }
-    ],
-    "packages-dev": [
-        {
->>>>>>> origin/master
-            "name": "doctrine/instantiator",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3,<8.0-DEV"
-            },
-            "require-dev": {
-                "athletic/athletic": "~0.1.8",
-                "ext-pdo": "*",
-                "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
-                }
-            ],
-            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
-            "keywords": [
-                "constructor",
-                "instantiate"
-            ],
-            "time": "2015-06-14 21:17:01"
-        },
-        {
-            "name": "frozzare/tank",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/frozzare/tank.git",
-                "reference": "f67a898097d1cc20c5b4819134e23b214cf3b5ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/tank/zipball/f67a898097d1cc20c5b4819134e23b214cf3b5ee",
-                "reference": "f67a898097d1cc20c5b4819134e23b214cf3b5ee",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.4",
-                "phpunit/phpunit": "4.7"
-            },
-            "require-dev": {
-                "wp-coding-standards/wpcs": "dev-develop"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tank\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fredrik Forsmo",
-                    "email": "fredrik.forsmo@gmail.com",
-                    "homepage": "https://github.com/frozzare"
-                }
-            ],
-            "description": "WordPress Container",
-            "homepage": "https://github.com/frozzare/tank",
-            "keywords": [
-                "utilities",
-                "wordpress"
-            ],
-            "time": "2015-08-05 20:38:43"
-        },
-        {
-            "name": "frozzare/wp-autoload",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/frozzare/wp-autoload.git",
-                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/wp-autoload/zipball/79e6ed282bd675b5cc102f998e7d49b9c616159e",
-                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/autoload.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fredrik Forsmo",
-                    "email": "fredrik.forsmo@gmail.com"
-                }
-            ],
-            "description": "Simple autoloader that will autoload classes or traits with namespace prefix",
-            "keywords": [
-                "autoload",
-                "namespace",
-                "wordpress"
-            ],
-            "time": "2015-06-15 09:31:40"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1376,13 +1326,8 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
                 "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
                 "reference": "5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
-=======
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/84074c8865e042054f4f2cbdf8b0185485705f5b",
-                "reference": "4e56965cc862043254e3ef7fc1d09bbf1a219fb8",
->>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
@@ -1411,11 +1356,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-<<<<<<< HEAD
         "frozzare/tank": 20,
-=======
         "hashids/hashids": 20,
->>>>>>> origin/master
         "wp-coding-standards/wpcs": 20
     },
     "prefer-stable": true,
