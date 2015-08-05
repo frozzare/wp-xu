@@ -9,7 +9,7 @@ Collection of useful WordPress and PHP functions
 ## Install
 
 ```
-$ composer install wp-xu/xu
+$ composer require wp-xu/xu
 ```
 ## Documentation
 
