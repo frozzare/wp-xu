@@ -3,9 +3,7 @@
 use Tank\Container;
 
 /**
- * xu class.
- *
- * @package xu
+ * xu main class.
  */
 // @codingStandardsIgnoreStart
 class xu extends Container {

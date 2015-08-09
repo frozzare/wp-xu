@@ -4,8 +4,6 @@ namespace Xu\Components;
 
 /**
  * Hashids component class.
- *
- * @package xu
  */
 class Hashids extends Component {
 

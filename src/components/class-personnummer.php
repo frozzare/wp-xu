@@ -4,8 +4,6 @@ namespace Xu\Components;
 
 /**
  * Personnummer component class.
- *
- * @package xu
  */
 class Personnummer extends Component {
 

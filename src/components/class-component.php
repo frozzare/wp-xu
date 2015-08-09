@@ -6,8 +6,6 @@ use xu;
 
 /**
  * Component class.
- *
- * @package xu
  */
 abstract class Component {
 

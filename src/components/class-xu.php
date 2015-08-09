@@ -4,8 +4,6 @@ namespace Xu\Components;
 
 /**
  * xu component class.
- *
- * @package xu
  */
 // @codingStandardsIgnoreStart
 class xu extends Component {
