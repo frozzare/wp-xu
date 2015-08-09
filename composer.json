@@ -27,9 +27,10 @@
   "require": {
     "php": ">=5.4",
     "composer/installers": "~1.0",
+    "frozzare/personnummer": "dev-master",
+    "frozzare/tank": "dev-master",
     "frozzare/wp-autoload": "^2.0.0",
-    "hashids/hashids": "^1.0@dev",
-    "frozzare/personnummer": "dev-master"
+    "hashids/hashids": "^1.0@dev"
   },
   "require-dev": {
     "frozzare/wp-test-suite": "~1.0",
