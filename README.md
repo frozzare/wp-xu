@@ -12,21 +12,10 @@ Collection of useful WordPress and PHP functions
 ```
 $ composer require wp-xu/xu
 ```
+
 ## Documentation
 
-> WIP
-
-You can call xu functions with `xu_` prefix or `xu::` for static methods.
-
-Example:
-
-```php
-xu_is_post_type( 123, 'post' );
-
-// or
-
-xu::is_post_type( 123, 'post' );
-```
+[API reference docs](https://wp-xu.github.io/docs/)
 
 ## License
 
