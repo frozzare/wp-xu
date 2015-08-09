@@ -9,6 +9,7 @@
  * @var array
  */
 return [
-    'hashids' => 'Xu\\Components\\Hashids',
-    'xu'      => 'Xu\\Components\\xu'
+    'hashids'      => 'Xu\\Components\\Hashids',
+    'personnummer' => 'Xu\\Components\\Personnummer',
+    'xu'           => 'Xu\\Components\\xu'
 ];
