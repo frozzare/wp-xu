@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * This file is a part of xu.
+ *
+ * @package xu
+ */
+
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
