@@ -21,7 +21,7 @@ class xu extends Container {
 	/**
 	 * The instance of xu class.
 	 *
-	 * @var xu
+	 * @var \xu
 	 */
 	protected static $instance;
 
@@ -48,7 +48,7 @@ class xu extends Container {
 	/**
 	 * xu instance.
 	 *
-	 * @return xu
+	 * @return \xu
 	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
@@ -229,12 +229,12 @@ class xu extends Container {
 }
 
 /**
- * Get the xu class instance.
+ * Get a component or return the xu instance.
  *
  * @param string $component
  * @param array $arguments
  *
- * @return xu
+ * @return \xu
  */
 function xu( $component = '', array $arguments = [] ) {
 	$instance = xu::instance();
