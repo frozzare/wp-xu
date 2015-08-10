@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "303e8fc969e9c734ba46a2888404e05b",
@@ -161,12 +161,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/frozzare/php-personnummer.git",
-                "reference": "aa01d296569b4a35da0e239fa4dae18e8170ea50"
+                "reference": "641ae209b0b3c18306cbb08d6aaf5a4fec663f38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/php-personnummer/zipball/aa01d296569b4a35da0e239fa4dae18e8170ea50",
-                "reference": "aa01d296569b4a35da0e239fa4dae18e8170ea50",
+                "url": "https://api.github.com/repos/frozzare/php-personnummer/zipball/641ae209b0b3c18306cbb08d6aaf5a4fec663f38",
+                "reference": "641ae209b0b3c18306cbb08d6aaf5a4fec663f38",
                 "shasum": ""
             },
             "require": {
@@ -199,7 +199,7 @@
                 "identify",
                 "utility"
             ],
-            "time": "2015-08-10 14:40:28"
+            "time": "2015-08-10 20:48:58"
         },
         {
             "name": "frozzare/tank",
@@ -207,12 +207,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/frozzare/tank.git",
-                "reference": "24948a419c46c74ce6d10e8a50e26e1f84efd80c"
+                "reference": "d9364deac27e7e6930607c93cca452c08a5d249c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/tank/zipball/24948a419c46c74ce6d10e8a50e26e1f84efd80c",
-                "reference": "24948a419c46c74ce6d10e8a50e26e1f84efd80c",
+                "url": "https://api.github.com/repos/frozzare/tank/zipball/d9364deac27e7e6930607c93cca452c08a5d249c",
+                "reference": "d9364deac27e7e6930607c93cca452c08a5d249c",
                 "shasum": ""
             },
             "require": {
@@ -226,7 +226,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Tank\\": "src/"
+                    "Frozzare\\Tank\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -246,7 +246,7 @@
                 "utilities",
                 "wordpress"
             ],
-            "time": "2015-08-10 14:09:10"
+            "time": "2015-08-10 21:05:22"
         },
         {
             "name": "frozzare/wp-autoload",
