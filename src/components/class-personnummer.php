@@ -21,7 +21,7 @@ class Personnummer extends Component {
      * @return bool
      */
     public function valid( $str ) {
-        return \Personnummer::valid( $str );
+        return \Frozzare\Personnummer\Personnummer::valid( $str );
     }
 
 }
