@@ -9,9 +9,7 @@ use InvalidArgumentException;
 /**
  * xu main class.
  */
-// @codingStandardsIgnoreStart
-class xu extends Container {
-// @codingStandardsIgnoreEnd
+class Xu extends Container {
 
 	/**
 	 * The xu version.
@@ -23,7 +21,7 @@ class xu extends Container {
 	/**
 	 * The instance of xu class.
 	 *
-	 * @var \Xu\Foundation\xu
+	 * @var \Xu\Foundation\Xu
 	 */
 	protected static $instance;
 

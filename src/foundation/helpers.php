@@ -1,10 +1,12 @@
 <?php
 
+use Xu\Foundation\Xu as XuFoundation;
+
 /**
  * Global class to xu foundation class.
  */
 // @codingStandardsIgnoreStart
-class xu extends Xu\Foundation\Xu {
+class xu extends XuFoundation {
 // @codingStandardsIgnoreEnd
 }
 
@@ -17,7 +19,7 @@ class xu extends Xu\Foundation\Xu {
  * @return \xu
  */
 function xu( $component = '', array $arguments = [] ) {
-	$instance = xu::instance();
+	$instance = XuFoundation::instance();
 
 	if ( is_string( $component ) && ! empty( $component ) ) {
 		return $instance->component( $component, $arguments );

@@ -5,9 +5,7 @@ namespace Xu\Components;
 /**
  * xu component class.
  */
-// @codingStandardsIgnoreStart
-class xu extends Component {
-// @codingStandardsIgnoreEnd
+class Xu extends Component {
 
     /**
      * When converting the object to a string, the version is returned.
