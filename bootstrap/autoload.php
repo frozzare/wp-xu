@@ -27,5 +27,5 @@ unset( $file );
 // Load xu main class.
 require_once __DIR__ . '/../src/foundation/class-xu.php';
 
-// Load components.
-xu()->register_components( require_once __DIR__ . '/../config/components.php' );
+// Bootstrap config
+require_once __DIR__ . '/config.php';
