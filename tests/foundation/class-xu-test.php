@@ -1,6 +1,6 @@
 <?php
 
-namespace Xu\Tests\Core;
+namespace Xu\Tests\Foundation;
 
 use xu;
 
