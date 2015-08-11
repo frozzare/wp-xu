@@ -47,18 +47,18 @@ function xu_is_json( $str ) {
  * @return bool
  */
 function xu_is_xml( $str ) {
-    if ( ! is_string( $str ) ) {
-        return false;
-    }
+	if ( ! is_string( $str ) ) {
+		return false;
+	}
 
-    libxml_use_internal_errors( true );
-    $doc = simplexml_load_string( $str );
-    $xml = explode( "\n", $str );
+	libxml_use_internal_errors( true );
+	$doc = simplexml_load_string( $str );
+	$xml = explode( "\n", $str );
 
-    if ( $doc ) {
-        $errors = libxml_get_errors();
-        return empty( $errors );
-    }
+	if ( $doc ) {
+		$errors = libxml_get_errors();
+		return empty( $errors );
+	}
 
-    return false;
+	return false;
 }
