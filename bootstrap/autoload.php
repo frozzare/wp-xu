@@ -24,8 +24,5 @@ foreach ( $xu_includes as $file ) {
 
 unset( $file );
 
-// Load xu main class.
-require_once __DIR__ . '/../src/foundation/class-xu.php';
-
 // Bootstrap config
 require_once __DIR__ . '/config.php';
