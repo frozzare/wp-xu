@@ -50,6 +50,8 @@ class xu extends Container {
 	/**
 	 * xu instance.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @return \xu
 	 */
 	public static function instance() {

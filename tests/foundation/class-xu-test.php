@@ -64,6 +64,15 @@ class Xu_Test extends \WP_UnitTestCase {
         }
     }
 
+    public function test_register_components() {
+        xu()->register_components( [
+             'test_xu_s_1' => 'Xu\\Components\\xu',
+             'test_xu_s_2' => 'Xu\\Components\\xu'
+        ] );
+        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'test_xu_s_1' )->version() );
+        $this->assertEquals( constant( 'xu::VERSION' ), xu( 'test_xu_s_2' )->version() );
+    }
+
     public function test_fn_method() {
         $this->assertEquals( 'xu-dashify', xu()->fn( 'xu_dashify', ['xu_dashify'] ) );
         $this->assertEquals( 'xu-dashify', xu()->fn( 'dashify', 'xu_dashify' ) );
