@@ -23,7 +23,7 @@ class xu extends Container {
 	/**
 	 * The instance of xu class.
 	 *
-	 * @var \xu
+	 * @var \Xu\Foundation\xu
 	 */
 	protected static $instance;
 
@@ -41,10 +41,10 @@ class xu extends Container {
 
 	/**
 	 * The constructor.
+	 *
+	 * @codeCoverageIgnore
 	 */
 	protected function __construct() {
-		$this->load_aliases();
-		$this->load_components();
 	}
 
 	/**
@@ -61,47 +61,14 @@ class xu extends Container {
 	}
 
 	/**
-	 * Get alias.
-	 *
-	 * @return array
-	 */
-	protected function load_aliases() {
-		$aliases = require_once __DIR__ . '/aliases.php';
-
-		foreach ( $aliases as $alias => $fn ) {
-			$this->register_alias( $alias, $fn );
-		}
-	}
-
-	/**
-	 * Load components.
-	 */
-	protected function load_components() {
-		$components = require_once __DIR__ . '/components.php';
-
-		foreach ( $components as $component => $path ) {
-			$this->register_component( $component, $path );
-		}
-	}
-
-	/**
-	 * Get alias function.
+	 * Get method that should be called.
 	 *
 	 * @param string $fn
 	 *
 	 * @return string
 	 */
 	protected function get_method( $fn ) {
-		$fn     = preg_replace( '/^xu\_/', '', $fn );
-		$method = 'xu_';
-
-		if ( $this->exists( 'alias.' . $fn ) ) {
-			$method .= $this->make( 'alias.' . $fn );
-		} else {
-			$method .= $fn;
-		}
-
-		return $method;
+		return 'xu_' . preg_replace( '/^xu\_/', '', $fn );
 	}
 
 	/**
@@ -162,35 +129,6 @@ class xu extends Container {
 	}
 
 	/**
-	 * Register alias.
-	 *
-	 * @param string $alias
-	 * @param string $fn
-	 *
-	 * @throws Exception if alias or function exists.
-	 * @throws InvalidArgumentException if an argument is not of the expected type.
-	 */
-	public function register_alias( $alias, $fn ) {
-		if ( ! is_string( $alias ) ) {
-			throw new InvalidArgumentException( 'Invalid argument. `$alias` must be string.' );
-		}
-
-		if ( ! is_string( $fn ) ) {
-			throw new InvalidArgumentException( 'Invalid argument. `$fn` must be string.' );
-		}
-
-		$alias  = 'alias.' . preg_replace( '/^xu\_/', '', $alias );
-		$method = $this->get_method( $fn );
-		$fn     = preg_replace( '/^xu\_/', '', $fn );
-
-		if ( ! function_exists( $method ) || $this->exists( $alias ) ) {
-			throw new Exception( sprintf( '`%s` already exists', $alias ) );
-		}
-
-		$this->singleton( $alias, $fn );
-	}
-
-	/**
 	 * Register component.
 	 *
 	 * @param string $component
@@ -225,6 +163,17 @@ class xu extends Container {
 			$this->singleton( $component, $value );
 		} else {
 			$this->singleton( $component, $instance );
+		}
+	}
+
+	/**
+	 * Register components.
+	 *
+	 * @param array $components
+	 */
+	public function register_components( array $components ) {
+		foreach ( $components as $component => $path ) {
+			$this->register_component( $component, $path );
 		}
 	}
 

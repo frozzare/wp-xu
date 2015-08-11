@@ -23,42 +23,6 @@ class Xu_Test extends \WP_UnitTestCase {
         }
     }
 
-    public function test_register_alias() {
-        try {
-            xu::test_alias();
-        } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
-        }
-
-        try {
-            xu()->register_alias( 'dashify', 'xu_dashify' );
-        } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
-        }
-
-        xu()->register_alias( 'test_alias', 'xu_dashify' );
-        $this->assertEquals( 'xu-dashify', xu::test_alias( 'xu_dashify' ) );
-        $this->assertEquals( 'xu-dashify', xu::test_alias( 'xu_dashify' ) );
-
-        try {
-            xu()->register_alias( 'test_alias', 'xu_dashify' );
-        } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
-        }
-
-        try {
-            xu()->register_alias( 'dashify', null );
-        } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
-        }
-
-        try {
-            xu()->register_alias( null, 'dashify' );
-        } catch ( \Exception $e ) {
-            $this->assertNotEmpty( $e->getMessage() );
-        }
-    }
-
     public function test_component() {
         $this->assertEquals( constant( 'xu::VERSION' ), xu( 'xu' )->version() );
     }
