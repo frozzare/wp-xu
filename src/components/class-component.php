@@ -19,7 +19,7 @@ abstract class Component {
     /**
      * Create a new component instance.
      *
-     * @param xu $xu
+     * @param \Xu\Foundation\xu $xu
      */
     public function __construct( xu $xu ) {
         $this->xu = $xu;
