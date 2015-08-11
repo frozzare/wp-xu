@@ -2,7 +2,7 @@
 
 namespace Xu\Components;
 
-use xu;
+use Xu\Foundation\xu;
 
 /**
  * Component class.
@@ -12,7 +12,7 @@ abstract class Component {
     /**
      * xu instance.
      *
-     * @var \xu
+     * @var \Xu\Foundation\xu
      */
     protected $xu;
 

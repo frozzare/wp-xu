@@ -64,10 +64,10 @@ class Xu_Test extends \WP_UnitTestCase {
     }
 
     public function test_register_component() {
-        $this->assertTrue( xu( '' ) instanceof xu );
+        $this->assertTrue( xu( '' ) instanceof Xu\Foundation\xu );
 
         try {
-            $test = xu( 'test_version' ) instanceof xu;
+            $test = xu( 'test_version' ) instanceof Xu\Foundation\xu;
         } catch ( \Exception $e ) {
             $this->assertNotEmpty( $e->getMessage() );
         }
