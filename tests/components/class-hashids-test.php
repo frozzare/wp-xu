@@ -28,4 +28,10 @@ class Hashids_Test extends \WP_UnitTestCase {
         $this->assertEquals( [1, 2, 3], $hashids->decode( $id ) );
     }
 
+    public function test_register() {
+        xu()->register_component( 'hashids_test', 'Xu\\Components\\Hashids' );
+        $hashids = xu( 'hashids_test' );
+        $this->assertEquals( 'o2fXhV', $hashids->encode( 1, 2, 3 ) );
+    }
+
 }
