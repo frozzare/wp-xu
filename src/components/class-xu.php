@@ -10,14 +10,6 @@ class xu extends Component {
 // @codingStandardsIgnoreEnd
 
     /**
-     * Bootstrap the version component.
-     *
-     * @return string
-     */
-    public function bootstrap() {
-    }
-
-    /**
      * When converting the object to a string, the version is returned.
      *
      * @return string

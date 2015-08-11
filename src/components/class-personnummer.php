@@ -8,12 +8,6 @@ namespace Xu\Components;
 class Personnummer extends Component {
 
     /**
-     * Bootstrap the component.
-     */
-    public function bootstrap() {
-    }
-
-    /**
      * Validate Swedish personal identify numbers.
      *
      * @param string|int $str

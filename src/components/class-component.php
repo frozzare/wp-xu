@@ -27,8 +27,11 @@ abstract class Component {
 
     /**
      * Bootstrap the component.
+     *
+     * @codeCoverageIgnore
      */
-    abstract public function bootstrap();
+    public function bootstrap() {
+    }
 
     /**
      * Return the given object. Useful for chaining.
