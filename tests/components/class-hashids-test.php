@@ -2,8 +2,6 @@
 
 namespace Xu\Tests\Components;
 
-use xu;
-
 class Hashids_Test extends \WP_UnitTestCase {
 
     public function test_encode() {

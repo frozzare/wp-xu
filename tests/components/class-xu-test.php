@@ -2,8 +2,6 @@
 
 namespace Xu\Tests\Components;
 
-use xu;
-
 class Xu_Test extends \WP_UnitTestCase {
 
     public function test_version() {
