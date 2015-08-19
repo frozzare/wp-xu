@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @codeCoverageIgnore
+ */
+
 // Load xu functions files.
 // Please note that missing files will produce a fatal error.
 return [

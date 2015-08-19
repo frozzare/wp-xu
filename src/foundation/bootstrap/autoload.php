@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @codeCoverageIgnore
+ */
+
 use Xu\Foundation\Foundation;
 use Xu\Facades\Facade;
 
