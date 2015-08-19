@@ -1,12 +1,12 @@
 <?php
 
-use Xu\Foundation\Foundation;
+use Frozzare\Tank\Container;
 
 /**
  * Global class to xu foundation class.
  */
 // @codingStandardsIgnoreStart
-class xu extends Foundation {
+class xu {
 // @codingStandardsIgnoreEnd
 
     /**
@@ -18,7 +18,7 @@ class xu extends Foundation {
      * @return mixed
      */
     public static function __callStatic( $method, $args ) {
-        return self::instance()->fn( $method, $args );
+        return Container::get_instance()->fn( $method, $args );
     }
 
 }
