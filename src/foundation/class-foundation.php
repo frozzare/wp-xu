@@ -3,15 +3,27 @@
 namespace Xu\Foundation;
 
 use Exception;
-use Xu\Container\Container;
+use Frozzare\Tank\Container;
 use InvalidArgumentException;
-use Xu\Facades\Facade;
-use Xu\Contracts\Foundation\Foundation as FoundationContract;
 
 /**
  * xu main class.
  */
-class Foundation extends Container implements FoundationContract {
+class Foundation extends Container {
+
+    /**
+     * Components namespace.
+     *
+     * @var string
+     */
+    protected $components_namespace = 'Xu\\Components\\';
+
+    /**
+     * Foundation instance.
+     *
+     * @var \Xu\Foundation\Foundation
+     */
+    protected static $instance;
 
     /**
      * The xu version.
@@ -26,8 +38,6 @@ class Foundation extends Container implements FoundationContract {
      * @codeCoverageIgnore
      */
     public function __construct() {
-        $this->singleton( 'foundation', $this );
-        static::set_instance( $this );
     }
 
     /**
@@ -42,7 +52,6 @@ class Foundation extends Container implements FoundationContract {
      */
     public function boot() {
         $this->autoload_files();
-        $this->register_facades();
     }
 
     /**
@@ -75,21 +84,24 @@ class Foundation extends Container implements FoundationContract {
      * @param string $component
      * @param array $arguments
      *
-     * @return object
+     * @return object|null
      */
     public function component( $component, array $arguments = [] ) {
         if ( ! is_string( $component ) ) {
             throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
         }
 
+        $component = $this->get_namespace( $component );
+
         if ( ! $this->exists( $component ) ) {
-            throw new Exception( sprintf( '`%s` component does not exist', $component ) );
+            $this->register_component( $component, $component );
         }
 
-        $instance = $this->make( strtolower( $component ) );
+        $instance = $this->make( $component );
 
         if ( ! is_object( $instance ) ) {
-            return $instance;
+            $this->remove( $component );
+            return;
         }
 
         switch ( get_class( $instance ) ) {
@@ -114,32 +126,46 @@ class Foundation extends Container implements FoundationContract {
     }
 
     /**
+     * Get foundation instance.
+     *
+     * @return \Xu\Foundation\Foundation
+     */
+    public static function get_instance() {
+        if ( ! isset( self::$instance ) ) {
+            return self::$instance = new self;
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * Get namespace.
+     *
+     * @param  string $namespace
+     *
+     * @return string
+     */
+    protected function get_namespace( $namespace ) {
+    	$parts = array_map( function( $part ) {
+    		return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
+    	}, explode( '.', $namespace ) );
+
+        if ( count( $parts ) === 1 ) {
+            $parts[] = $parts[0];
+        }
+
+        return $this->components_namespace . implode( '\\', $parts );
+    }
+
+    /**
      * Register component.
      *
-     * @param array|string $component
-     * @param string       $path
+     * @param string $component
+     * @param string $path
      *
-     * @throws Exception if component exists.
-     * @throws InvalidArgumentException if an argument is not of the expected type.
+     * @throws Exception if component exists or component class does not exists.
      */
-    public function register_component( $component, $path = '' ) {
-        if ( is_array( $component ) ) {
-            foreach ( $component as $key => $value ) {
-                $this->register_component( $key, $value );
-            }
-            return;
-        }
-
-        if ( ! is_string( $component ) ) {
-            throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
-        }
-
-        if ( ! is_string( $path ) ) {
-            throw new InvalidArgumentException( 'Invalid argument. `$path` must be string.' );
-        }
-
-        $component = strtolower( $component );
-
+    protected function register_component( $component, $path = '' ) {
         if ( $this->exists( $component ) ) {
             throw new Exception( sprintf( '`%s` component exists.', $component ) );
         }
@@ -156,14 +182,6 @@ class Foundation extends Container implements FoundationContract {
         } else {
             $this->singleton( $component, $instance );
         }
-    }
-
-    /**
-     * Register facades.
-     */
-    protected function register_facades() {
-        Facade::clear_facades();
-        Facade::set_facade_instance( $this );
     }
 
 }

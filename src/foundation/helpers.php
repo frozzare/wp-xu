@@ -1,6 +1,6 @@
 <?php
 
-use Xu\Container\Container;
+use Xu\Foundation\Foundation;
 
 /**
  * Load xu class that is used when calling static methods.
@@ -13,12 +13,12 @@ require_once __DIR__ . '/class-xu.php';
  * @param string $component
  * @param array $arguments
  *
- * @return \xu
+ * @return \Xu\Foundation\Foundation
  */
 function xu( $component = '', array $arguments = [] ) {
     if ( is_string( $component ) && ! empty( $component ) ) {
-        return Container::get_instance()->component( $component, $arguments );
+        return Foundation::get_instance()->component( $component, $arguments );
     }
 
-    return Container::get_instance();
+    return Foundation::get_instance();
 }

@@ -31,11 +31,6 @@ $foundation = new \Xu\Foundation\Foundation;
 $foundation->boot();
 
 /**
- * Register the xu test component.
- */
-$foundation->register_component( 'xu', 'Xu\\Components\\Xu\\Xu' );
-
-/**
  * Run the WordPress test suite.
  */
 WP_Test_Suite::run();

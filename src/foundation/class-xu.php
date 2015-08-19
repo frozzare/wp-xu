@@ -1,6 +1,6 @@
 <?php
 
-use Xu\Container\Container;
+use Xu\Foundation\Foundation;
 
 /**
  * Global class to xu foundation class.
@@ -18,7 +18,7 @@ class xu {
      * @return mixed
      */
     public static function __callStatic( $method, $args ) {
-        return Container::get_instance()->fn( $method, $args );
+        return Foundation::get_instance()->fn( $method, $args );
     }
 
 }
