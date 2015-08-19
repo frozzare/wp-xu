@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: xu components
- * Description: Collection of xu components
+ * Plugin Name: xu
+ * Description: Collection of useful WordPress functions
  * Author: Fredrik Forsmo and Johnie Hjelm
  * Author URI: https://github.com/wp-xu/xu/graphs/contributors
  * Version: 1.0.0
