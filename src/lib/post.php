@@ -29,11 +29,21 @@ function xu_is_post_type( $id, $post_type = '' ) {
 /**
  * Get top-most parent post.
  *
- * @param  WP_Post $post
+ * @param  WP_Post|int $post
+ *
+ * @throws Exception if post is not a instance of WP_Post
  *
  * @return WP_Post|array|null
  */
-function xu_get_top_parent_post( WP_Post $post ) {
+function xu_get_top_parent_post( $post ) {
+	if ( is_numeric( $post ) ) {
+		$post = get_post( (int)$post );
+	}
+
+	if ( $post instanceof WP_Post === false ) {
+		throw new Exception( sprintf( '%s is not a instance of WP_Post', strtolower( gettype( $post ) ) ) );
+	}
+
     if ( $post->post_parent ) {
         $ancestors = get_post_ancestors( $post->ID );
         $root      = count( $ancestors ) - 1;

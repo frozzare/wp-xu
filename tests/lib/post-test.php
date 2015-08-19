@@ -29,10 +29,18 @@ class Post_Test extends \WP_UnitTestCase {
 		$post_id = $this->factory->post->create();
 		$post    = get_post( $post_id );
 		$this->assertEquals( $post, xu_get_top_parent_post( $post ) );
+
 		$post_id = $this->factory->post->create( [
 			'post_parent' => $post_id
 		] );
 		$this->assertEquals( $post, xu_get_top_parent_post( get_post( $post_id ) ) );
+		$this->assertEquals( $post, xu_get_top_parent_post( $post_id ) );
+
+		try {
+			xu_get_top_parent_post( null );
+		} catch ( \Exception $e ) {
+			$this->assertEquals( 'null is not a instance of WP_Post', $e->getMessage() );
+		}
 	}
 
 }
