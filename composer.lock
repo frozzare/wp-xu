@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "303e8fc969e9c734ba46a2888404e05b",
+    "hash": "62ad6265a595716d93e71a4b1fe9c542",
     "packages": [
         {
             "name": "composer/installers",
@@ -156,62 +156,16 @@
             "time": "2015-06-14 21:17:01"
         },
         {
-            "name": "frozzare/personnummer",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/frozzare/php-personnummer.git",
-                "reference": "641ae209b0b3c18306cbb08d6aaf5a4fec663f38"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/php-personnummer/zipball/641ae209b0b3c18306cbb08d6aaf5a4fec663f38",
-                "reference": "641ae209b0b3c18306cbb08d6aaf5a4fec663f38",
-                "shasum": ""
-            },
-            "require": {
-                "composer/installers": "~1.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "utility",
-            "autoload": {
-                "psr-4": {
-                    "Frozzare\\Personnummer\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fredrik Forsmo",
-                    "email": "fredrik.forsmo@gmail.com",
-                    "homepage": "https://github.com/frozzare"
-                }
-            ],
-            "description": "Validate Swedish personal identify numbers",
-            "keywords": [
-                "Personnummer",
-                "identify",
-                "utility"
-            ],
-            "time": "2015-08-10 20:48:58"
-        },
-        {
             "name": "frozzare/tank",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/frozzare/tank.git",
+                "url": "https://github.com/frozzare/wp-tank.git",
                 "reference": "d9364deac27e7e6930607c93cca452c08a5d249c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/tank/zipball/d9364deac27e7e6930607c93cca452c08a5d249c",
+                "url": "https://api.github.com/repos/frozzare/wp-tank/zipball/d9364deac27e7e6930607c93cca452c08a5d249c",
                 "reference": "d9364deac27e7e6930607c93cca452c08a5d249c",
                 "shasum": ""
             },
@@ -250,20 +204,23 @@
         },
         {
             "name": "frozzare/wp-autoload",
-            "version": "v2.0.1",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/frozzare/wp-autoload.git",
-                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e"
+                "reference": "bd18f47b5e08eb1ba1228bde1fc939f1dca07e6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frozzare/wp-autoload/zipball/79e6ed282bd675b5cc102f998e7d49b9c616159e",
-                "reference": "79e6ed282bd675b5cc102f998e7d49b9c616159e",
+                "url": "https://api.github.com/repos/frozzare/wp-autoload/zipball/bd18f47b5e08eb1ba1228bde1fc939f1dca07e6e",
+                "reference": "bd18f47b5e08eb1ba1228bde1fc939f1dca07e6e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
@@ -287,64 +244,7 @@
                 "namespace",
                 "wordpress"
             ],
-            "time": "2015-06-15 09:31:40"
-        },
-        {
-            "name": "hashids/hashids",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/991a88b01b01b053fbd39a56780a66e572f1dc1a",
-                "reference": "991a88b01b01b053fbd39a56780a66e572f1dc1a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Hashids": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Akimov",
-                    "email": "ivan@barreleye.com",
-                    "homepage": "https://twitter.com/IvanAkimov"
-                }
-            ],
-            "description": "Generate hashids like YouTube or Bitly from numbers to obfuscate your database primary ids, or navigate to the right shard.",
-            "homepage": "http://hashids.org/php",
-            "keywords": [
-                "bitly",
-                "decrypt",
-                "encrypt",
-                "hash",
-                "hashid",
-                "hashids",
-                "ids",
-                "obfuscate",
-                "youtube"
-            ],
-            "time": "2015-01-21 00:49:41"
+            "time": "2015-08-18 13:56:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -397,16 +297,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.4.1",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373"
+                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
-                "reference": "3132b1f44c7bf2ec4c7eb2d3cb78fdeca760d373",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4745ded9307786b730d7a60df5cb5a6c43cf95f7",
+                "reference": "4745ded9307786b730d7a60df5cb5a6c43cf95f7",
                 "shasum": ""
             },
             "require": {
@@ -453,7 +353,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-04-27 22:15:08"
+            "time": "2015-08-13 10:07:40"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -648,16 +548,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.3",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "7a9b0969488c3c54fd62b4d504b3ec758fd005d9"
+                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/7a9b0969488c3c54fd62b4d504b3ec758fd005d9",
-                "reference": "7a9b0969488c3c54fd62b4d504b3ec758fd005d9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
+                "reference": "3ab72c62e550370a6cd5dc873e1a04ab57562f5b",
                 "shasum": ""
             },
             "require": {
@@ -693,20 +593,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-06-19 03:43:16"
+            "time": "2015-08-16 08:51:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.3",
+            "version": "4.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fd3050e26e3105f416d74c4d33aea659b406c59d"
+                "reference": "9b7417edaf28059ea63d86be941e6004dbfcc0cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fd3050e26e3105f416d74c4d33aea659b406c59d",
-                "reference": "fd3050e26e3105f416d74c4d33aea659b406c59d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9b7417edaf28059ea63d86be941e6004dbfcc0cc",
+                "reference": "9b7417edaf28059ea63d86be941e6004dbfcc0cc",
                 "shasum": ""
             },
             "require": {
@@ -765,24 +665,24 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-10 09:16:56"
+            "time": "2015-08-19 09:20:57"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42"
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/5e2645ad49d196e020b85598d7c97e482725786a",
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "~1.0,>=1.0.2",
+                "doctrine/instantiator": "^1.0.2",
                 "php": ">=5.3.3",
                 "phpunit/php-text-template": "~1.2",
                 "sebastian/exporter": "~1.2"
@@ -821,7 +721,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-07-10 06:54:24"
+            "time": "2015-08-19 09:14:08"
         },
         {
             "name": "sebastian/comparator",
@@ -1368,12 +1268,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "5a3f332207b48a9e7d49f307f95f42c1c8c48cc0"
+                "reference": "6438687cb9878b663d5b9f11b383b4141bf86f0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
-                "reference": "5a3f332207b48a9e7d49f307f95f42c1c8c48cc0",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/6438687cb9878b663d5b9f11b383b4141bf86f0a",
+                "reference": "6438687cb9878b663d5b9f11b383b4141bf86f0a",
                 "shasum": ""
             },
             "require": {
@@ -1396,15 +1296,12 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2015-08-04 19:07:34"
+            "time": "2015-08-17 18:13:11"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "frozzare/personnummer": 20,
-        "frozzare/tank": 20,
-        "hashids/hashids": 20,
         "wp-coding-standards/wpcs": 20
     },
     "prefer-stable": true,
