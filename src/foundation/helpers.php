@@ -1,6 +1,6 @@
 <?php
 
-use Frozzare\Tank\Container;
+use Xu\Container\Container;
 
 /**
  * Load xu class that is used when calling static methods.

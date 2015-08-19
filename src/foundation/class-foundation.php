@@ -3,7 +3,7 @@
 namespace Xu\Foundation;
 
 use Exception;
-use Frozzare\Tank\Container;
+use Xu\Container\Container;
 use InvalidArgumentException;
 use Xu\Facades\Facade;
 use Xu\Contracts\Foundation\Foundation as FoundationContract;

@@ -1,6 +1,6 @@
 <?php
 
-use Frozzare\Tank\Container;
+use Xu\Container\Container;
 
 /**
  * Global class to xu foundation class.

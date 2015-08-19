@@ -2,7 +2,7 @@
 
 namespace Xu\Tests\Foundation;
 
-use Frozzare\Tank\Container;
+use Xu\Container\Container;
 use Xu\Facades\Facade;
 use Xu\Contracts\Foundation\Foundation as FoundationContract;
 
