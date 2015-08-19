@@ -2,7 +2,7 @@
 
 namespace Xu\Components;
 
-use Xu\Foundation\Foundation;
+use Xu\Contracts\Foundation\Foundation as FoundationContract;
 
 /**
  * Component class.
@@ -12,16 +12,16 @@ abstract class Component {
     /**
      * xu instance.
      *
-     * @var \Xu\Foundation\Xu
+     * @var \Xu\Contracts\Foundation\Foundation
      */
     protected $xu;
 
     /**
      * Create a new component instance.
      *
-     * @param \Xu\Foundation\Foundation $xu
+     * @param \Xu\Contracts\Foundation\Foundation $xu
      */
-    public function __construct( Foundation $xu ) {
+    public function __construct( FoundationContract $xu ) {
         $this->xu = $xu;
     }
 
