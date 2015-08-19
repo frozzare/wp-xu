@@ -25,7 +25,7 @@
   },
   "autoload": {
     "files": [
-      "xu.php"
+      "src/autoload.php"
     ]
   },
   "require": {
