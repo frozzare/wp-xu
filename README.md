@@ -5,7 +5,7 @@
 
 > Requires PHP 5.4
 
-xu foundation framework.
+xu framework. You'll probably want to use [wp-xu/xu](https://github.com/wp-xu/xu) plugin instead.
 
 ## Install
 
