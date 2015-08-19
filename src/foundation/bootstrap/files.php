@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @codeCoverageIgnore
- */
-
+// @codeCoverageIgnoreStart
 // Load xu functions files.
 // Please note that missing files will produce a fatal error.
 return [
@@ -14,3 +11,4 @@ return [
     'lib/string.php',        // String functions
     'foundation/helpers.php' // Foundation helpers
 ];
+// @codeCoverageIgnoreEnd

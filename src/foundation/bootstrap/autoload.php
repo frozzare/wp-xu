@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @codeCoverageIgnore
- */
-
+// @codeCoverageIgnoreStart
 use Xu\Foundation\Foundation;
 use Xu\Facades\Facade;
 
@@ -21,3 +18,4 @@ foreach ( $xu_files as $file ) {
 }
 
 unset( $file );
+// @codeCoverageIgnoreEnd
