@@ -6,11 +6,12 @@ use Exception;
 use Frozzare\Tank\Container;
 use InvalidArgumentException;
 use Xu\Facades\Facade;
+use Xu\Contracts\Foundation\Foundation as FoundationContract;
 
 /**
  * xu main class.
  */
-class Foundation extends Container {
+class Foundation extends Container implements FoundationContract {
 
     /**
      * The xu version.

@@ -2,6 +2,8 @@
 
 namespace Xu\Facades;
 
+use Xu\Contracts\Foundation\Foundation as FoundationContract;
+
 abstract class Facade {
 
     /**
@@ -14,7 +16,7 @@ abstract class Facade {
     /**
      * The foundation instance.
      *
-     * @var \Xu\Foundation\Foundation
+     * @var \Xu\Contracts\Foundation\Foundation
      */
     protected static $instance;
 
@@ -45,6 +47,15 @@ abstract class Facade {
     }
 
     /**
+     * Get facades instance.
+     *
+     * @return array
+     */
+    public static function get_facades() {
+        return static::$facades;
+    }
+
+    /**
      * Get the registered name of the component.
      *
      * @throws \RuntimeException
@@ -52,13 +63,13 @@ abstract class Facade {
      * @return string
      */
     protected static function get_facade_accessor() {
-        throw new RuntimeException( 'Facade does not implement getFacadeAccessor method.' );
+        throw new \RuntimeException( 'Facade does not implement getFacadeAccessor method.' );
     }
 
     /**
      * Get facade instance.
      *
-     * @return \Xu\Foundation\Foundation
+     * @return \Xu\Contracts\Foundation\Foundation
      */
     public static function get_facade_instance() {
         return static::$instance;
@@ -67,9 +78,9 @@ abstract class Facade {
     /**
      * Set facade instance.
      *
-     * @param \Xu\Foundation\Foundation $instance
+     * @param \Xu\Contracts\Foundation\Foundation
      */
-    public static function set_facade_instance( $instance ) {
+    public static function set_facade_instance( FoundationContract $instance ) {
         static::$instance = $instance;
     }
 
