@@ -23,6 +23,11 @@
   "support": {
     "issues": "https://github.com/wp-xu/framework/issues"
   },
+  "autoload": {
+    "files": [
+      "src/autoload.php"
+    ]
+  },
   "require": {
     "php": ">=5.4",
     "frozzare/tank": "~1.0",
