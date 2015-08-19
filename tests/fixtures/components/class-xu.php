@@ -1,6 +1,9 @@
 <?php
 
-namespace Xu\Components;
+namespace Xu\Components\Xu;
+
+use Xu\Foundation\Foundation;
+use Xu\Components\Component;
 
 /**
  * xu component class.
@@ -22,7 +25,7 @@ class Xu extends Component {
      * @return string
      */
     public function version() {
-        return constant( 'xu::VERSION' );
+        return Foundation::VERSION;
     }
 
 }

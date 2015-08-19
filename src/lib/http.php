@@ -1,8 +1,5 @@
 <?php
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Check if the request method is the same as the given method.
  *

@@ -1,8 +1,5 @@
 <?php
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Is the current page the given `$post_type`?
  *

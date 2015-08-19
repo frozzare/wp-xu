@@ -1,8 +1,5 @@
 <?php
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Return the given object. Useful for chaining.
  *

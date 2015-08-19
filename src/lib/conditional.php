@@ -1,8 +1,5 @@
 <?php
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Check if the given object is empty or not.
  * Values like "0", 0 and false should not return true.

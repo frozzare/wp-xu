@@ -1,14 +1,11 @@
 <?php
 
-use Xu\Foundation\Xu as XuFoundation;
+use Xu\Foundation\Foundation;
 
 /**
- * Global class to xu foundation class.
+ * Load xu class that is used when calling static methods.
  */
-// @codingStandardsIgnoreStart
-class xu extends XuFoundation {
-// @codingStandardsIgnoreEnd
-}
+require_once __DIR__ . '/class-xu.php';
 
 /**
  * Get a component or return the xu instance.
@@ -19,7 +16,7 @@ class xu extends XuFoundation {
  * @return \xu
  */
 function xu( $component = '', array $arguments = [] ) {
-    $instance = XuFoundation::instance();
+    $instance = Foundation::instance();
 
     if ( is_string( $component ) && ! empty( $component ) ) {
         return $instance->component( $component, $arguments );
