@@ -1,16 +1,13 @@
 <?php
 
-/**
- * Plugin Name: xu
- * Description: Collection of useful WordPress functions
- * Author: Fredrik Forsmo and Johnie Hjelm
- * Author URI: https://github.com/wp-xu/xu/graphs/contributors
- * Version: 1.0.0
- * Plugin URI: https://github.com/wp-xu/xu
- */
-
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
-// Register the auto loader.
-require_once __DIR__ . '/bootstrap/autoload.php';
+// Load Composer autoload if it exists.
+if ( file_exists( __DIR__ . '/../vendor/autoload.php' ) ) {
+    require __DIR__ . '/../vendor/autoload.php';
+}
+
+// Register the WordPress autoload.
+// It will load files that has `class-` or `trait-` as prefix.
+register_wp_autoload( 'Xu\\', __DIR__ . '/../src' );
