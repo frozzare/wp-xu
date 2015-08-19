@@ -7,15 +7,15 @@ namespace Xu\Components;
  */
 class Personnummer extends Component {
 
-	/**
-	 * Validate Swedish personal identify numbers.
-	 *
-	 * @param string|int $str
-	 *
-	 * @return bool
-	 */
-	public function valid( $str ) {
-		return \Frozzare\Personnummer\Personnummer::valid( $str );
-	}
+    /**
+     * Validate Swedish personal identify numbers.
+     *
+     * @param string|int $str
+     *
+     * @return bool
+     */
+    public function valid( $str ) {
+        return \Frozzare\Personnummer\Personnummer::valid( $str );
+    }
 
 }

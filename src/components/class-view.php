@@ -52,13 +52,13 @@ class View extends Component {
     public function from_dot( $view ) {
         $ext_reg = '/(' . implode( '|', $this->extensions ) . ')+$/';
 
-    	if ( preg_match( '/\.\w+$/', $view, $matches ) && in_array( $matches[0], $this->extensions ) ) {
-    		return str_replace( '.', '/', preg_replace( '/' . $matches[0] . '$/', '', $view ) ) . $matches[0];
+        if ( preg_match( '/\.\w+$/', $view, $matches ) && in_array( $matches[0], $this->extensions ) ) {
+            return str_replace( '.', '/', preg_replace( '/' . $matches[0] . '$/', '', $view ) ) . $matches[0];
         }
 
-    	$view = str_replace( '.', '/', $view );
+        $view = str_replace( '.', '/', $view );
 
-    	return substr( $view, -strlen( $this->extensions[0] ) ) === $this->extensions[0]
+        return substr( $view, -strlen( $this->extensions[0] ) ) === $this->extensions[0]
                 ? $view : $view . $this->extensions[0];
     }
 

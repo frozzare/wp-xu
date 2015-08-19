@@ -11,15 +11,15 @@ defined( 'ABSPATH' ) || exit;
  * @return bool
  */
 function xu_is_http_method( $method ) {
-	if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
-		return false;
-	}
+    if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
+        return false;
+    }
 
-	if ( ! is_string( $method ) ) {
-		return false;
-	}
+    if ( ! is_string( $method ) ) {
+        return false;
+    }
 
-	return $_SERVER ['REQUEST_METHOD'] == strtoupper( $method );
+    return $_SERVER ['REQUEST_METHOD'] == strtoupper( $method );
 }
 
 /**
@@ -31,20 +31,20 @@ function xu_is_http_method( $method ) {
  * @return mixed
  */
 function xu_current_url( $parse = false, $obj = true ) {
-	$url = $_SERVER['REQUEST_URI'];
-	$url = ltrim( $url, '/' );
-	$url = home_url() . '/' . $url;
+    $url = $_SERVER['REQUEST_URI'];
+    $url = ltrim( $url, '/' );
+    $url = home_url() . '/' . $url;
 
-	if ( ! (bool) $parse ) {
-		return $url;
-	}
+    if ( ! (bool) $parse ) {
+        return $url;
+    }
 
-	$parts = parse_url( $url );
-	$parts = $parts === false ? [] : $parts;
+    $parts = parse_url( $url );
+    $parts = $parts === false ? [] : $parts;
 
-	if ( (bool) $obj ) {
-		return (object) $parts;
-	}
+    if ( (bool) $obj ) {
+        return (object) $parts;
+    }
 
-	return $parts;
+    return $parts;
 }

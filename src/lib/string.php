@@ -13,11 +13,11 @@ defined( 'ABSPATH' ) || exit;
  * @return string
  */
 function xu_camel_case( $str ) {
-	if ( ! is_string( $str ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
-	}
+    if ( ! is_string( $str ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+    }
 
-	return lcfirst( xu_studly_case( $str ) );
+    return lcfirst( xu_studly_case( $str ) );
 }
 
 /**
@@ -31,21 +31,21 @@ function xu_camel_case( $str ) {
  * @return bool
  */
 function xu_contains( $haystack, $needles ) {
-	if ( ! is_string( $haystack ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
-	}
+    if ( ! is_string( $haystack ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+    }
 
-	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
-	}
+    if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
+    }
 
-	foreach ( (array) $needles as $needle ) {
-		if ( (string) $needle !== '' && strpos( $haystack, $needle ) !== false ) {
-			return true;
-		}
-	}
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle !== '' && strpos( $haystack, $needle ) !== false ) {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -58,11 +58,11 @@ function xu_contains( $haystack, $needles ) {
  * @return string
  */
 function xu_dashify( $str ) {
-	if ( ! is_string( $str ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
-	}
+    if ( ! is_string( $str ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+    }
 
-	return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\_|\s/', '$1-', $str ) ) );
+    return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\_|\s/', '$1-', $str ) ) );
 }
 
 /**
@@ -76,21 +76,21 @@ function xu_dashify( $str ) {
  * @return bool
  */
 function xu_ends_with( $haystack, $needles ) {
-	if ( ! is_string( $haystack ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
-	}
+    if ( ! is_string( $haystack ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+    }
 
-	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
-	}
+    if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$needles` must be array or string.' );
+    }
 
-	foreach ( (array) $needles as $needle ) {
-		if ( (string) $needle === substr( $haystack, -strlen( $needle ) ) ) {
-			return true;
-		}
-	}
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle === substr( $haystack, -strlen( $needle ) ) ) {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -104,21 +104,21 @@ function xu_ends_with( $haystack, $needles ) {
  * @return bool
  */
 function xu_starts_with( $haystack, $needles ) {
-	if ( ! is_string( $haystack ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
-	}
+    if ( ! is_string( $haystack ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$haystack` must be string.' );
+    }
 
-	if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
-	}
+    if ( ! is_array( $needles ) && ! is_string( $needles ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$needles` must be string.' );
+    }
 
-	foreach ( (array) $needles as $needle ) {
-		if ( (string) $needle !== '' && strpos( $haystack, $needle ) === 0 ) {
-			return true;
-		}
-	}
+    foreach ( (array) $needles as $needle ) {
+        if ( (string) $needle !== '' && strpos( $haystack, $needle ) === 0 ) {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 /**
@@ -132,15 +132,15 @@ function xu_starts_with( $haystack, $needles ) {
  * @return string
  */
 function xu_snake_case( $str, $delimiter = '_' ) {
-	if ( ! is_string( $str ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$str` must be string.' );
-	}
+    if ( ! is_string( $str ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$str` must be string.' );
+    }
 
-	if ( ! is_string( $delimiter ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$delimiter` must be string.' );
-	}
+    if ( ! is_string( $delimiter ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. `$delimiter` must be string.' );
+    }
 
-	return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\-|\s/', '$1'.$delimiter, $str ) ) );
+    return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\-|\s/', '$1'.$delimiter, $str ) ) );
 }
 
 
@@ -154,11 +154,11 @@ function xu_snake_case( $str, $delimiter = '_' ) {
  * @return string
  */
 function xu_studly_case( $str ) {
-	if ( ! is_string( $str ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
-	}
+    if ( ! is_string( $str ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+    }
 
-	return str_replace( ' ', '', ucwords( str_replace( ['-', '_'], ' ', $str ) ) );
+    return str_replace( ' ', '', ucwords( str_replace( ['-', '_'], ' ', $str ) ) );
 }
 
 /**
@@ -171,9 +171,9 @@ function xu_studly_case( $str ) {
  * @return string
  */
 function xu_strip_spaces( $str ) {
-	if ( ! is_string( $str ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
-	}
+    if ( ! is_string( $str ) ) {
+        throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+    }
 
-	return  trim( preg_replace( '/\s+/', ' ', $str ) );
+    return  trim( preg_replace( '/\s+/', ' ', $str ) );
 }

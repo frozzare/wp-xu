@@ -19,11 +19,11 @@ class xu extends XuFoundation {
  * @return \xu
  */
 function xu( $component = '', array $arguments = [] ) {
-	$instance = XuFoundation::instance();
+    $instance = XuFoundation::instance();
 
-	if ( is_string( $component ) && ! empty( $component ) ) {
-		return $instance->component( $component, $arguments );
-	}
+    if ( is_string( $component ) && ! empty( $component ) ) {
+        return $instance->component( $component, $arguments );
+    }
 
-	return $instance;
+    return $instance;
 }
