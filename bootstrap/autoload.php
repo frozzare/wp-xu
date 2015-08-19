@@ -26,3 +26,6 @@ unset( $file );
 
 // Bootstrap config
 require_once __DIR__ . '/config.php';
+
+// Call 'xu/loaded' action.
+do_action( 'xu/loaded' );
