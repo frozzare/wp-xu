@@ -30,7 +30,7 @@ class Foundation extends Container {
      *
      * @var string
      */
-    const VERSION = '1.0.0-alpha';
+    const VERSION = '1.0.0';
 
     /**
      * The constructor.
