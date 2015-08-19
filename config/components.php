@@ -11,6 +11,5 @@
 return [
     'hashids'      => 'Xu\\Components\\Hashids',
     'personnummer' => 'Xu\\Components\\Personnummer',
-    'view'         => 'Xu\\Components\\View',
-    'xu'           => 'Xu\\Components\\xu'
+    'view'         => 'Xu\\Components\\View'
 ];

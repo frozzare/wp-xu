@@ -1,9 +1,9 @@
 {
-  "name": "wp-xu/xu",
+  "name": "wp-xu/components",
   "type": "wordpress-muplugin",
   "license": "MIT",
-  "description": "Collection of useful WordPress and PHP functions",
-  "homepage": "https://github.com/wp-xu/xu",
+  "description": "Collection of components to xu",
+  "homepage": "https://github.com/wp-xu/components",
   "authors": [
     {
       "name": "Fredrik Forsmo",
@@ -22,12 +22,13 @@
     "utilities"
   ],
   "support": {
-    "issues": "https://github.com/wp-xu/xu/issues"
+    "issues": "https://github.com/wp-xu/components/issues"
   },
   "require": {
     "php": ">=5.4",
+    "wp-xu/xu": "dev-master",
     "composer/installers": "~1.0",
-    "frozzare/personnummer": "dev-master",
+    "frozzare/personnummer": "~1.0",
     "frozzare/tank": "~1.0",
     "frozzare/wp-autoload": "^2.0.0",
     "hashids/hashids": "^1.0@dev"

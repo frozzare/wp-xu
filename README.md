@@ -1,21 +1,21 @@
-# xu
+# xu components
 
-[![Build Status](https://travis-ci.org/wp-xu/xu.svg?branch=master)](https://travis-ci.org/wp-xu/xu) [![codecov.io](http://codecov.io/github/wp-xu/xu/coverage.svg?branch=master)](http://codecov.io/github/wp-xu/xu?branch=master)
-[![License](https://img.shields.io/packagist/l/wp-xu/xu.svg)](https://packagist.org/packages/wp-xu/xu)
+[![Build Status](https://travis-ci.org/wp-xu/components.svg?branch=master)](https://travis-ci.org/wp-xu/components) [![codecov.io](http://codecov.io/github/wp-xu/components/coverage.svg?branch=master)](http://codecov.io/github/wp-xu/components?branch=master)
+[![License](https://img.shields.io/packagist/l/wp-xu/components.svg)](https://packagist.org/packages/wp-xu/components)
 
 > Requires PHP 5.4
 
-Collection of useful WordPress and PHP functions
+Collection of xu components.
 
 ## Install
 
 ```
-$ composer require wp-xu/xu
+$ composer require wp-xu/components
 ```
 
 ## Documentation
 
-[API reference docs](https://wp-xu.github.io/docs/)
+[API reference docs](https://wp-xu.github.io/docs/components)
 
 ### Components
 
