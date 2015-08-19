@@ -19,7 +19,7 @@ $ composer require wp-xu/framework
 
 ### Components
 
-Visit [wp-xu/components](https://github.com/wp-xu/components) repo.
+Go to [wp-xu/components](https://github.com/wp-xu/components) repo.
 
 ## License
 
