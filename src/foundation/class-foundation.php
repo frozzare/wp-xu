@@ -150,7 +150,7 @@ class Foundation extends Container {
     		return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
     	}, explode( '.', $namespace ) );
 
-        if ( count( $parts ) === 1 ) {
+        if ( count( $parts ) === 1 && strpos( $namespace, '\\' ) === false ) {
             $parts[] = $parts[0];
         }
 
