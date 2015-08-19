@@ -1,4 +1,4 @@
-# framework
+# xu framework
 
 [![Build Status](https://travis-ci.org/wp-xu/framework.svg?branch=master)](https://travis-ci.org/wp-xu/framework) [![codecov.io](http://codecov.io/github/wp-xu/framework/coverage.svg?branch=master)](http://codecov.io/github/wp-xu/framework?branch=master)
 [![License](https://img.shields.io/packagist/l/wp-xu/framework.svg)](https://packagist.org/packages/wp-xu/framework)
