@@ -3,7 +3,7 @@
   "type": "wordpress-muplugin",
   "license": "MIT",
   "description": "Collection of useful WordPress and PHP functions",
-  "homepage": "https://github.com/wp-xu/foundation",
+  "homepage": "https://github.com/wp-xu/framework",
   "authors": [
     {
       "name": "Fredrik Forsmo",
@@ -22,7 +22,7 @@
     "utilities"
   ],
   "support": {
-    "issues": "https://github.com/wp-xu/foundation/issues"
+    "issues": "https://github.com/wp-xu/framework/issues"
   },
   "require": {
     "php": ">=5.4",
