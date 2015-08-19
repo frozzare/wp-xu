@@ -23,6 +23,11 @@
   "support": {
     "issues": "https://github.com/wp-xu/framework/issues"
   },
+  "autoload": {
+    "files": [
+      "xu.php"
+    ]
+  },
   "require": {
     "php": ">=5.4",
     "composer/installers": "~1.0",
