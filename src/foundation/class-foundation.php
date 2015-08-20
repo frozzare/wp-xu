@@ -109,11 +109,6 @@ class Foundation extends Container {
 
         $instance = $this->make( $component );
 
-        if ( ! is_object( $instance ) ) {
-            $this->remove( $component );
-            return;
-        }
-
         switch ( get_class( $instance ) ) {
             case 'ReflectionClass':
                 return $instance->newInstanceArgs( $arguments );
