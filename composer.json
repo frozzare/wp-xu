@@ -25,7 +25,7 @@
   },
   "autoload": {
     "files": [
-      "src/autoload.php"
+      "autoload.php"
     ]
   },
   "require": {
