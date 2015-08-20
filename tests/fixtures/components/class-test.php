@@ -5,7 +5,7 @@ namespace Xu\Components\Test;
 use Xu\Foundation\Foundation;
 
 /**
- * xu component class.
+ * Test component class.
  */
 class Test {
 

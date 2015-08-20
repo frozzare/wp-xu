@@ -86,13 +86,17 @@ class Foundation extends Container {
      * Call component class.
      *
      * @param string $component
-     * @param array $arguments
+     * @param mixed $arguments
      *
      * @throws \InvalidArgumentException if `$component` is not string.
      *
      * @return object|null
      */
-    public function component( $component, array $arguments = [] ) {
+    public function component( $component, $arguments = [] ) {
+        if ( ! is_array( $arguments ) ) {
+            $arguments = [$arguments];
+        }
+
         if ( ! is_string( $component ) ) {
             throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
         }
@@ -113,7 +117,7 @@ class Foundation extends Container {
         switch ( get_class( $instance ) ) {
             case 'ReflectionClass':
                 return $instance->newInstanceArgs( $arguments );
-            case 'ReflectioFunction':
+            case 'ReflectionFunction':
                 return $instance->invokeArgs( $arguments );
             default:
                 return $instance;

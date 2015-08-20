@@ -40,6 +40,10 @@ class Foundation_Test extends \WP_UnitTestCase {
         } catch ( \Exception $e ) {
             $this->assertEquals( '`Xu\\Components\\Test\\Test` class is not a instance of Xu\\Components\\Component.', $e->getMessage() );
         }
+
+        $this->assertEquals( 'foo', \xu( 'foo' ) );
+        $this->assertTrue( \xu( 'string' ) instanceof \Xu\Components\String\String );
+        $this->assertEquals( 'FOO', \xu( 'strtoupper', 'foo' ) );
     }
 
 }
