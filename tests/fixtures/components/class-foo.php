@@ -16,7 +16,7 @@ class Foo extends Component {
      * @return string
      */
     public function bootstrap() {
-        return new \ReflectionClass( __NAMESPACE__ . '\\FooStub' );
+        return $this->with( new \ReflectionClass( __NAMESPACE__ . '\\FooStub' ) );
     }
 
 }
