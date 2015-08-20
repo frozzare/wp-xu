@@ -150,11 +150,15 @@ class Foundation extends Container {
      * @return string
      */
     protected function get_namespace( $namespace ) {
+        if ( strpos( $namespace, '\\' ) !== false ) {
+            return $namespace;
+        }
+
     	$parts = array_map( function( $part ) {
     		return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
     	}, explode( '.', $namespace ) );
 
-        if ( count( $parts ) === 1 && strpos( $namespace, '\\' ) === false ) {
+        if ( count( $parts ) === 1 ) {
             $parts[] = $parts[0];
         }
 
@@ -176,6 +180,10 @@ class Foundation extends Container {
 
         if ( ! class_exists( $path ) ) {
             throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
+        }
+
+        if ( ! is_subclass_of( $path, 'Xu\\Components\\Component' ) ) {
+            throw new Exception( sprintf( '`%s` class is not a instance of Xu\\Components\\Component.', $path ) );
         }
 
         $instance = new $path( $this );
