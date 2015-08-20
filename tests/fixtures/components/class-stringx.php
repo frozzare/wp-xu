@@ -1,14 +1,14 @@
 <?php
 
-namespace Xu\Components\String;
+namespace Xu\Components\Stringx;
 
 use Xu\Foundation\Foundation;
 use Xu\Components\Component;
 
 /**
- * String component class.
+ * Stringx component class.
  */
-class String extends Component {
+class Stringx extends Component {
 
     /**
      * Bootstrap the component.
@@ -16,7 +16,7 @@ class String extends Component {
      * @return string
      */
     public function bootstrap() {
-        return 'string';
+        return 'stringx';
     }
 
 }

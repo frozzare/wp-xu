@@ -42,7 +42,7 @@ class Foundation_Test extends \WP_UnitTestCase {
         }
 
         $this->assertEquals( 'foo', \xu( 'foo' ) );
-        $this->assertTrue( \xu( 'string' ) instanceof \Xu\Components\String\String );
+        $this->assertTrue( \xu( 'stringx' ) instanceof \Xu\Components\Stringx\Stringx );
         $this->assertEquals( 'FOO', \xu( 'strtoupper', 'foo' ) );
     }
 

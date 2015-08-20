@@ -21,7 +21,7 @@ WP_Test_Suite::load_files( __DIR__ . '/class-unit-test-case.php' );
 require_once XU_FIXTURE_DIR . '/components/class-xu.php';
 require_once XU_FIXTURE_DIR . '/components/class-test.php';
 require_once XU_FIXTURE_DIR . '/components/class-foo.php';
-require_once XU_FIXTURE_DIR . '/components/class-string.php';
+require_once XU_FIXTURE_DIR . '/components/class-stringx.php';
 require_once XU_FIXTURE_DIR . '/components/class-strtoupper.php';
 
 /**
