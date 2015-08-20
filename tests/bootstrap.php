@@ -19,6 +19,7 @@ WP_Test_Suite::load_files( __DIR__ . '/class-unit-test-case.php' );
  * Require files.
  */
 require_once XU_FIXTURE_DIR . '/components/class-xu.php';
+require_once XU_FIXTURE_DIR . '/components/class-test.php';
 
 /**
  * Create a new foundation.

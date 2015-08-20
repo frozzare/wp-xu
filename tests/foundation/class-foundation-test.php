@@ -22,6 +22,18 @@ class Foundation_Test extends \WP_UnitTestCase {
         } catch ( \Exception $e ) {
             $this->assertEquals( 'Invalid argument. `$component` must be string.', $e->getMessage() );
         }
+
+        try {
+            \xu()->component( 'frozzare.tank.container' );
+        } catch ( \Exception $e ) {
+            $this->assertEquals( '`Xu\\Components\\Frozzare\\Tank\\Container` class does not exists.', $e->getMessage() );
+        }
+
+        try {
+            \xu()->component( 'test' );
+        } catch ( \Exception $e ) {
+            $this->assertEquals( '`Xu\\Components\\Test\\Test` class is not a instance of Xu\\Components\\Component.', $e->getMessage() );
+        }
     }
 
 }

@@ -64,7 +64,7 @@ class Foundation extends Container {
      * @param string $method
      * @param mixed $args
      *
-     * @throws Exception if function does not exists.
+     * @throws \Exception if function does not exists.
      *
      * @return mixed
      */
@@ -87,6 +87,8 @@ class Foundation extends Container {
      *
      * @param string $component
      * @param array $arguments
+     *
+     * @throws \InvalidArgumentException if `$component` is not string.
      *
      * @return object|null
      */
@@ -151,7 +153,8 @@ class Foundation extends Container {
      */
     protected function get_namespace( $namespace ) {
         if ( strpos( $namespace, '\\' ) !== false ) {
-            return $namespace;
+            return strpos( $namespace, $this->components_namespace ) === false ?
+                $this->components_namespace . ltrim( $namespace, '\\' ) : $namespace;
         }
 
     	$parts = array_map( function( $part ) {
@@ -171,13 +174,9 @@ class Foundation extends Container {
      * @param string $component
      * @param string $path
      *
-     * @throws Exception if component exists or component class does not exists.
+     * @throws \Exception if component class does not exists or is not a instance of Component class.
      */
     protected function register_component( $component, $path = '' ) {
-        if ( $this->exists( $component ) ) {
-            throw new Exception( sprintf( '`%s` component exists.', $component ) );
-        }
-
         if ( ! class_exists( $path ) ) {
             throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
         }
