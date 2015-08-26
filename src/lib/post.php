@@ -34,7 +34,7 @@ function xu_is_post_type( $id, $post_type = '' ) {
  */
 function xu_get_top_parent_post( $post ) {
 	if ( is_numeric( $post ) ) {
-		$post = get_post( (int)$post );
+		$post = get_post( (int) $post );
 	}
 
 	if ( $post instanceof WP_Post === false ) {
