@@ -33,6 +33,4 @@ function load_modules() {
         }
     }
 }
-
-add_action( 'after_setup_theme', __NAMESPACE__ . '\\load_modules' );
 // @codeCoverageIgnoreEnd
