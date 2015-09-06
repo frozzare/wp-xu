@@ -1,5 +1,7 @@
 <?php
 
+namespace Xu\Foundation\Bootstrap;
+
 // @codeCoverageIgnoreStart
 use Xu\Foundation\Foundation;
 use Xu\Facades\Facade;
@@ -18,4 +20,19 @@ foreach ( $xu_files as $file ) {
 }
 
 unset( $file );
+
+/**
+ * Load modules.
+ */
+function load_modules() {
+    foreach ( glob( __DIR__ . '/../../modules/*.php' ) as $file ) {
+        $feature = 'xu-' . basename( $file, '.php' );
+
+        if ( current_theme_supports( $feature ) ) {
+            require_once $file;
+        }
+    }
+}
+
+add_action( 'after_setup_theme', __NAMESPACE__ . '\\load_modules' );
 // @codeCoverageIgnoreEnd
