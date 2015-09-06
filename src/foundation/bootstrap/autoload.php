@@ -33,4 +33,9 @@ function load_modules() {
         }
     }
 }
+
+// Requires WordPress to be loaded.
+if ( function_exists( 'add_action' ) ) {
+    add_action( 'after_setup_theme', __NAMESPACE__ . '\\load_modules' );
+}
 // @codeCoverageIgnoreEnd
