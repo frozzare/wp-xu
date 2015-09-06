@@ -193,5 +193,4 @@ class Foundation extends Container {
             $this->singleton( $component, $instance );
         }
     }
-
 }

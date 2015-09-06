@@ -20,5 +20,4 @@ class xu {
     public static function __callStatic( $method, $args ) {
         return Foundation::get_instance()->fn( $method, $args );
     }
-
 }

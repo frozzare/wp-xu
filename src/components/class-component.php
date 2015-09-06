@@ -43,5 +43,4 @@ abstract class Component {
     protected function with( $obj ) {
         return $obj;
     }
-
 }
