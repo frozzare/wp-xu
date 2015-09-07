@@ -44,8 +44,14 @@ function xu_get_top_parent_post( $post ) {
     if ( $post->post_parent ) {
         $ancestors = get_post_ancestors( $post->ID );
         $root      = count( $ancestors ) - 1;
+
         return get_post( $ancestors[$root] );
     } else {
-        return $post;
+        $url     = $_SERVER['REQUEST_URI'];
+		$url     = str_replace( $post->post_name, '', $url );
+		$url     = rtrim( $url, '/' );
+		$post_id = url_to_postid( $url );
+
+        return $post_id > 0 ? get_post( $post_id ) : $post;
     }
 }
