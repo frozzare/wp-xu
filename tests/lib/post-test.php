@@ -25,6 +25,14 @@ class Post_Test extends \WP_UnitTestCase {
         }
 	}
 
+	public function test_xu_get_top_parent_post_global() {
+		global $post;
+		$post_id = $this->factory->post->create();
+		$post    = get_post( $post_id );
+
+		$this->assertEquals( $post, xu_get_top_parent_post() );
+	}
+
 	public function test_xu_get_top_parent_post() {
 		$post_id = $this->factory->post->create();
 		$post    = get_post( $post_id );
@@ -43,6 +51,14 @@ class Post_Test extends \WP_UnitTestCase {
 		}
 	}
 
+	public function test_xu_get_top_parent_post_type_global() {
+		global $post;
+		$post_id = $this->factory->post->create();
+		$post    = get_post( $post_id );
+
+		$this->assertSame( 'post', xu_get_top_parent_post_type() );
+	}
+
 	public function test_xu_get_top_parent_post_type() {
 		$post_id = $this->factory->post->create();
 		$post    = get_post( $post_id );
@@ -59,6 +75,14 @@ class Post_Test extends \WP_UnitTestCase {
 		} catch ( \Exception $e ) {
 			$this->assertSame( 'null is not a instance of WP_Post', $e->getMessage() );
 		}
+	}
+
+	public function test_xu_get_top_parent_post_type_object_global() {
+		global $post;
+		$post_id = $this->factory->post->create();
+		$post    = get_post( $post_id );
+
+		$this->assertTrue( is_object( xu_get_top_parent_post_type_object() ) );
 	}
 
 	public function test_xu_get_top_parent_post_type_object() {

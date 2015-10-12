@@ -32,7 +32,11 @@ function xu_is_post_type( $id, $post_type = '' ) {
  *
  * @return WP_Post|array|null
  */
-function xu_get_top_parent_post( $post ) {
+function xu_get_top_parent_post( $post = null ) {
+    if ( is_null( $post ) ) {
+        $post = get_post();
+    }
+
 	if ( is_numeric( $post ) ) {
 		$post = get_post( (int) $post );
 	}
@@ -65,7 +69,7 @@ function xu_get_top_parent_post( $post ) {
  *
  * @return WP_Post|array|null
  */
-function xu_get_top_parent_post_type( $post ) {
+function xu_get_top_parent_post_type( $post = null ) {
     return get_post_type( xu_get_top_parent_post( $post ) );
 }
 
@@ -78,6 +82,6 @@ function xu_get_top_parent_post_type( $post ) {
  *
  * @return WP_Post|array|null
  */
-function xu_get_top_parent_post_type_object( $post ) {
+function xu_get_top_parent_post_type_object( $post = null ) {
     return get_post_type_object( xu_get_top_parent_post_type( $post ) );
 }
