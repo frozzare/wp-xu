@@ -7,9 +7,9 @@ use Xu\Tests\Unit_Test_Case;
 class String_Test extends Unit_Test_Case {
 
 	public function test_xu_camel_case() {
-		$this->assertEquals( 'fooBar', xu_camel_case( 'foo-bar' ) );
-		$this->assertEquals( 'fooBar', xu_camel_case( 'foo bar' ) );
-		$this->assertEquals( 'fooBar', xu_camel_case( 'foo_bar' ) );
+		$this->assertSame( 'fooBar', xu_camel_case( 'foo-bar' ) );
+		$this->assertSame( 'fooBar', xu_camel_case( 'foo bar' ) );
+		$this->assertSame( 'fooBar', xu_camel_case( 'foo_bar' ) );
 		$this->invalidArgumentTest( 'xu_camel_case' );
 	}
 
@@ -37,21 +37,21 @@ class String_Test extends Unit_Test_Case {
 	}
 
 	public function test_xu_studly_case() {
-		$this->assertEquals( 'FooBar', xu_studly_case( 'foo-bar' ) );
-		$this->assertEquals( 'FooBar', xu_studly_case( 'foo bar' ) );
-		$this->assertEquals( 'FooBar', xu_studly_case( 'foo_bar' ) );
+		$this->assertSame( 'FooBar', xu_studly_case( 'foo-bar' ) );
+		$this->assertSame( 'FooBar', xu_studly_case( 'foo bar' ) );
+		$this->assertSame( 'FooBar', xu_studly_case( 'foo_bar' ) );
 		$this->invalidArgumentTest( 'xu_studly_case' );
 	}
 
 	public function test_xu_strip_spaces() {
-		$this->assertEquals( 'hello world!', xu_strip_spaces( 'hello world!' ) );
-		$this->assertEquals( 'hello world!', xu_strip_spaces( 'hello world!' ) );
+		$this->assertSame( 'hello world!', xu_strip_spaces( 'hello world!' ) );
+		$this->assertSame( 'hello world!', xu_strip_spaces( 'hello world!' ) );
 		$this->invalidArgumentTest( 'xu_strip_spaces' );
 	}
 
 	public function test_xu_snake_case() {
-		$this->assertEquals( 'hello_world_it', xu_snake_case( 'hello world-it' ) );
-		$this->assertEquals( 'hello_world_it', xu_snake_case( 'helloWorldIt' ) );
+		$this->assertSame( 'hello_world_it', xu_snake_case( 'hello world-it' ) );
+		$this->assertSame( 'hello_world_it', xu_snake_case( 'helloWorldIt' ) );
 		$this->invalidArgumentTest( 'xu_snake_case', ['string', 'string'] );
 	}
 
