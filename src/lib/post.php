@@ -55,3 +55,29 @@ function xu_get_top_parent_post( $post ) {
         return $post_id > 0 ? get_post( $post_id ) : $post;
     }
 }
+
+/**
+ * Get top-most parent post type.
+ *
+ * @param  WP_Post|int $post
+ *
+ * @throws Exception if post is not a instance of WP_Post
+ *
+ * @return WP_Post|array|null
+ */
+function xu_get_top_parent_post_type( $post ) {
+    return get_post_type( xu_get_top_parent_post( $post ) );
+}
+
+/**
+ * Get top-most parent post type object.
+ *
+ * @param  WP_Post|int $post
+ *
+ * @throws Exception if post is not a instance of WP_Post
+ *
+ * @return WP_Post|array|null
+ */
+function xu_get_top_parent_post_type_object( $post ) {
+    return get_post_type_object( xu_get_top_parent_post_type( $post ) );
+}

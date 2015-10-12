@@ -15,7 +15,7 @@ class Post_Test extends \WP_UnitTestCase {
         $this->assertFalse( xu_is_post_type( null ) );
         $this->assertFalse( xu_is_post_type( 1 ) );
         $this->assertFalse( xu_is_post_type( [] ) );
-        $this->assertFalse( xu_is_post_type( (object)[] ) );
+        $this->assertFalse( xu_is_post_type( (object) [] ) );
 
         try {
             xu_is_post_type( $post_id, false );
@@ -39,7 +39,44 @@ class Post_Test extends \WP_UnitTestCase {
 		try {
 			xu_get_top_parent_post( null );
 		} catch ( \Exception $e ) {
-			$this->assertEquals( 'null is not a instance of WP_Post', $e->getMessage() );
+			$this->assertSame( 'null is not a instance of WP_Post', $e->getMessage() );
+		}
+	}
+
+	public function test_xu_get_top_parent_post_type() {
+		$post_id = $this->factory->post->create();
+		$post    = get_post( $post_id );
+		$this->assertSame( 'post', xu_get_top_parent_post_type( $post ) );
+
+		$post_id = $this->factory->post->create( [
+			'post_parent' => $post_id
+		] );
+		$this->assertSame( 'post', xu_get_top_parent_post_type( get_post( $post_id ) ) );
+		$this->assertSame( 'post', xu_get_top_parent_post_type( $post_id ) );
+
+		try {
+			xu_get_top_parent_post_type( null );
+		} catch ( \Exception $e ) {
+			$this->assertSame( 'null is not a instance of WP_Post', $e->getMessage() );
+		}
+	}
+
+	public function test_xu_get_top_parent_post_type_object() {
+		$post_id = $this->factory->post->create();
+		$post    = get_post( $post_id );
+		$this->assertTrue( is_object( xu_get_top_parent_post( $post ) ) );
+
+		$post_id = $this->factory->post->create( [
+			'post_parent' => $post_id
+		] );
+
+		$this->assertTrue( is_object( xu_get_top_parent_post_type_object( get_post( $post_id ) ) ) );
+		$this->assertTrue( is_object( xu_get_top_parent_post_type_object( $post_id ) ) );
+
+		try {
+			xu_get_top_parent_post_type_object( null );
+		} catch ( \Exception $e ) {
+			$this->assertSame( 'null is not a instance of WP_Post', $e->getMessage() );
 		}
 	}
 
