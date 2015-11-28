@@ -23,7 +23,7 @@ class Model_Test extends \WP_UnitTestCase {
         $this->assertFalse( isset( $this->foo->name ) );
     }
 
-    public function test_get() {
+    public function test_get_name() {
         $this->assertSame( 'Fredrik', $this->bar->name );
         $this->assertNull( $this->foo->name );
     }
@@ -48,9 +48,9 @@ class Model_Test extends \WP_UnitTestCase {
         $post = null;
     }
 
-    public function test_get_attribute() {
-        $this->assertEmpty( $this->foo->get_attribute( 'stuff.tea' ) );
-        $this->assertTrue( $this->bar->get_attribute( 'stuff.tea' ) );
+    public function test_get() {
+        $this->assertEmpty( $this->foo->get( 'stuff.tea' ) );
+        $this->assertTrue( $this->bar->get( 'stuff.tea' ) );
     }
 
 	public function test_get_attributes() {

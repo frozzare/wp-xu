@@ -34,7 +34,7 @@ abstract class Model implements ArrayAccess {
      * @return mixed
      */
     public function __get( $key ) {
-        if ( $attribute = $this->get_attribute( $key ) ) {
+        if ( $attribute = $this->get( $key ) ) {
             return $attribute;
         }
 
@@ -103,14 +103,14 @@ abstract class Model implements ArrayAccess {
     }
 
     /**
-     * Get attribute.
+     * Get model attribute.
      *
      * @param  string $key
      * @param  mixed  $default
      *
      * @return mixed
      */
-    public function get_attribute( $key, $default = null ) {
+    public function get( $key, $default = null ) {
         if ( empty( $key ) || ! is_string( $key ) ) {
             return;
         }
