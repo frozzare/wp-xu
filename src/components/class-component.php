@@ -12,14 +12,14 @@ abstract class Component {
     /**
      * xu instance.
      *
-     * @var \Xu\Xu\Foundation\Foundation
+     * @var \Xu\Foundation\Foundation
      */
     protected $xu;
 
     /**
      * Create a new component instance.
      *
-     * @param \Xu\Xu\Foundation\Foundation $xu
+     * @param \Xu\Foundation\Foundation $xu
      */
     public function __construct( Foundation $xu ) {
         $this->xu = $xu;
