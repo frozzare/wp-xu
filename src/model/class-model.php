@@ -216,6 +216,16 @@ abstract class Model implements ArrayAccess {
     }
 
     /**
+     * Set model attribute.
+     *
+     * @param string $key
+     * @param mixed  $value
+     */
+    public function set( $key, $value ) {
+        $this->$key = $value;
+    }
+
+    /**
      * Convert the model instance to an array.
      *
      * @return array

@@ -64,6 +64,13 @@ class Model_Test extends \WP_UnitTestCase {
 	}
 
     public function test_set() {
+        $this->foo->set( 'name', 'Fredrik' );
+        $this->assertSame( 'Fredrik', $this->foo->name );
+        $this->bar->set( 'name', 'Per' );
+        $this->assertSame( 'Per', $this->bar->name );
+    }
+
+    public function test_set_name() {
         $this->foo->name = 'Fredrik';
         $this->assertSame( 'Fredrik', $this->foo->name );
         $this->bar->name = 'Per';
