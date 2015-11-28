@@ -8,7 +8,7 @@ class Utils_Test extends Unit_Test_Case {
 
 	public function test_xu_with() {
 		require_once XU_FIXTURE_DIR . '/classes/class-say.php';
-		$this->assertEquals( 'Hello Fredrik!', xu_with( new \Say )->hello( 'Fredrik' ) );
+		$this->assertSame( 'Hello Fredrik!', xu_with( new \Say )->hello( 'Fredrik' ) );
 	}
 
 	public function test_xu_is_wp() {
@@ -19,4 +19,9 @@ class Utils_Test extends Unit_Test_Case {
 		$this->invalidArgumentTest( 'xu_is_wp', ['string', 'string'] );
 	}
 
+    public function test_xu_get_class_name() {
+        $this->assertEmpty( xu_get_class_name( false ) );
+        $this->assertSame( 'Say', xu_get_class_name( XU_FIXTURE_DIR . '/classes/class-say.php' ) );
+        $this->assertSame( '\Xu\Components\Stringx\Stringx', xu_get_class_name( XU_FIXTURE_DIR . '/components/class-stringx.php' )  );
+    }
 }
