@@ -28,7 +28,10 @@ class Bar_Model extends \Xu\Model\Model {
      */
     public function get_attributes() {
         return [
-            'name' => 'Fredrik'
+            'name'  => 'Fredrik',
+            'stuff' => [
+                'tea' => true
+            ]
         ];
     }
 }

@@ -48,6 +48,11 @@ class Model_Test extends \WP_UnitTestCase {
         $post = null;
     }
 
+    public function test_get_attribute() {
+        $this->assertEmpty( $this->foo->get_attribute( 'stuff.tea' ) );
+        $this->assertTrue( $this->bar->get_attribute( 'stuff.tea' ) );
+    }
+
 	public function test_get_attributes() {
         $this->assertNotEmpty( $this->bar->get_attributes() );
         $this->assertEmpty( $this->foo->get_attributes() );
@@ -108,16 +113,16 @@ class Model_Test extends \WP_UnitTestCase {
 
     public function test_json_serialize() {
         $this->assertEquals( [], $this->foo->json_serialize() );
-        $this->assertEquals( ['name' => 'Fredrik'], $this->bar->json_serialize() );
+        $this->assertEquals( ['name' => 'Fredrik', 'stuff' => ['tea' => true]], $this->bar->json_serialize() );
     }
 
     public function test_to_array() {
         $this->assertEquals( [], $this->foo->to_array() );
-        $this->assertEquals( ['name' => 'Fredrik'], $this->bar->to_array() );
+        $this->assertEquals( ['name' => 'Fredrik', 'stuff' => ['tea' => true]], $this->bar->to_array() );
     }
 
     public function test_to_json() {
         $this->assertEquals( '[]', $this->foo->to_json() );
-        $this->assertEquals( '{"name":"Fredrik"}', $this->bar->to_json() );
+        $this->assertEquals( '{"name":"Fredrik","stuff":{"tea":true}}', $this->bar->to_json() );
     }
 }
