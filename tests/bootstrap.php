@@ -8,12 +8,12 @@ require __DIR__ . '/../vendor/autoload.php';
 /**
  * Define fixtures directory constant
  */
-define( 'XU_FIXTURE_DIR', __DIR__ . '/fixtures' );
+define( 'XU_FIXTURE_DIR', __DIR__ . '/data' );
 
 /**
  * Load files.
  */
-WP_Test_Suite::load_files( __DIR__ . '/class-unit-test-case.php' );
+WP_Test_Suite::load_files( __DIR__ . '/framework/class-unit-test-case.php' );
 
 /**
  * Require files.

@@ -41,21 +41,11 @@ class Foundation extends Container {
     }
 
     /**
-     * Autoload files.
-     *
-     * @codeCoverageIgnore
-     */
-    protected function autoload_files() {
-        require_once __DIR__ . '/bootstrap/autoload.php';
-    }
-
-    /**
      * Boot the foundation.
      *
      * @codeCoverageIgnore
      */
     public function boot() {
-        $this->autoload_files();
     }
 
     /**

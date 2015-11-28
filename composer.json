@@ -25,7 +25,14 @@
   },
   "autoload": {
     "files": [
-      "autoload.php"
+      "autoload.php",
+      "src/foundation/helpers.php",
+      "src/lib/conditional.php",
+      "src/lib/http.php",
+      "src/lib/post.php",
+      "src/lib/string.php",
+      "src/lib/utils.php",
+      "src/model/helpers.php"
     ]
   },
   "require": {

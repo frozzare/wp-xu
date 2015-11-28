@@ -16,8 +16,7 @@
   >
   <testsuites>
     <testsuite name="xu Test Suite">
-      <directory suffix=".php">./tests/</directory>
-      <exclude>./tests/fixtures</exclude>
+      <directory suffix=".php">./tests/cases</directory>
     </testsuite>
   </testsuites>
   <filter>
