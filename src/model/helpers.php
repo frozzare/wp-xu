@@ -13,7 +13,17 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
         return call_user_func_array( [$model, 'model'], $args );
     }
 
-    $file = locate_template( sprintf( '%s/%s.php', $dir, $model ), true );
+    $file  = null;
+    $names = [
+        sprintf( '%s/class-%s.php', $dir, $model ),
+        sprintf( '%s/%s.php', $dir, $model )
+    ];
+
+    foreach ( $names as $name ) {
+        if ( $file = locate_template( $name, true ) ) {
+            break;
+        }
+    }
 
     if ( empty( $file ) ) {
         return;
