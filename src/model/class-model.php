@@ -89,7 +89,6 @@ abstract class Model implements ArrayAccess {
      */
     public static function __callStatic( $method, array $parameters = [] ) {
         $instance = new static;
-
         return call_user_func_array( [$instance, $method], $arguments );
     }
 
