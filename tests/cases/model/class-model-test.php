@@ -51,6 +51,9 @@ class Model_Test extends \WP_UnitTestCase {
     public function test_get() {
         $this->assertEmpty( $this->foo->get( 'stuff.tea' ) );
         $this->assertTrue( $this->bar->get( 'stuff.tea' ) );
+
+        $this->bar->set( 'bar', $this->bar );
+        $this->assertTrue( $this->bar->get( 'bar.stuff.tea' ) );
     }
 
 	public function test_get_attributes() {
@@ -131,5 +134,9 @@ class Model_Test extends \WP_UnitTestCase {
     public function test_to_json() {
         $this->assertEquals( '[]', $this->foo->to_json() );
         $this->assertEquals( '{"name":"Fredrik","stuff":{"tea":true}}', $this->bar->to_json() );
+
+        $bar = new \Bar_Model;
+        $bar->set( 'foo', $this->foo );
+        $this->assertEquals( '{"name":"Fredrik","stuff":{"tea":true},"foo":[]}', $bar->to_json() );
     }
 }

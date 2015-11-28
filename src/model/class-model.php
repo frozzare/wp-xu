@@ -98,7 +98,15 @@ abstract class Model implements ArrayAccess {
      * @return array
      */
     public function json_serialize() {
-        return $this->to_array();
+        $attributes = $this->to_array();
+
+        foreach ( $attributes as $key => $value ) {
+            if ( $value instanceof Model ) {
+                $attributes[$key] = $value->json_serialize();
+            }
+        }
+
+        return $attributes;
     }
 
     /**
@@ -118,7 +126,7 @@ abstract class Model implements ArrayAccess {
         $attributes = $this->get_attributes_array();
 
         foreach ( $key as $part ) {
-            if ( ! is_array( $attributes ) || ! array_key_exists( $part, $attributes ) ) {
+            if ( $attributes instanceof Model === false && ( ! is_array( $attributes ) || ! array_key_exists( $part, $attributes ) ) ) {
                 return $default;
             }
 
