@@ -5,7 +5,7 @@ namespace Xu\Tests\Model;
 require_once XU_FIXTURE_DIR . '/models/class-foo-model.php';
 require_once XU_FIXTURE_DIR . '/models/class-bar-model.php';
 
-class Model_Test extends \WP_UnitTestCase {
+class Helpers_Test extends \WP_UnitTestCase {
 
     public function test_xu_get_model() {
         $this->assertInstanceOf( 'Foo_Model', xu_get_model( '\\Foo_Model' ) );
