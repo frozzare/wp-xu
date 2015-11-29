@@ -13,7 +13,7 @@ class Collection extends Jsonable implements ArrayAccess {
      *
      * @param array $items
      */
-    public function __construct( array $items ) {
+    public function __construct( array $items = [] ) {
         $this->items = $items;
     }
 
@@ -36,6 +36,17 @@ class Collection extends Jsonable implements ArrayAccess {
     }
 
     /**
+     * Get item in collection.
+     *
+     * @param  string $offset
+     *
+     * @return mixed
+     */
+    public function eq( $offset ) {
+        return $this->offsetGet( $offset );
+    }
+
+    /**
      * Create a collection of all elements that do pass
      * the given truth test.
      *
@@ -51,23 +62,7 @@ class Collection extends Jsonable implements ArrayAccess {
             };
         }
 
-        return new static( array_filter( $this->items, $callback ) );
-    }
-
-    /**
-     * Get will return all items that match the given key.
-     *
-     * @param  string $key
-     * @param  mixed  $default
-     *
-     * @return \Xu\Model\Collection
-     */
-    public function get( $key, $default = null ) {
-        $items = array_map( function ( $item ) use( $key, $default ) {
-            return $this->find_in_item( $item, $key, $default );
-        }, $this->items );
-
-        return new static( array_filter( $items ) );
+        return new static( array_values( array_filter( $this->items, $callback ) ) );
     }
 
     /**
@@ -114,11 +109,11 @@ class Collection extends Jsonable implements ArrayAccess {
      */
     public function first( callable $callback = null ) {
         if ( empty( $callback ) ) {
-            return $this->shift();
+            return $this->items[0];
         }
 
         if ( $items = $this->filter( $callback ) ) {
-            return array_shift( $items );
+            return $items->first();
         }
     }
 
@@ -132,12 +127,19 @@ class Collection extends Jsonable implements ArrayAccess {
     }
 
     /**
-     * Get items array keys.
+     * Get will return all items that match the given key.
      *
-     * @return array
+     * @param  string $key
+     * @param  mixed  $default
+     *
+     * @return \Xu\Model\Collection
      */
-    public function keys() {
-        return new static( array_keys( $this->items ) );
+    public function get( $key, $default = null ) {
+        $items = array_map( function ( $item ) use( $key, $default ) {
+            return $this->find_in_item( $item, $key, $default );
+        }, $this->items );
+
+        return new static( array_filter( $items ) );
     }
 
     /**
@@ -149,11 +151,11 @@ class Collection extends Jsonable implements ArrayAccess {
      */
     public function last( callable $callback = null ) {
         if ( empty( $callback ) ) {
-            return $this->pop();
+            return $this->items[count( $this->items ) - 1];
         }
 
         if ( $items = $this->filter( $callback ) ) {
-            return array_pop( $items );
+            return $items->last();
         }
     }
 
@@ -209,19 +211,6 @@ class Collection extends Jsonable implements ArrayAccess {
      */
     public function offsetUnset( $offset ) {
         unset( $this->items[$offset] );
-    }
-
-    /**
-     * Get a subset of the items from the collection.
-     *
-     * @param  array|string $keys
-     *
-     * @return array
-     */
-    public function only( $keys ) {
-        $keys = is_string( $keys ) ? [$keys] : $keys;
-        $keys = is_array( $keys ) ? $keys : [];
-        return array_intersect_key( $this->items, array_flip( (array) $keys ) );
     }
 
     /**
@@ -304,37 +293,9 @@ class Collection extends Jsonable implements ArrayAccess {
      * @return \Xu\Model\Collection
      */
     public function sort( callable $callback ) {
-        $items = $this->items;
+        $items = $this->all();
         uasort( $items, $callback );
-        return new static( $items );
-    }
-
-    /**
-     * Transform each item in the collection using a callback.
-     *
-     * @param  callable $callback
-     *
-     * @return \Xu\Model\Collection
-     */
-    public function transform( callable $callback ) {
-        return new static( $this->map( $callback )->all() );
-    }
-
-    /**
-     * Get all unique items.
-     *
-     * @return \Xu\Model\Collection
-     */
-    public function unique() {
-        $items = [];
-
-        foreach ( $this->items as $item ) {
-            if ( ! in_array( $item, $items ) ) {
-                $items[] = $item;
-            }
-        }
-
-        return new static( $items );
+        return new static( array_values( $items ) );
     }
 
     /**
@@ -345,7 +306,11 @@ class Collection extends Jsonable implements ArrayAccess {
      *
      * @return \Xu\Model\Collection
      */
-    public function where( $key, $value ) {
+    public function where( $key, $value = null ) {
+        if ( is_callable( $key ) ) {
+            return $this->filter( $key );
+        }
+
         return $this->filter( function ( $item ) use ( $key, $value ) {
             return $this->find_in_item( $item, $key ) === $value;
         } );
