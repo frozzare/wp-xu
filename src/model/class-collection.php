@@ -6,7 +6,7 @@ use ArrayAccess;
 use ReflectionClass;
 use Xu\Foundation\Jsonable;
 
-class Collection extends Jsonable {
+class Collection extends Jsonable implements ArrayAccess {
 
     /**
      * The constructor.
