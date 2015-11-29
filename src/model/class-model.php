@@ -40,6 +40,7 @@ abstract class Model implements ArrayAccess {
 
         switch ( $key ) {
             case 'id':
+            case 'ID':
                 return get_the_ID() ?: null;
             case 'post':
                 return get_post();
@@ -90,6 +91,48 @@ abstract class Model implements ArrayAccess {
     public static function __callStatic( $method, array $parameters = [] ) {
         $instance = new static;
         return call_user_func_array( [$instance, $method], $arguments );
+    }
+
+    /**
+     * Create a collection of models.
+     *
+     * @param  mixed $items
+     *
+     * @return array
+     */
+    public static function collection( $items = [] ) {
+        $items = is_array( $items ) ? $items : [$items];
+
+        $items = array_map( function ( $item ) {
+            if ( $item instanceof Model ) {
+                return $item;
+            }
+
+            if ( ! is_array( $item ) && ! is_object( $item ) ) {
+                return;
+            }
+
+            if ( is_object( $item ) && get_class( $item ) !== 'stdClass' ) {
+                return;
+            }
+
+            return static::create( (array) $item );
+        }, $items );
+
+        return new Collection( array_filter( $items ) );
+    }
+
+    /**
+     * Create a model from attributes.
+     *
+     * @param  array $attributes
+     *
+     * @return \Xu\Model\Model
+     */
+    public static function create( array $attributes = [] ) {
+        $model = new static;
+        $model->set_attributes( $attributes );
+        return $model;
     }
 
     /**
@@ -230,6 +273,17 @@ abstract class Model implements ArrayAccess {
      */
     public function set( $key, $value ) {
         $this->$key = $value;
+    }
+
+    /**
+     * Set attributes.
+     *
+     * @param array $attributes
+     */
+    public function set_attributes( array $attributes ) {
+        foreach ( $attributes as $key => $value ) {
+            $this->$key = $value;
+        }
     }
 
     /**
