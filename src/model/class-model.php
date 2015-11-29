@@ -4,8 +4,9 @@ namespace Xu\Model;
 
 use ArrayAccess;
 use ReflectionClass;
+use Xu\Foundation\Jsonable;
 
-abstract class Model implements ArrayAccess {
+abstract class Model extends Jsonable implements ArrayAccess {
 
     /**
      * Model attributes.
@@ -133,23 +134,6 @@ abstract class Model implements ArrayAccess {
         $model = new static;
         $model->set_attributes( $attributes );
         return $model;
-    }
-
-    /**
-     * Convert the object into something JSON serializable.
-     *
-     * @return array
-     */
-    public function json_serialize() {
-        $attributes = $this->to_array();
-
-        foreach ( $attributes as $key => $value ) {
-            if ( $value instanceof Model ) {
-                $attributes[$key] = $value->json_serialize();
-            }
-        }
-
-        return $attributes;
     }
 
     /**
@@ -293,16 +277,5 @@ abstract class Model implements ArrayAccess {
      */
     public function to_array() {
         return $this->get_attributes_array();
-    }
-
-    /**
-     * Convert the model instance to JSON.
-     *
-     * @param  int $options
-     *
-     * @return string
-     */
-    public function to_json( $options = 0 ) {
-        return json_encode( $this->json_serialize(), $options );
     }
 }

@@ -4,8 +4,9 @@ namespace Xu\Model;
 
 use ArrayAccess;
 use ReflectionClass;
+use Xu\Foundation\Jsonable;
 
-class Collection {
+class Collection extends Jsonable {
 
     /**
      * The constructor.
@@ -128,23 +129,6 @@ class Collection {
      */
     public function is_empty() {
         return empty( $this->items );
-    }
-
-    /**
-     * Convert the object into something JSON serializable.
-     *
-     * @return array
-     */
-    public function json_serialize() {
-        $items = $this->to_array();
-
-        foreach ( $items as $key => $value ) {
-            if ( $value instanceof Model ) {
-                $items[$key] = $value->json_serialize();
-            }
-        }
-
-        return $items;
     }
 
     /**
@@ -374,16 +358,5 @@ class Collection {
      */
     public function to_array() {
         return $this->items;
-    }
-
-    /**
-     * Convert the model instance to JSON.
-     *
-     * @param  int $options
-     *
-     * @return string
-     */
-    public function to_json( $options = 0 ) {
-        return json_encode( $this->json_serialize(), $options );
     }
 }
