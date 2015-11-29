@@ -127,22 +127,6 @@ class Collection extends Jsonable implements ArrayAccess {
     }
 
     /**
-     * Get will return all items that match the given key.
-     *
-     * @param  string $key
-     * @param  mixed  $default
-     *
-     * @return \Xu\Model\Collection
-     */
-    public function get( $key, $default = null ) {
-        $items = array_map( function ( $item ) use( $key, $default ) {
-            return $this->find_in_item( $item, $key, $default );
-        }, $this->items );
-
-        return new static( array_filter( $items ) );
-    }
-
-    /**
      * Get the last item in the collection.
      *
      * @param callable $callback

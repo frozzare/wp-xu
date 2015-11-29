@@ -55,11 +55,6 @@ class Model_Test extends \WP_UnitTestCase {
         $this->assertSame( $collection[0]->name, $result[0]->name );
     }
 
-    public function test_get() {
-        $collection = $this->create_bar_collection();
-        $this->assertSame( ['Fredrik', 'Per'], $collection->get( 'name' )->to_array() );
-    }
-
     public function test_first() {
         $collection = $this->create_bar_collection();
         $this->assertSame( 'Fredrik', $collection->first()->name );
