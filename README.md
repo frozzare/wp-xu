@@ -42,7 +42,7 @@ class Post extends Model {
 
 In your template file:
 
-```
+```php
 $model = xu_get_model( post' );
 
 echo $post->title;
