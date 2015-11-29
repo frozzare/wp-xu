@@ -64,8 +64,8 @@ A collection can be created in different ways:
 ```php
 use Xu\Model\Collection;
 
-$collection = new Collection([$model1, $model2]);
-$collcetion = Post::collection([$model1, $model2]);
+$collection = new Collection( [$model1, $model2] );
+$collcetion = Post::collection( [$model1, $model2] );
 
 class List extends Model {
   
@@ -80,7 +80,7 @@ class List extends Model {
 
 }
 
-$collection = (new List)->posts();
+$collection = ( new List )->posts();
 ```
 
 ## License
