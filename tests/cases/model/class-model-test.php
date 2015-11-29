@@ -126,6 +126,25 @@ class Model_Test extends \WP_UnitTestCase {
         $this->assertEquals( ['name' => 'Fredrik', 'stuff' => ['tea' => true]], $this->bar->json_serialize() );
     }
 
+    public function test_collection() {
+        $models     = [
+            \Bar_Model::create( ['os' => 'Mac'] ),
+            \Bar_Model::create( ['os' => 'Mac'] )
+        ];
+        $collection = \Bar_Model::collection( $models );
+        $this->assertSame( $models, $collection->all() );
+    }
+
+    public function test_create() {
+        $model = \Bar_Model::create( ['os' => 'Mac'] );
+        $this->assertSame( 'Mac', $model->get( 'os' ) );
+    }
+
+    public function test_set_attributes() {
+        $this->bar->set_attributes( ['os' => 'Mac'] );
+        $this->assertSame( 'Mac', $this->bar->get( 'os' ) );
+    }
+
     public function test_to_array() {
         $this->assertEquals( [], $this->foo->to_array() );
         $this->assertEquals( ['name' => 'Fredrik', 'stuff' => ['tea' => true]], $this->bar->to_array() );
