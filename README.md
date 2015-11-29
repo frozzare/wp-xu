@@ -75,7 +75,7 @@ class List extends Model {
    * @return \Xu\Model\Collection
    */
   public function posts() {
-    return self::collection( get_posts( 'post_type=post' ) );
+    return static::collection( get_posts( 'post_type=post' ) );
   }
 
 }
