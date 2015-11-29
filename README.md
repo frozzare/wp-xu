@@ -31,7 +31,12 @@ With xu you can create models that you load from your theme (with `xu_get_model`
 use Xu\Model\Model;
 
 class Post extends Model {
-
+  
+  /**
+   * Get model attributes.
+   *
+   * @return array
+   */
   public function get_attributes() {
      return [
        'title' => $this->post->post_title
@@ -43,7 +48,7 @@ class Post extends Model {
 In your template file:
 
 ```php
-$model = xu_get_model( post' );
+$model = xu_get_model( 'post' );
 
 echo $post->title;
 ```
@@ -63,7 +68,12 @@ $collection = new Collection([$model1, $model2]);
 $collcetion = Post::collection([$model1, $model2]);
 
 class List extends Model {
-
+  
+  /**
+   * Get all posts that exists on `post` post type.
+   *
+   * @return \Xu\Model\Collection
+   */
   public function posts() {
     return self::collection( get_posts( 'post_type=post' ) );
   }
