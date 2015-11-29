@@ -77,7 +77,6 @@ class List extends Model {
   public function posts() {
     return static::collection( get_posts( 'post_type=post' ) );
   }
-
 }
 
 $collection = ( new List )->posts();
