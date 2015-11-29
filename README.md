@@ -80,8 +80,7 @@ class List extends Model {
 
 }
 
-$model = new List;
-$collection = $model->posts();
+$collection = (new List)->posts();
 ```
 
 ## License
