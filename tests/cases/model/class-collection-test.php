@@ -9,7 +9,7 @@ use Foo_Model;
 use Bar_Model;
 use Xu\Model\Collection;
 
-class Model_Test extends \WP_UnitTestCase {
+class Collection_Test extends \WP_UnitTestCase {
 
     public function setUp() {
         parent::setUp();
