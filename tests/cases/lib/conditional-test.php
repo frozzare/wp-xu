@@ -16,19 +16,18 @@ class Conditional_Test extends Unit_Test_Case {
 		$this->assertFalse( xu_is_empty( "0" ) );
 	}
 
-    public function test_xu_is_json() {
-        $this->assertTrue( xu_is_json( '{"foo": "bar"}' ) );
-        $this->assertTrue( xu_is_json( '{"foo": true}' ) );
-        $this->assertFalse( xu_is_json( 'hello world' ) );
-        $this->invalidArgumentTest( 'xu_is_json' );
-    }
+	public function test_xu_is_json() {
+		$this->assertTrue( xu_is_json( '{"foo": "bar"}' ) );
+		$this->assertTrue( xu_is_json( '{"foo": true}' ) );
+		$this->assertFalse( xu_is_json( 'hello world' ) );
+		$this->invalidArgumentTest( 'xu_is_json' );
+	}
 
-    public function test_xu_is_xml() {
-        $xml = "<?xml version='1.0'?><document><title>Foobar</title></document>";
-        $this->assertTrue( xu_is_xml( $xml ) );
-        $this->assertTrue( xu_is_xml( '<p>hello</p>' ) );
-        $this->assertFalse( xu_is_xml( 'hello world' ) );
-        $this->invalidArgumentTest( 'xu_is_xml' );
-    }
-
+	public function test_xu_is_xml() {
+		$xml = "<?xml version='1.0'?><document><title>Foobar</title></document>";
+		$this->assertTrue( xu_is_xml( $xml ) );
+		$this->assertTrue( xu_is_xml( '<p>hello</p>' ) );
+		$this->assertFalse( xu_is_xml( 'hello world' ) );
+		$this->invalidArgumentTest( 'xu_is_xml' );
+	}
 }

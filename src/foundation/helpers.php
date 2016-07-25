@@ -16,9 +16,9 @@ require_once __DIR__ . '/class-xu.php';
  * @return \Xu\Foundation\Foundation
  */
 function xu( $component = '', $arguments = [] ) {
-    if ( is_string( $component ) && ! empty( $component ) ) {
-        return Foundation::get_instance()->component( $component, $arguments );
-    }
+	if ( is_string( $component ) && ! empty( $component ) ) {
+		return Foundation::get_instance()->component( $component, $arguments );
+	}
 
-    return Foundation::get_instance();
+	return Foundation::get_instance();
 }

@@ -9,38 +9,38 @@ use Xu\Foundation\Foundation;
  */
 abstract class Component {
 
-    /**
-     * xu instance.
-     *
-     * @var \Xu\Foundation\Foundation
-     */
-    protected $xu;
+	/**
+	 * xu instance.
+	 *
+	 * @var \Xu\Foundation\Foundation
+	 */
+	protected $xu;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param \Xu\Foundation\Foundation $xu
-     */
-    public function __construct( Foundation $xu ) {
-        $this->xu = $xu;
-    }
+	/**
+	 * Create a new component instance.
+	 *
+	 * @param \Xu\Foundation\Foundation $xu
+	 */
+	public function __construct( Foundation $xu ) {
+		$this->xu = $xu;
+	}
 
-    /**
-     * Bootstrap the component.
-     *
-     * @codeCoverageIgnore
-     */
-    public function bootstrap() {
-    }
+	/**
+	 * Bootstrap the component.
+	 *
+	 * @codeCoverageIgnore
+	 */
+	public function bootstrap() {
+	}
 
-    /**
-     * Return the given object. Useful for chaining.
-     *
-     * @param mixed $obj
-     *
-     * @return mixed
-     */
-    protected function with( $obj ) {
-        return $obj;
-    }
+	/**
+	 * Return the given object. Useful for chaining.
+	 *
+	 * @param mixed $obj
+	 *
+	 * @return mixed
+	 */
+	protected function with( $obj ) {
+		return $obj;
+	}
 }

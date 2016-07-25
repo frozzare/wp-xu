@@ -24,13 +24,17 @@
     "issues": "https://github.com/wp-xu/framework/issues"
   },
   "autoload": {
+    "classmap": ["src/"],
     "files": [
-      "autoload.php",
       "src/foundation/helpers.php",
+      "src/lib/cache.php",
       "src/lib/conditional.php",
-      "src/lib/http.php",
+      "src/lib/menu.php",
+      "src/lib/option.php",
       "src/lib/post.php",
+      "src/lib/rewrite.php",
       "src/lib/string.php",
+      "src/lib/transient.php",
       "src/lib/utils.php",
       "src/model/helpers.php"
     ]
@@ -38,7 +42,7 @@
   "require": {
     "php": "^5.5.9 || ^7.0",
     "frozzare/tank": "~1.0",
-    "frozzare/wp-autoload": "^2.0.0"
+    "frozzare/wp-idx": "*"
   },
   "require-dev": {
     "frozzare/wp-test-suite": "~1.0",

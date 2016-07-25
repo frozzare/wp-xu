@@ -1,14 +1,54 @@
 <?php
 
 /**
- * Return the given object. Useful for chaining.
+ * Add action.
  *
- * @param mixed $obj
+ * @see https://developer.wordpress.org/reference/functions/add_action/
  *
- * @return mixed
+ * @param  string   $tag
+ * @param  callable $fn
+ * @param  int      $priority
+ * @param  int      $accepted_args
+ *
+ * @return string
  */
-function xu_with( $obj ) {
-    return $obj;
+function xu_add_action( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
+	return idx_add_action( $tag, $fn, $priority, $accepted_args );
+}
+
+/**
+ * Add filter.
+ *
+ * @see https://developer.wordpress.org/reference/functions/add_filter/
+ *
+ * @param  string   $tag
+ * @param  callable $fn
+ * @param  int      $priority
+ * @param  int      $accepted_args
+ *
+ * @return string
+ */
+function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
+	return idx_add_filter( $tag, $fn, $priority, $accepted_args );
+}
+
+/**
+ * Check if the request method is the same as the given method.
+ *
+ * @param string $method
+ *
+ * @return bool
+ */
+function xu_is_http_method( $method ) {
+	if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
+		return false;
+	}
+
+	if ( ! is_string( $method ) ) {
+		return false;
+	}
+
+	return $_SERVER ['REQUEST_METHOD'] == strtoupper( $method );
 }
 
 /**
@@ -20,15 +60,15 @@ function xu_with( $obj ) {
  * @return bool
  */
 function xu_is_wp( $version, $operator = '==' ) {
-    if ( ! is_string( $version ) ) {
-        throw new InvalidArgumentException( 'Invalid argument. `$version` must be string.' );
-    }
+	if ( ! is_string( $version ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$version` must be string.' );
+	}
 
-    if ( ! is_string( $operator ) ) {
-        throw new InvalidArgumentException( 'Invalid argument. `$operator` must be string.' );
-    }
+	if ( ! is_string( $operator ) ) {
+		throw new InvalidArgumentException( 'Invalid argument. `$operator` must be string.' );
+	}
 
-    return version_compare( get_bloginfo( 'version' ), $version, $operator );
+	return version_compare( get_bloginfo( 'version' ), $version, $operator );
 }
 
 /**
@@ -79,4 +119,15 @@ function xu_get_class_name( $file ) {
 	}
 
 	return $namespace_name . '\\' . $class_name;
+}
+
+/**
+ * Return the given object. Useful for chaining.
+ *
+ * @param mixed $obj
+ *
+ * @return mixed
+ */
+function xu_with( $obj ) {
+	return $obj;
 }

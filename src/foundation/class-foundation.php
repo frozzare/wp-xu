@@ -11,176 +11,199 @@ use InvalidArgumentException;
  */
 class Foundation extends Container {
 
-    /**
-     * Components namespace.
-     *
-     * @var string
-     */
-    protected $components_namespace = 'Xu\\Components\\';
+	/**
+	 * Components namespace.
+	 *
+	 * @var string
+	 */
+	protected $components_namespace = 'Xu\\Components\\';
 
-    /**
-     * Foundation instance.
-     *
-     * @var \Xu\Foundation\Foundation
-     */
-    protected static $instance;
+	/**
+	 * Foundation instance.
+	 *
+	 * @var \Xu\Foundation\Foundation
+	 */
+	protected static $instance;
 
-    /**
-     * The xu version.
-     *
-     * @var string
-     */
-    const VERSION = '1.0.0';
+	/**
+	 * The xu version.
+	 *
+	 * @var string
+	 */
+	const VERSION = '1.0.0';
 
-    /**
-     * The constructor.
-     *
-     * @codeCoverageIgnore
-     */
-    public function __construct() {
-    }
+	/**
+	 * The constructor.
+	 *
+	 * @codeCoverageIgnore
+	 */
+	public function __construct() {
+		$this->setup_actions();
+	}
 
-    /**
-     * Boot the foundation.
-     *
-     * @codeCoverageIgnore
-     */
-    public function boot() {
-    }
+	/**
+	 * Boot the foundation.
+	 *
+	 * @codeCoverageIgnore
+	 */
+	public function boot() {
+	}
 
-    /**
-     * Call function.
-     *
-     * @param string $method
-     * @param mixed $args
-     *
-     * @throws \Exception if function does not exists.
-     *
-     * @return mixed
-     */
-    public function fn( $method, $args ) {
-        $method = $this->get_fn_name( $method );
+	/**
+	 * Call function.
+	 *
+	 * @param string $method
+	 * @param mixed $args
+	 *
+	 * @throws \Exception if function does not exists.
+	 *
+	 * @return mixed
+	 */
+	public function fn( $method, $args ) {
+		$method = $this->get_fn_name( $method );
 
-        if ( ! is_array( $args ) ) {
-            $args = [$args];
-        }
+		if ( ! is_array( $args ) ) {
+			$args = [$args];
+		}
 
-        if ( ! function_exists( $method ) ) {
-            throw new Exception( sprintf( '`%s` function does not exists', $method ) );
-        }
+		if ( ! function_exists( $method ) ) {
+			throw new Exception( sprintf( '`%s` function does not exists', $method ) );
+		}
 
-        return call_user_func_array( $method, $args );
-    }
+		return call_user_func_array( $method, $args );
+	}
 
-    /**
-     * Call component class.
-     *
-     * @param string $component
-     * @param mixed $arguments
-     *
-     * @throws \InvalidArgumentException if `$component` is not string.
-     *
-     * @return object|null
-     */
-    public function component( $component, $arguments = [] ) {
-        if ( ! is_array( $arguments ) ) {
-            $arguments = [$arguments];
-        }
+	/**
+	 * Call component class.
+	 *
+	 * @param string $component
+	 * @param mixed $arguments
+	 *
+	 * @throws \InvalidArgumentException if `$component` is not string.
+	 *
+	 * @return object|null
+	 */
+	public function component( $component, $arguments = [] ) {
+		if ( ! is_array( $arguments ) ) {
+			$arguments = [$arguments];
+		}
 
-        if ( ! is_string( $component ) ) {
-            throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
-        }
+		if ( ! is_string( $component ) ) {
+			throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
+		}
 
-        $component = $this->get_namespace( $component );
+		$component = $this->get_namespace( $component );
 
-        if ( ! $this->exists( $component ) ) {
-            $this->register_component( $component, $component );
-        }
+		if ( ! $this->exists( $component ) ) {
+			$this->register_component( $component, $component );
+		}
 
-        $instance = $this->make( $component );
+		$instance = $this->make( $component );
 
-        switch ( get_class( $instance ) ) {
-            case 'ReflectionClass':
-                return $instance->newInstanceArgs( $arguments );
-            case 'ReflectionFunction':
-                return $instance->invokeArgs( $arguments );
-            default:
-                return $instance;
-        }
-    }
+		switch ( get_class( $instance ) ) {
+			case 'ReflectionClass':
+				return $instance->newInstanceArgs( $arguments );
+			case 'ReflectionFunction':
+				return $instance->invokeArgs( $arguments );
+			default:
+				return $instance;
+		}
+	}
 
-    /**
-     * Get method that should be called.
-     *
-     * @param string $fn
-     *
-     * @return string
-     */
-    protected function get_fn_name( $fn ) {
-        return 'xu_' . preg_replace( '/^xu\_/', '', $fn );
-    }
+	/**
+	 * Get method that should be called.
+	 *
+	 * @param string $fn
+	 *
+	 * @return string
+	 */
+	protected function get_fn_name( $fn ) {
+		return 'xu_' . preg_replace( '/^xu\_/', '', $fn );
+	}
 
-    /**
-     * Get foundation instance.
-     *
-     * @return \Xu\Foundation\Foundation
-     */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) ) {
-            return self::$instance = new self;
-        }
+	/**
+	 * Get foundation instance.
+	 *
+	 * @return \Xu\Foundation\Foundation
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			return self::$instance = new self;
+		}
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Get namespace.
-     *
-     * @param  string $namespace
-     *
-     * @return string
-     */
-    protected function get_namespace( $namespace ) {
-        if ( strpos( $namespace, '\\' ) !== false ) {
-            return strpos( $namespace, $this->components_namespace ) === false ?
-                $this->components_namespace . ltrim( $namespace, '\\' ) : $namespace;
-        }
+	/**
+	 * Get namespace.
+	 *
+	 * @param  string $namespace
+	 *
+	 * @return string
+	 */
+	protected function get_namespace( $namespace ) {
+		if ( strpos( $namespace, '\\' ) !== false ) {
+			return strpos( $namespace, $this->components_namespace ) === false ?
+				$this->components_namespace . ltrim( $namespace, '\\' ) : $namespace;
+		}
 
-    	$parts = array_map( function( $part ) {
-    		return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
-    	}, explode( '.', $namespace ) );
+		$parts = array_map( function( $part ) {
+			return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
+		}, explode( '.', $namespace ) );
 
-        if ( count( $parts ) === 1 ) {
-            $parts[] = $parts[0];
-        }
+		if ( count( $parts ) === 1 ) {
+			$parts[] = $parts[0];
+		}
 
-        return $this->components_namespace . implode( '\\', $parts );
-    }
+		return $this->components_namespace . implode( '\\', $parts );
+	}
 
-    /**
-     * Register component.
-     *
-     * @param string $component
-     * @param string $path
-     *
-     * @throws \Exception if component class does not exists or is not a instance of Component class.
-     */
-    protected function register_component( $component, $path = '' ) {
-        if ( ! class_exists( $path ) ) {
-            throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
-        }
+	/**
+	 * Init hook callback.
+	 */
+	public function init() {
+		xu_register_large_option_post_type();
+	}
 
-        if ( ! is_subclass_of( $path, 'Xu\\Components\\Component' ) ) {
-            throw new Exception( sprintf( '`%s` class is not a instance of Xu\\Components\\Component.', $path ) );
-        }
+	/**
+	 * Plugins loaded hook callback.
+	 */
+	public function plugins_loaded() {
+		new \Xu\Admin\Admin;
+	}
 
-        $instance = new $path( $this );
-        $value    = $instance->bootstrap();
+	/**
+	 * Register component.
+	 *
+	 * @param string $component
+	 * @param string $path
+	 *
+	 * @throws \Exception if component class does not exists or is not a instance of Component class.
+	 */
+	protected function register_component( $component, $path = '' ) {
+		if ( ! class_exists( $path ) ) {
+			throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
+		}
 
-        if ( is_object( $value ) && class_exists( get_class( $value ) ) ) {
-            $this->singleton( $component, $value );
-        } else {
-            $this->singleton( $component, $instance );
-        }
-    }
+		if ( ! is_subclass_of( $path, 'Xu\\Components\\Component' ) ) {
+			throw new Exception( sprintf( '`%s` class is not a instance of Xu\\Components\\Component.', $path ) );
+		}
+
+		$instance = new $path( $this );
+		$value    = $instance->bootstrap();
+
+		if ( is_object( $value ) && class_exists( get_class( $value ) ) ) {
+			$this->singleton( $component, $value );
+		} else {
+			$this->singleton( $component, $instance );
+		}
+	}
+
+	/**
+	 * Setup action hooks.
+	 */
+	protected function setup_actions() {
+		xu_add_action( 'init', [$this, 'init'] );
+		xu_add_action( 'plugins_loaded', [$this, 'plugins_loaded'] );
+	}
 }
