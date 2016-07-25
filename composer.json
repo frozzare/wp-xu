@@ -1,18 +1,13 @@
 {
-  "name": "wp-xu/framework",
+  "name": "wp-xu/xu",
   "license": "MIT",
-  "description": "Collection of useful WordPress and PHP functions",
-  "homepage": "https://github.com/wp-xu/framework",
+  "description": "Collection of useful WordPress and PHP functions and classes",
+  "homepage": "https://github.com/wp-xu/xu",
   "authors": [
     {
       "name": "Fredrik Forsmo",
       "email": "fredrik.forsmo@gmail.com",
       "homepage": "https://github.com/frozzare"
-    },
-    {
-      "name": "Johnie Hjelm",
-      "email": "johnie@hjelm.im",
-      "homepage": "http://github.com/johnie"
     }
   ],
   "keywords": [
@@ -20,9 +15,6 @@
     "plugin",
     "utilities"
   ],
-  "support": {
-    "issues": "https://github.com/wp-xu/framework/issues"
-  },
   "autoload": {
     "classmap": ["src/"],
     "files": [
