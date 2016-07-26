@@ -52,7 +52,7 @@ function xu_get_class_name( $file ) {
 	}
 
 	if ( ! file_exists( $file ) ) {
-		throw new Exception( sprintf( '`%s`does not exist.', __FUNCTION__ ) );
+		throw new Exception( sprintf( '`%s`does not exist.', $file ) );
 	}
 
 	$content         = file_get_contents( $file );

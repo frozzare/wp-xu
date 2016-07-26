@@ -28,12 +28,16 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
 		 * @return string
 		 */
 		if ( $file = apply_filters( 'xu_get_model', $model ) ) {
-			break;
+			if ( file_exists( $file ) ) {
+				break;
+			}
 		}
 
 		// Locate model in theme.
 		if ( $file = locate_template( $name, true ) ) {
-			break;
+			if ( file_exists( $file ) ) {
+				break;
+			}
 		}
 	}
 
