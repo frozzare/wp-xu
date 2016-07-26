@@ -37,54 +37,6 @@ function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
 }
 
 /**
- * Check if WordPress is doing ajax or not.
- *
- * @return bool
- */
-function xu_doing_ajax() {
-	return defined( 'DOING_AJAX' ) && DOING_AJAX;
-}
-
-/**
- * Check if the request method is the same as the given method.
- *
- * @param  string $method
- *
- * @return bool
- */
-function xu_is_http_method( $method ) {
-	if ( ! isset( $_SERVER['REQUEST_METHOD'] ) ) {
-		return false;
-	}
-
-	if ( ! is_string( $method ) ) {
-		return false;
-	}
-
-	return strtolower( $_SERVER ['REQUEST_METHOD'] ) == strtolower( $method );
-}
-
-/**
- * Check if WordPress is the given version.
- *
- * @param  string $version
- * @param  string $operator
- *
- * @return bool
- */
-function xu_is_wp( $version, $operator = '==' ) {
-	if ( ! is_string( $version ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$version` must be string.' );
-	}
-
-	if ( ! is_string( $operator ) ) {
-		throw new InvalidArgumentException( 'Invalid argument. `$operator` must be string.' );
-	}
-
-	return version_compare( get_bloginfo( 'version' ), $version, $operator );
-}
-
-/**
  * Get namespace name and/or class name from file.
  *
  * @param  string $file The file path.

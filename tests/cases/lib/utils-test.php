@@ -42,36 +42,6 @@ class Utils_Test extends Unit_Test_Case {
 		], $wp_filter );
 	}
 
-	public function test_xu_doing_ajax() {
-		$this->assertFalse( xu_doing_ajax() );
-		define( 'DOING_AJAX', true );
-		$this->assertTrue( xu_doing_ajax() );
-	}
-
-	public function test_xu_is_http_method() {
-		$_SERVER['REQUEST_METHOD'] = 'GET';
-		$this->assertTrue( xu_is_http_method( 'GET' ) );
-		$_SERVER['REQUEST_METHOD'] = 'POST';
-		$this->assertTrue( xu_is_http_method( 'POST' ) );
-		unset( $_SERVER['REQUEST_METHOD'] );
-		$this->assertFalse( xu_is_http_method( 'POST' ) );
-		$_SERVER['REQUEST_METHOD'] = 'POST';
-		$this->assertFalse( xu_is_http_method( false ) );
-		$this->assertFalse( xu_is_http_method( true ) );
-		$this->assertFalse( xu_is_http_method( null ) );
-		$this->assertFalse( xu_is_http_method( 1 ) );
-		$this->assertFalse( xu_is_http_method( [] ) );
-		$this->assertFalse( xu_is_http_method( (object)[] ) );
-	}
-
-	public function test_xu_is_wp() {
-		$this->assertTrue( xu_is_wp( get_bloginfo( 'version' ) ) );
-		$this->assertTrue( xu_is_wp( get_bloginfo( 'version' ), '=' ) );
-		$this->assertFalse( xu_is_wp( get_bloginfo( 'version' ), '>' ) );
-		$this->assertFalse( xu_is_wp( '1.0' ) );
-		$this->invalidArgumentTest( 'xu_is_wp', ['string', 'string'] );
-	}
-
 	public function test_xu_get_class_name() {
 		$this->assertSame( 'Say', xu_get_class_name( XU_FIXTURE_DIR . '/classes/class-say.php' ) );
 		$this->assertSame( '\Xu\Components\Stringx\Stringx', xu_get_class_name( XU_FIXTURE_DIR . '/components/class-stringx.php' )  );
