@@ -39,7 +39,7 @@ function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
 /**
  * Check if the request method is the same as the given method.
  *
- * @param string $method
+ * @param  string $method
  *
  * @return bool
  */
