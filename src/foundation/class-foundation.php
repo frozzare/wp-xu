@@ -26,13 +26,6 @@ class Foundation extends Container {
 	protected static $instance;
 
 	/**
-	 * The xu version.
-	 *
-	 * @var string
-	 */
-	const VERSION = '2.0.0';
-
-	/**
 	 * The constructor.
 	 *
 	 * @codeCoverageIgnore

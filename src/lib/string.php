@@ -18,33 +18,6 @@ function xu_camel_case( $str ) {
 }
 
 /**
- * Cast string value to right value type.
- *
- * @param  string $str
- *
- * @return mixed
- */
-function xu_cast_string_value( $str ) {
-	if ( ! is_string( $str ) ) {
-		return $str;
-	}
-
-	if ( is_numeric( $str ) ) {
-		return $str == (int) $str ? (int) $str : (float) $str;
-	}
-
-	if ( $str === 'true' || $str === 'false' ) {
-		return $str === 'true';
-	}
-
-	if ( $str === 'null' ) {
-		return;
-	}
-
-	return xu_is_json( $str ) ? json_decode( $str ) : maybe_unserialize( $str );
-}
-
-/**
  * Determine if a given string contains a given substring.
  *
  * @param string $haystack
