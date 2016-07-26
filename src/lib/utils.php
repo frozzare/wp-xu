@@ -78,13 +78,20 @@ function xu_is_wp( $version, $operator = '==' ) {
 /**
  * Get namespace name and/or class name from file.
  *
- * @param  string $file
+ * @param  string $file The file path.
+ *
+ * @throws InvalidArgumentException if an argument is not of the expected type.
+ * @throws Exception if file don't exists.
  *
  * @return string
  */
 function xu_get_class_name( $file ) {
 	if ( ! is_string( $file ) ) {
-		return '';
+		throw new InvalidArgumentException( 'Invalid argument. Must be string.' );
+	}
+
+	if ( ! file_exists( $file ) ) {
+		throw new Exception( sprintf( '`%s`does not exist.', __FUNCTION__ ) );
 	}
 
 	$content         = file_get_contents( $file );
