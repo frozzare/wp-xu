@@ -20,6 +20,17 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
 	];
 
 	foreach ( $names as $name ) {
+		/**
+		 * Get model in different location than the theme.
+		 *
+		 * @param  string $name
+		 *
+		 * @return string
+		 */
+		if ( $file = apply_filters( 'xu_get_model', $name ) ) {
+			return $file;
+		}
+
 		if ( $file = locate_template( $name, true ) ) {
 			break;
 		}
