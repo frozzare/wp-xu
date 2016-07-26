@@ -13,7 +13,7 @@
  * @return string
  */
 function xu_add_action( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
-	return idx_add_action( $tag, $fn, $priority, $accepted_args );
+	return xu_add_filter( $tag, $fn, $priority, $accepted_args );
 }
 
 /**
@@ -29,6 +29,10 @@ function xu_add_action( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
  * @return string
  */
 function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
+	if ( function_exists( 'add_filter' ) ) {
+		return add_filter( $tag, $fn, $priority, $accepted_args );
+	}
+
 	return idx_add_filter( $tag, $fn, $priority, $accepted_args );
 }
 
