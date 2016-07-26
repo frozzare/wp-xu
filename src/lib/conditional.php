@@ -28,12 +28,9 @@ function xu_is_empty( $obj ) {
  * @return bool
  */
 function xu_is_json( $str ) {
-	if ( ! is_string( $str ) ) {
-		return false;
-	}
-
-	json_decode( $str );
-	return json_last_error() === JSON_ERROR_NONE;
+	return is_string( $obj )
+		&& is_array( json_decode( $obj, true ) )
+		&& json_last_error() === JSON_ERROR_NONE;
 }
 
 /**
