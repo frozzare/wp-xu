@@ -35,10 +35,6 @@ abstract class Model extends Jsonable implements ArrayAccess {
 	 * @return mixed
 	 */
 	public function __get( $key ) {
-		if ( $attribute = $this->get( $key ) ) {
-			return $attribute;
-		}
-
 		switch ( $key ) {
 			case 'id':
 			case 'ID':
@@ -47,6 +43,10 @@ abstract class Model extends Jsonable implements ArrayAccess {
 				return get_post();
 			default:
 				break;
+		}
+
+		if ( $attribute = $this->get( $key ) ) {
+			return $attribute;
 		}
 	}
 
