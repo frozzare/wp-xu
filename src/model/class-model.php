@@ -188,7 +188,7 @@ abstract class Model extends Jsonable implements ArrayAccess {
 	}
 
 	/**
-	 * Get a model with in a model instance.
+	 * Get a model within a model instance.
 	 *
 	 * @param  string $model
 	 *
