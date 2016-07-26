@@ -52,7 +52,7 @@ function xu_is_http_method( $method ) {
 		return false;
 	}
 
-	return $_SERVER ['REQUEST_METHOD'] == strtoupper( $method );
+	return strtolower( $_SERVER ['REQUEST_METHOD'] ) == strtolower( $method );
 }
 
 /**
