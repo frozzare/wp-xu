@@ -42,6 +42,12 @@ class Utils_Test extends Unit_Test_Case {
 		], $wp_filter );
 	}
 
+	public function test_xu_doing_ajax() {
+		$this->assertFalse( xu_doing_ajax() );
+		define( 'DOING_AJAX', true );
+		$this->assertTrue( xu_doing_ajax() );
+	}
+
 	public function test_xu_is_http_method() {
 		$_SERVER['REQUEST_METHOD'] = 'GET';
 		$this->assertTrue( xu_is_http_method( 'GET' ) );

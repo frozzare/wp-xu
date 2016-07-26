@@ -37,6 +37,15 @@ function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
 }
 
 /**
+ * Check if WordPress is doing ajax or not.
+ *
+ * @return bool
+ */
+function xu_doing_ajax() {
+	return defined( 'DOING_AJAX' ) && DOING_AJAX;
+}
+
+/**
  * Check if the request method is the same as the given method.
  *
  * @param  string $method
