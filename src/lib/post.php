@@ -3,8 +3,8 @@
 /**
  * Is the current page the given `$post_type`?
  *
- * @param int $id
- * @param string $post_type
+ * @param  int $id
+ * @param  string $post_type
  *
  * @throws Exception if post type is not a string
  *
