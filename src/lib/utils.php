@@ -128,7 +128,7 @@ function xu_get_class_name( $file ) {
 /**
  * Return the given object. Useful for chaining.
  *
- * @param mixed $obj
+ * @param  mixed $obj
  *
  * @return mixed
  */
