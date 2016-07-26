@@ -58,8 +58,8 @@ function xu_is_http_method( $method ) {
 /**
  * Check if WordPress is the given version.
  *
- * @param string $version
- * @param string $operator
+ * @param  string $version
+ * @param  string $operator
  *
  * @return bool
  */
