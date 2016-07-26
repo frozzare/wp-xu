@@ -16,4 +16,13 @@ class Helpers_Test extends \WP_UnitTestCase {
 		$bar = xu_get_model( '\\Bar_Model', ['Foo'] );
 		$this->assertSame( 'Foo', $bar->hello );
 	}
+
+	public function test_xu_get_model_filter() {
+		add_filter( 'xu_get_model', function( $name ) {
+			return XU_FIXTURE_DIR . '/models/class-' . $name . '.php';
+		} );
+
+		$bar = xu_get_model( 'bar-model', ['Foo'] );
+		$this->assertSame( 'Foo', $bar->hello );
+	}
 }

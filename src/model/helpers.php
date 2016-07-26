@@ -27,10 +27,11 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
 		 *
 		 * @return string
 		 */
-		if ( $file = apply_filters( 'xu_get_model', $name ) ) {
-			return $file;
+		if ( $file = apply_filters( 'xu_get_model', $model ) ) {
+			break;
 		}
 
+		// Locate model in theme.
 		if ( $file = locate_template( $name, true ) ) {
 			break;
 		}
