@@ -18,6 +18,33 @@ function xu_camel_case( $str ) {
 }
 
 /**
+ * Cast string value to right value type.
+ *
+ * @param  string $str
+ *
+ * @return mixed
+ */
+function xu_cast_string_value( $str ) {
+	if ( ! is_string( $str ) ) {
+		return $str;
+	}
+
+	if ( is_numeric( $str ) ) {
+		return $str == (int) $str ? (int) $str : (float) $str;
+	}
+
+	if ( $str === 'true' || $str === 'false' ) {
+		return $str === 'true';
+	}
+
+	if ( $str === 'null' ) {
+		return;
+	}
+
+	return xu_is_json( $str ) ? json_decode( $str ) : maybe_unserialize( $str );
+}
+
+/**
  * Determine if a given string contains a given substring.
  *
  * @param string $haystack
@@ -43,6 +70,29 @@ function xu_contains( $haystack, $needles ) {
 	}
 
 	return false;
+}
+
+/**
+ * Try convert to string if is possible else return empty string.
+ *
+ * @param  mixed $obj
+ *
+ * @return string
+ */
+function xu_convert_to_string( $obj ) {
+	if ( $obj === true ) {
+		return 'true';
+	}
+
+	if ( $obj === false ) {
+		return 'false';
+	}
+
+	if ( ! is_array( $obj ) && ( ( ! is_object( $obj ) && settype( $obj, 'string' ) !== false ) || ( is_object( $obj ) && method_exists( $obj, '__toString' ) ) ) ) {
+		return (string) $obj;
+	}
+
+	return '';
 }
 
 /**

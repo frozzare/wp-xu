@@ -13,10 +13,30 @@ class String_Test extends Unit_Test_Case {
 		$this->invalidArgumentTest( 'xu_camel_case' );
 	}
 
+	public function test_xu_cast_string_value() {
+		$this->assertSame( false, xu_cast_string_value( 'false' ) );
+		$this->assertSame( true, xu_cast_string_value( 'true' ) );
+		$this->assertSame( null, xu_cast_string_value( 'null' ) );
+		$this->assertSame( 0, xu_cast_string_value( '0' ) );
+		$this->assertSame( 1.1, xu_cast_string_value( '1.1' ) );
+		$this->assertSame( ["hello"], xu_cast_string_value( '["hello"]' ) );
+	}
+
 	public function test_xu_contains() {
 		$this->assertTrue( xu_contains( 'foobar', 'bar' ) );
 		$this->assertFalse( xu_contains( 'foobar', 'foobars' ) );
 		$this->invalidArgumentTest( 'xu_contains', ['string', 'string'] );
+	}
+
+	public function test_xu_convert_to_string() {
+		$this->assertSame( 'false', xu_convert_to_string( false ) );
+		$this->assertSame( 'true', xu_convert_to_string( true ) );
+		$this->assertSame( '0.1', xu_convert_to_string( 0.1 ) );
+		$this->assertSame( '1.1', xu_convert_to_string( 1.1 ) );
+		$this->assertSame( '0', xu_convert_to_string( 0 ) );
+		$this->assertEmpty( xu_convert_to_string( [] ) );
+		$this->assertEmpty( xu_convert_to_string( new \stdClass() ) );
+		$this->assertNotEmpty( xu_convert_to_string( new \ReflectionClass( 'ReflectionClass' ) ) );
 	}
 
 	public function test_xu_dashify() {
