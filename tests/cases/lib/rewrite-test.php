@@ -29,19 +29,6 @@ class Rewrite_Test extends \WP_UnitTestCase {
 		$this->assertEquals( $actual, $expected );
 	}
 
-	public function test_xu_get_permalink() {
-		// No post.
-		$this->assertFalse( xu_get_permalink() );
-
-		$post_id = $this->factory->post->create();
-
-		// Should be the same.
-		$this->assertSame( get_permalink( $post_id ), xu_get_permalink( $post_id ) );
-
-		// Should exists in wp cache.
-		$this->assertSame( get_permalink( $post_id ), wp_cache_get( md5( serialize( [$post_id, false] ) ), 'xu_get_permalink' ) );
-	}
-
 	public function test_xu_url_to_postid() {
 		// Wrong host.
 		$this->assertSame( 0, xu_url_to_postid( 'https://wordpress.org' ) );
@@ -54,5 +41,11 @@ class Rewrite_Test extends \WP_UnitTestCase {
 
 		// Should exists in the wp cache.
 		$this->assertSame( $post_id, wp_cache_get( md5( serialize( [$url] ) ), 'xu_url_to_postid' ) );
+
+		// Test to clean post cache.
+		xu_clean_post_cache( $post_id );
+
+		// Should not exists in the cache when cleaned.
+		$this->assertFalse( wp_cache_get( md5( serialize( [$url] ) ), 'xu_url_to_postid' ) );
 	}
 }

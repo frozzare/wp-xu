@@ -27,20 +27,6 @@ function xu_current_url( $parse = false, $obj = false ) {
 }
 
 /**
- * Cached version of `get_permalink`.
- *
- * @see https://developer.wordpress.org/reference/functions/get_permalink/
- *
- * @param  int  $post
- * @param  bool $leavename
- *
- * @return string|false
- */
-function xu_get_permalink( $post = 0, $leavename = false ) {
-	return xu_cache_get( 'get_permalink', [$post, $leavename], __FUNCTION__ );
-}
-
-/**
  * Cached version of `url_to_post_id`.
  *
  * @see https://developer.wordpress.org/reference/functions/url_to_post_id/
