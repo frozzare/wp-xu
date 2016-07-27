@@ -16,13 +16,7 @@ class Post_Test extends \WP_UnitTestCase {
 		$this->assertFalse( xu_is_post_type( 1 ) );
 		$this->assertFalse( xu_is_post_type( [] ) );
 		$this->assertFalse( xu_is_post_type( (object) [] ) );
-
-		try {
-			xu_is_post_type( $post_id, false );
-			$this->assertTrue( false );
-		} catch ( \Exception $e ) {
-			$this->assertNotEmpty( $e->getMessage() );
-		}
+		$this->assertFalse( xu_is_post_type( $post_id, false ) );
 	}
 
 	public function test_xu_get_posts() {
