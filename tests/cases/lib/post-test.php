@@ -110,4 +110,8 @@ class Post_Test extends \WP_UnitTestCase {
 		}
 	}
 
+	public function test_xu_post_exists() {
+		$this->assertFalse( xu_post_exists( 0 ) );
+		$this->assertTrue( xu_post_exists( $this->factory->post->create() ) );
+	}
 }

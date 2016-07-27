@@ -102,3 +102,14 @@ function xu_get_top_parent_post_type( $post = null ) {
 function xu_get_top_parent_post_type_object( $post = null ) {
 	return get_post_type_object( xu_get_top_parent_post_type( $post ) );
 }
+
+/**
+ * Determines if a post exist or not.
+ *
+ * @param  int $post_id
+ *
+ * @return bool
+ */
+function xu_post_exists( $post_id = 0 ) {
+	return is_string( get_post_status( $post_id ) );
+}
