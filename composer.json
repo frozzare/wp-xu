@@ -21,6 +21,7 @@
       "src/lib/utils.php",
       "src/foundation/helpers.php",
       "src/lib/cache.php",
+      "src/lib/clean.php",
       "src/lib/conditional.php",
       "src/lib/menu.php",
       "src/lib/option.php",

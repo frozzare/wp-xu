@@ -159,13 +159,6 @@ class Foundation extends Container {
 	}
 
 	/**
-	 * Plugins loaded hook callback.
-	 */
-	public function plugins_loaded() {
-		new \Xu\Admin\Admin;
-	}
-
-	/**
 	 * Register component.
 	 *
 	 * @param string $component
@@ -197,6 +190,5 @@ class Foundation extends Container {
 	 */
 	protected function setup_actions() {
 		xu_add_action( 'init', [$this, 'init'] );
-		xu_add_action( 'plugins_loaded', [$this, 'plugins_loaded'] );
 	}
 }
