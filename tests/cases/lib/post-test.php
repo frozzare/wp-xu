@@ -28,7 +28,7 @@ class Post_Test extends \WP_UnitTestCase {
 		$this->assertSame( $post_id, $posts[0]->ID );
 
 		// Should exists in the wp cache.
-		$this->assertEquals( $posts, wp_cache_get( md5( serialize( [['suppress_filters'=>false]] ) ), 'xu_get_posts' ) );
+		$this->assertEquals( $posts, wp_cache_get( md5( serialize( ['suppress_filters'=>false] ) ), 'xu_get_posts' ) );
 	}
 
 	public function test_xu_get_top_parent_post_global() {

@@ -27,9 +27,6 @@ function xu_clean_attachment_cache( $post_id = 0 ) {
 
 	// Delete cache items on save.
 	foreach ( $delete_items as $item ) {
-		// Wrap key since it's the same as args when added to cache.
-		$item[0] = [$item[0]];
-
 		call_user_func_array( 'xu_cache_delete', $item );
 	}
 }
@@ -76,9 +73,6 @@ function xu_clean_post_cache( $post_id = 0 ) {
 
 	// Delete cache items on save.
 	foreach ( $delete_items as $item ) {
-		// Wrap key since it's the same as args when added to cache.
-		$item[0] = [$item[0]];
-
 		call_user_func_array( 'xu_cache_delete', $item );
 	}
 }

@@ -65,6 +65,10 @@ function xu_cache_get( $key, $fn = '', $args = [], $group = '' ) {
 		$key  = $args;
 	}
 
+	if ( is_array( $key ) && count( $key ) === 1 ) {
+		$key = $key[0];
+	}
+
 	if ( is_array( $key ) || is_object( $key ) ) {
 		$key = md5( serialize( $key ) );
 	}

@@ -27,6 +27,6 @@ class Menu_Test extends \WP_UnitTestCase {
 		$this->assertSame( 0, strpos( $menu, '<ul' ) );
 
 		// Should exists in the wp cache.
-		$this->assertSame( 0, strpos( wp_cache_get( md5( serialize( [$args] ) ), 'xu_wp_nav_menu' ), '<ul' ) );
+		$this->assertSame( 0, strpos( wp_cache_get( md5( serialize( $args ) ), 'xu_wp_nav_menu' ), '<ul' ) );
 	}
 }
