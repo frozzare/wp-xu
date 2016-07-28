@@ -27,6 +27,15 @@ function xu_current_url( $parse = false, $obj = false ) {
 }
 
 /**
+ * Get post id from current url.
+ *
+ * @return string
+ */
+function xu_current_url_to_postid() {
+	return xu_url_to_postid( xu_current_url() );
+}
+
+/**
  * Cached version of `url_to_post_id`.
  *
  * @see https://developer.wordpress.org/reference/functions/url_to_post_id/
