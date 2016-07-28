@@ -23,6 +23,7 @@
       "src/lib/cache.php",
       "src/lib/clean.php",
       "src/lib/conditional.php",
+      "src/lib/media.php",
       "src/lib/menu.php",
       "src/lib/option.php",
       "src/lib/post.php",

@@ -42,6 +42,14 @@ class Rewrite_Test extends \WP_UnitTestCase {
 
 		// Should exists in the wp cache.
 		$this->assertSame( $post_id, wp_cache_get( $url, 'xu_url_to_postid' ) );
+
+		// Test to clean post cache.
+		xu_clean_post_cache( $post_id );
+
+		// Should not exists in the cache when cleaned.
+		$this->assertFalse( wp_cache_get( $url, 'xu_url_to_postid' ) );
+
+		$_SERVER['REQUEST_URI'] = null;
 	}
 
 	public function test_xu_url_to_postid() {

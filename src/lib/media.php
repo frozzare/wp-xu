@@ -17,6 +17,15 @@ function xu_attachment_url_to_postid( $url = '' ) {
 }
 
 /**
+ * Get attachment post id from current url.
+ *
+ * @return string
+ */
+function xu_current_attachment_url_to_postid() {
+	return xu_attachment_url_to_postid( xu_current_url() );
+}
+
+/**
  * Cached version of `wp_get_attachment_image`.
  *
  * @see https://developer.wordpress.org/reference/functions/wp_get_attachment_image/
