@@ -110,9 +110,5 @@ function xu_wp_get_attachment_image_srcset( $attachment_id, $size = 'medium', $i
  * @return string
  */
 function xu_wp_get_attachment_url( $post_id = 0 ) {
-	return xu_cache_get(
-		'wp_get_attachment_url',
-		[$post_id],
-		xu_cache_key( __FUNCTION__, $post_id )
-	);
+	return xu_cache_get( 'wp_get_attachment_url', [$post_id], __FUNCTION__ );
 }

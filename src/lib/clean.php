@@ -10,8 +10,7 @@ function xu_clean_attachment_cache( $post_id = 0 ) {
 		'xu_wp_get_attachment_image',
 		'xu_wp_get_attachment_image_sizes',
 		'xu_wp_get_attachment_image_src',
-		'xu_wp_get_attachment_image_srcset',
-		'xu_wp_get_attachment_url'
+		'xu_wp_get_attachment_image_srcset'
 	];
 
 	// Delete all group keys for this post.
@@ -22,7 +21,8 @@ function xu_clean_attachment_cache( $post_id = 0 ) {
 	// Cache to delete on save post.
 	// Order: key (mixed), group (string)
 	$delete_items = [
-		[get_permalink( $post_id ), 'xu_attachment_url_to_postid']
+		[get_permalink( $post_id ), 'xu_attachment_url_to_postid'],
+		[$post_id, 'xu_wp_get_attachment_url']
 	];
 
 	// Delete cache items on save.
