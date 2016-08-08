@@ -3,9 +3,9 @@
 /**
  * Get a model.
  *
- * @param  string $model
- * @param  array  $args
- * @param  string $dir
+ * @param  mixed  $model The model name or a model object.
+ * @param  array  $args  The model args. Default empty array.
+ * @param  string $dir   The models directory. Default 'models'.
  *
  * @return mixed
  */
