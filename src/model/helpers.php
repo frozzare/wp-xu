@@ -25,8 +25,6 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
 		 * Get model in different location than the theme.
 		 *
 		 * @param  string $name
-		 *
-		 * @return string
 		 */
 		if ( $file = apply_filters( 'xu_get_model', $model ) ) {
 			if ( file_exists( $file ) ) {
