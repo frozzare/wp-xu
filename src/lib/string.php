@@ -160,7 +160,7 @@ function xu_snake_case( $str, $delimiter = '_' ) {
 		throw new InvalidArgumentException( 'Invalid argument. `$delimiter` must be string.' );
 	}
 
-	return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\-|\s/', '$1'.$delimiter, $str ) ) );
+	return xu_strip_spaces( strtolower( preg_replace( '/(.)(?=[A-Z])|\-|\s/', '$1' . $delimiter, $str ) ) );
 }
 
 

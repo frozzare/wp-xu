@@ -9,12 +9,6 @@
     <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterStructureOpen" />
     <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis" />
     <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed" />
-  </rule>
-
-  <rule ref="Generic.WhiteSpace.ScopeIndent">
-    <properties>
-      <property name="indent" value="4"/>
-      <property name="tabIndent" value="false"/>
-    </properties>
+    <exclude name="PSR2" />
   </rule>
 </ruleset>
