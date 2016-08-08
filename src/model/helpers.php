@@ -4,6 +4,7 @@
  * Get a model.
  *
  * @param  string $model
+ * @param  array  $args
  * @param  string $dir
  *
  * @return mixed

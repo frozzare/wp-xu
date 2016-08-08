@@ -10,8 +10,8 @@ require_once __DIR__ . '/class-xu.php';
 /**
  * Get a component or return the xu instance.
  *
- * @param string $component
- * @param mixed $arguments
+ * @param  string $component
+ * @param  mixed  $arguments
  *
  * @return \Xu\Foundation\Foundation
  */
