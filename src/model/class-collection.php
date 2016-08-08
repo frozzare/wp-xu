@@ -9,6 +9,13 @@ use Xu\Foundation\Jsonable;
 class Collection extends Jsonable implements ArrayAccess {
 
 	/**
+	 * Collection items.
+	 *
+	 * @var array
+	 */
+	protected $items = [];
+
+	/**
 	 * The constructor.
 	 *
 	 * @param array $items
@@ -86,7 +93,11 @@ class Collection extends Jsonable implements ArrayAccess {
 				$attributes = (array) $attributes;
 			}
 
-			if ( $attributes instanceof Model === false && ( ! is_array( $attributes ) || ! array_key_exists( $part, $attributes ) ) ) {
+			if (
+				$attributes instanceof Model === false
+				&&
+				( ! is_array( $attributes ) || ! array_key_exists( $part, $attributes ) )
+			) {
 				return $default;
 			}
 
