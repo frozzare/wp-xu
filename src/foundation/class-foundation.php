@@ -45,8 +45,8 @@ class Foundation extends Container {
 	/**
 	 * Call function.
 	 *
-	 * @param string $method
-	 * @param mixed $args
+	 * @param  string $method
+	 * @param  mixed $args
 	 *
 	 * @throws \Exception if function does not exists.
 	 *
@@ -69,8 +69,8 @@ class Foundation extends Container {
 	/**
 	 * Call component class.
 	 *
-	 * @param string $component
-	 * @param mixed $arguments
+	 * @param  string $component
+	 * @param  mixed $arguments
 	 *
 	 * @throws \InvalidArgumentException if `$component` is not string.
 	 *
@@ -106,7 +106,7 @@ class Foundation extends Container {
 	/**
 	 * Get method that should be called.
 	 *
-	 * @param string $fn
+	 * @param  string $fn
 	 *
 	 * @return string
 	 */
@@ -161,8 +161,8 @@ class Foundation extends Container {
 	/**
 	 * Register component.
 	 *
-	 * @param string $component
-	 * @param string $path
+	 * @param  string $component
+	 * @param  string $path
 	 *
 	 * @throws \Exception if component class does not exists or is not a instance of Component class.
 	 */
