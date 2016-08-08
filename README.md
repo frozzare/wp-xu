@@ -17,7 +17,9 @@ $ composer require wp-xu/xu
 
 [API reference docs](https://wp-xu.github.io/docs/)
 
-### Components
+Some cached functions requires that `wp_cache_delete_group` function exists to delete cache group.
+
+## Components
 
 Go to [wp-xu/components](https://github.com/wp-xu/components) repo.
 
