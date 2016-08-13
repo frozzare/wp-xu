@@ -24,9 +24,4 @@ class Utils_Test extends Unit_Test_Case {
 			$this->assertNotEmpty( $e->getMessage() );
 		}
 	}
-
-	public function test_xu_with() {
-		require_once XU_FIXTURE_DIR . '/classes/class-say.php';
-		$this->assertSame( 'Hello Fredrik!', xu_with( new \Say )->hello( 'Fredrik' ) );
-	}
 }

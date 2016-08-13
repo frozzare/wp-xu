@@ -56,14 +56,3 @@ function xu_get_class_name( $file ) {
 
 	return $namespace_name . '\\' . $class_name;
 }
-
-/**
- * Return the given object. Useful for chaining.
- *
- * @param  mixed $obj
- *
- * @return mixed
- */
-function xu_with( $obj ) {
-	return $obj;
-}
