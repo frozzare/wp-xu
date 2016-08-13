@@ -27,8 +27,6 @@ class Foundation extends Container {
 
 	/**
 	 * The constructor.
-	 *
-	 * @codeCoverageIgnore
 	 */
 	public function __construct() {
 		$this->require_files();
@@ -37,8 +35,6 @@ class Foundation extends Container {
 
 	/**
 	 * Boot the foundation.
-	 *
-	 * @codeCoverageIgnore
 	 */
 	public function boot() {
 		xu_register_large_option_post_type();
