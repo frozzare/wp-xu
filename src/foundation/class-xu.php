@@ -2,9 +2,6 @@
 
 use Xu\Foundation\Foundation;
 
-/**
- * Global class to xu foundation class.
- */
 // @codingStandardsIgnoreStart
 class xu {
 // @codingStandardsIgnoreEnd

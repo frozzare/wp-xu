@@ -4,9 +4,6 @@ namespace Xu\Components;
 
 use Xu\Foundation\Foundation;
 
-/**
- * Component class.
- */
 abstract class Component {
 
 	/**

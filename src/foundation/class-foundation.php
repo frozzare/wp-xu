@@ -6,9 +6,6 @@ use Exception;
 use Frozzare\Tank\Container;
 use InvalidArgumentException;
 
-/**
- * xu main class.
- */
 class Foundation extends Container {
 
 	/**
