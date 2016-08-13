@@ -1,7 +1,7 @@
 # xu
 
-[![Build Status](https://travis-ci.org/wp-xu/xu.svg?branch=master)](https://travis-ci.org/wp-xu/xu) [![codecov.io](http://codecov.io/github/wp-xu/xu/coverage.svg?branch=master)](http://codecov.io/github/wp-xu/xu?branch=master)
-[![License](https://img.shields.io/packagist/l/wp-xu/xu.svg)](https://packagist.org/packages/wp-xu/xu)
+[![Build Status](https://travis-ci.org/frozzare/wp-xu.svg?branch=master)](https://travis-ci.org/frozzare/wp-xu) [![codecov.io](http://codecov.io/github/frozzare/wp-xu/coverage.svg?branch=master)](http://codecov.io/github/frozzare/wp-xu?branch=master)
+[![License](https://img.shields.io/packagist/l/frozzare/wp-xu.svg)](https://packagist.org/packages/frozzare/wp-xu)
 
 > Requires PHP 5.5.9 and WordPress 4.4
 
@@ -10,18 +10,14 @@ Collection of useful WordPress and PHP functions and classes.
 ## Install
 
 ```
-$ composer require wp-xu/xu
+$ composer require frozzare/wp-xu
 ```
 
 ## Documentation
 
-[API reference docs](https://wp-xu.github.io/docs/)
+[API reference docs](https://frozzare.github.io/wp-xu/)
 
 Some cached functions requires that `wp_cache_delete_group` function exists to delete cache group.
-
-## Components
-
-Go to [wp-xu/components](https://github.com/wp-xu/components) repo.
 
 ## Models
 
