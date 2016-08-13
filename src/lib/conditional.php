@@ -104,3 +104,14 @@ function xu_is_xml( $str ) {
 
 	return false;
 }
+
+/**
+ * Validate Swedish personal identify numbers.
+ *
+ * @param  int|string $str
+ *
+ * @return bool
+ */
+function xu_valid_personnummer( $str ) {
+	return \Frozzare\Personnummer\Personnummer::valid( $str );
+}
