@@ -45,7 +45,7 @@ function xu_is_http_method( $method ) {
 		return false;
 	}
 
-	return strtolower( $_SERVER ['REQUEST_METHOD'] ) == strtolower( $method );
+	return strtolower( $_SERVER ['REQUEST_METHOD'] ) === strtolower( $method );
 }
 
 /**

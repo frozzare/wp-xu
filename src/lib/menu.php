@@ -26,7 +26,7 @@ function xu_wp_nav_menu( array $args = [] ) {
 
 	// Echo value if it should be echo.
 	if ( $echo ) {
-		echo $value;
+		echo $value; // WPCS: xss ok
 	} else {
 		return $value;
 	}
