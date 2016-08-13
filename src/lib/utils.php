@@ -1,42 +1,6 @@
 <?php
 
 /**
- * Add action.
- *
- * @see https://developer.wordpress.org/reference/functions/add_action/
- *
- * @param  string   $tag
- * @param  callable $fn
- * @param  int      $priority
- * @param  int      $accepted_args
- *
- * @return string
- */
-function xu_add_action( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
-	return xu_add_filter( $tag, $fn, $priority, $accepted_args );
-}
-
-/**
- * Add filter.
- *
- * @see https://developer.wordpress.org/reference/functions/add_filter/
- *
- * @param  string   $tag
- * @param  callable $fn
- * @param  int      $priority
- * @param  int      $accepted_args
- *
- * @return string
- */
-function xu_add_filter( $tag, $fn, $priority = 10, $accepted_args = 1 ) {
-	if ( function_exists( 'add_filter' ) ) {
-		return add_filter( $tag, $fn, $priority, $accepted_args );
-	}
-
-	return idx_add_filter( $tag, $fn, $priority, $accepted_args );
-}
-
-/**
  * Get namespace name and/or class name from file.
  *
  * @param  string $file The file path.

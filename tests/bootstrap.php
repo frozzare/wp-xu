@@ -1,40 +1,20 @@
 <?php
 
-/**
- * Load Composer autoload.
- */
+// Load Composer autoload.
 require __DIR__ . '/../vendor/autoload.php';
 
-/**
- * Define fixtures directory constant
- */
+// Define fixtures directory constant.
 define( 'XU_FIXTURE_DIR', __DIR__ . '/data' );
 
-/**
- * Load files.
- */
+// Load files.
 WP_Test_Suite::load_files( __DIR__ . '/framework/class-unit-test-case.php' );
 
-/**
- * Require files.
- */
+// Require files.
 require_once XU_FIXTURE_DIR . '/components/class-xu.php';
 require_once XU_FIXTURE_DIR . '/components/class-test.php';
 require_once XU_FIXTURE_DIR . '/components/class-foo.php';
 require_once XU_FIXTURE_DIR . '/components/class-stringx.php';
 require_once XU_FIXTURE_DIR . '/components/class-strtoupper.php';
 
-/**
- * Create a new foundation.
- */
-$foundation = new \Xu\Foundation\Foundation;
-
-/**
- * Boot the foundation.
- */
-$foundation->boot();
-
-/**
- * Run the WordPress test suite.
- */
+// Run the WordPress test suite.
 WP_Test_Suite::run();

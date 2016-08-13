@@ -1,5 +1,6 @@
 {
   "name": "wp-xu/xu",
+  "type": "wordpress-muplugin",
   "license": "MIT",
   "description": "Collection of useful WordPress and PHP functions and classes",
   "homepage": "https://github.com/wp-xu/xu",
@@ -16,28 +17,11 @@
     "utilities"
   ],
   "autoload": {
-    "classmap": ["src/"],
-    "files": [
-      "src/lib/utils.php",
-      "src/foundation/helpers.php",
-      "src/lib/cache.php",
-      "src/lib/clean.php",
-      "src/lib/conditional.php",
-      "src/lib/media.php",
-      "src/lib/menu.php",
-      "src/lib/option.php",
-      "src/lib/post.php",
-      "src/lib/rewrite.php",
-      "src/lib/string.php",
-      "src/lib/transient.php",
-      "src/model/helpers.php",
-      "autoload.php"
-    ]
+    "classmap": ["src/"]
   },
   "require": {
     "php": "^5.5.9 || ^7.0",
-    "frozzare/tank": "~1.0",
-    "frozzare/wp-idx": "~1.0"
+    "frozzare/tank": "~1.0"
   },
   "require-dev": {
     "frozzare/wp-test-suite": "~1.0",

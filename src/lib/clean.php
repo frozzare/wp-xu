@@ -30,7 +30,7 @@ function xu_clean_attachment_cache( $post_id = 0 ) {
 		call_user_func_array( 'xu_cache_delete', $item );
 	}
 }
-xu_add_action( 'clean_attachment_cache', 'xu_clean_attachment_cache' );
+add_action( 'clean_attachment_cache', 'xu_clean_attachment_cache' );
 
 /**
  * Clean nav menu cache.
@@ -38,9 +38,9 @@ xu_add_action( 'clean_attachment_cache', 'xu_clean_attachment_cache' );
 function xu_clean_nav_menu_cache() {
 	xu_cache_delete_group( 'xu_wp_nav_menu' );
 }
-xu_add_action( 'wp_create_nav_menu', 'xu_clean_nav_menu_cache' );
-xu_add_action( 'wp_update_nav_menu', 'xu_clean_nav_menu_cache' );
-xu_add_action( 'wp_delete_nav_menu', 'xu_clean_nav_menu_cache' );
+add_action( 'wp_create_nav_menu', 'xu_clean_nav_menu_cache' );
+add_action( 'wp_update_nav_menu', 'xu_clean_nav_menu_cache' );
+add_action( 'wp_delete_nav_menu', 'xu_clean_nav_menu_cache' );
 
 /**
  * Clean post cache.
@@ -76,4 +76,4 @@ function xu_clean_post_cache( $post_id = 0 ) {
 		call_user_func_array( 'xu_cache_delete', $item );
 	}
 }
-xu_add_action( 'clean_post_cache', 'xu_clean_post_cache' );
+add_action( 'clean_post_cache', 'xu_clean_post_cache' );

@@ -9,8 +9,6 @@ Collection of useful WordPress and PHP functions and classes.
 
 ## Install
 
-It will be installed in the `vendor` folder and not as a plugin.
-
 ```
 $ composer require wp-xu/xu
 ```

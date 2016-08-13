@@ -31,7 +31,8 @@ class Foundation extends Container {
 	 * @codeCoverageIgnore
 	 */
 	public function __construct() {
-		$this->setup_actions();
+		$this->require_files();
+		$this->init();
 	}
 
 	/**
@@ -152,10 +153,10 @@ class Foundation extends Container {
 	}
 
 	/**
-	 * Init hook callback.
+	 * Init xu.
 	 */
-	public function init() {
-		xu_register_large_option_post_type();
+	protected function init() {
+	//	xu_register_large_option_post_type();
 	}
 
 	/**
@@ -186,9 +187,36 @@ class Foundation extends Container {
 	}
 
 	/**
-	 * Setup action hooks.
+	 * Require library files.
 	 */
-	protected function setup_actions() {
-		xu_add_action( 'init', [$this, 'init'] );
+	protected function require_files() {
+		$files = [
+			'helpers.php',
+			'lib/cache.php',
+			'lib/clean.php',
+			'lib/conditional.php',
+			'lib/http.php',
+			'lib/media.php',
+			'lib/menu.php',
+			'lib/option.php',
+			'lib/post.php',
+			'lib/rewrite.php',
+			'lib/string.php',
+			'lib/transient.php',
+			'lib/utils.php',
+			'model/helpers.php'
+		];
+
+		foreach ( $files as $file ) {
+			if ( strpos( $file, '/' ) !== false ) {
+				$file = '../' . $file;
+			}
+
+			if ( file_exists( __DIR__ . '/' . $file ) ) {
+				require_once __DIR__ . '/' . $file;
+			}
+		}
+
+		unset( $file );
 	}
 }
