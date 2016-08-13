@@ -15,7 +15,7 @@ $ composer require frozzare/wp-xu
 
 ## Documentation
 
-[API reference docs](https://frozzare.github.io/wp-xu/)
+[API reference docs](https://frozzare.github.io/wp-xu/docs/)
 
 Some cached functions requires that `wp_cache_delete_group` function exists to delete cache group.
 
@@ -55,7 +55,7 @@ The model class implements a lot of methods like `to_array` and `to_json` to con
 
 ## Models Collection
 
-A collection is a collection of one or more models. By reading the [api reference docs](https://wp-xu.github.io/docs/) you can find out which methods a collection has, `first`, `last`, `filter`, `map`, `reject` and `where` is some of the methods that exists.
+A collection is a collection of one or more models. By reading the [api reference docs](https://frozzare.github.io/wp-xu/docs/) you can find out which methods a collection has, `first`, `last`, `filter`, `map`, `reject` and `where` is some of the methods that exists.
 
 A collection can be created in different ways:
 
