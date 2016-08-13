@@ -32,7 +32,7 @@ class Foundation extends Container {
 	 */
 	public function __construct() {
 		$this->require_files();
-		$this->init();
+		$this->boot();
 	}
 
 	/**
@@ -41,6 +41,7 @@ class Foundation extends Container {
 	 * @codeCoverageIgnore
 	 */
 	public function boot() {
+		xu_register_large_option_post_type();
 	}
 
 	/**
@@ -150,13 +151,6 @@ class Foundation extends Container {
 		}
 
 		return $this->components_namespace . implode( '\\', $parts );
-	}
-
-	/**
-	 * Init xu.
-	 */
-	protected function init() {
-	//	xu_register_large_option_post_type();
 	}
 
 	/**

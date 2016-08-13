@@ -4,10 +4,8 @@ namespace Xu\Tests\Lib;
 
 class Option_Test extends \WP_UnitTestCase {
 
-	public function setUp() {
-		parent::setUp();
-
-		xu_register_large_option_post_type();
+	public function test_post_type() {
+		$this->assertTrue( post_type_exists( 'xu_large_option' ) );
 	}
 
 	public function test_xu_add_option() {
