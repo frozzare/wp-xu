@@ -24,7 +24,6 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-xu.html">xu</a></li>
-				<li><a href="class-Xu.Components.Component.html">Xu\Components\Component</a></li>
 				<li class="active"><a href="class-Xu.Foundation.Foundation.html">Xu\Foundation\Foundation</a></li>
 				<li><a href="class-Xu.Foundation.Jsonable.html">Xu\Foundation\Jsonable</a></li>
 				<li><a href="class-Xu.Model.Collection.html">Xu\Model\Collection</a></li>
@@ -84,6 +83,7 @@
 				<li><a href="function-xu_studly_case.html">xu_studly_case</a></li>
 				<li><a href="function-xu_update_option.html">xu_update_option</a></li>
 				<li><a href="function-xu_url_to_postid.html">xu_url_to_postid</a></li>
+				<li><a href="function-xu_valid_personnummer.html">xu_valid_personnummer</a></li>
 				<li><a href="function-xu_wp_get_attachment_image.html">xu_wp_get_attachment_image</a></li>
 				<li><a href="function-xu_wp_get_attachment_image_sizes.html">xu_wp_get_attachment_image_sizes</a></li>
 				<li><a href="function-xu_wp_get_attachment_image_src.html">xu_wp_get_attachment_image_src</a></li>
@@ -151,7 +151,7 @@ Frozzare\Tank\Container
 		<b>Namespace:</b> Xu\Foundation<br>
 		
 
-			<b>Located at</b> <a href="source-class-Xu.Foundation.Foundation.html#9-209" title="Go to source code">foundation/class-foundation.php</a>
+			<b>Located at</b> <a href="source-class-Xu.Foundation.Foundation.html#9-114" title="Go to source code">foundation/class-foundation.php</a>
 		<br>
 	</div>
 
@@ -171,7 +171,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#25-31" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#18-24" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			<p>The constructor.</p>
@@ -201,7 +201,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#_boot">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#33-38" title="Go to source code">boot</a>( )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#26-31" title="Go to source code">boot</a>( )</code>
 
 		<div class="description short">
 			<p>Boot the foundation.</p>
@@ -231,7 +231,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fn">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#40-62" title="Go to source code">fn</a>( <span>string <var>$method</var></span>, <span>mixed <var>$args</var></span> )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#33-55" title="Go to source code">fn</a>( <span>string <var>$method</var></span>, <span>mixed <var>$args</var></span> )</code>
 
 		<div class="description short">
 			<p>Call function.</p>
@@ -264,51 +264,6 @@ Frozzare\Tank\Container
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="component" id="_component">
-
-		<td class="attributes"><code>
-			 public 
-
-			object|null
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_component">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#64-99" title="Go to source code">component</a>( <span>string <var>$component</var></span>, <span>mixed <var>$arguments</var> = [] </span> )</code>
-
-		<div class="description short">
-			<p>Call component class.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Call component class.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$component</var></dt>
-					<dd></dd>
-					<dt><var>$arguments</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					object|null
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					InvalidArgumentException<br>if <code>$component</code> is not string.
-				</div>
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="get_fn_name" id="_get_fn_name">
 
 		<td class="attributes"><code>
@@ -321,7 +276,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get_fn_name">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#101-110" title="Go to source code">get_fn_name</a>( <span>string <var>$fn</var></span> )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#57-66" title="Go to source code">get_fn_name</a>( <span>string <var>$fn</var></span> )</code>
 
 		<div class="description short">
 			<p>Get method that should be called.</p>
@@ -360,7 +315,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#_get_instance">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#112-123" title="Go to source code">get_instance</a>( )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#68-79" title="Go to source code">get_instance</a>( )</code>
 
 		<div class="description short">
 			<p>Get foundation instance.</p>
@@ -382,86 +337,6 @@ Frozzare\Tank\Container
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="get_namespace" id="_get_namespace">
-
-		<td class="attributes"><code>
-			 protected 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_get_namespace">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#125-147" title="Go to source code">get_namespace</a>( <span>string <var>$namespace</var></span> )</code>
-
-		<div class="description short">
-			<p>Get namespace.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Get namespace.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$namespace</var></dt>
-					<dd></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="register_component" id="_register_component">
-
-		<td class="attributes"><code>
-			 protected 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_register_component">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#149-174" title="Go to source code">register_component</a>( <span>string <var>$component</var></span>, <span>string <var>$path</var> = <span class="php-quote">''</span> </span> )</code>
-
-		<div class="description short">
-			<p>Register component.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Register component.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$component</var></dt>
-					<dd></dd>
-					<dt><var>$path</var></dt>
-					<dd></dd>
-				</dl></div>
-
-
-				<h4>Throws</h4>
-				<div class="list">
-					Exception<br>if component class does not exists or is not a instance of Component class.
-				</div>
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="require_files" id="_require_files">
 
 		<td class="attributes"><code>
@@ -474,7 +349,7 @@ Frozzare\Tank\Container
 
 		<td class="name"><div>
 		<a class="anchor" href="#_require_files">#</a>
-		<code><a href="source-class-Xu.Foundation.Foundation.html#176-208" title="Go to source code">require_files</a>( )</code>
+		<code><a href="source-class-Xu.Foundation.Foundation.html#81-113" title="Go to source code">require_files</a>( )</code>
 
 		<div class="description short">
 			<p>Require library files.</p>
@@ -507,31 +382,6 @@ Frozzare\Tank\Container
 
 	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="components_namespace" id="$components_namespace">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Xu.Foundation.Foundation.html#11-16" title="Go to source code"><var>$components_namespace</var></a>
-
-			<div class="description short">
-				<p>Components namespace.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Components namespace.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$components_namespace" class="anchor">#</a>
-				<code><span class="php-quote">'Xu\\Components\\'</span></code>
-			</div>
-		</td>
-	</tr>
 	<tr data-order="instance" id="$instance">
 		<td class="attributes"><code>
 			protected static 
@@ -539,7 +389,7 @@ Frozzare\Tank\Container
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Xu.Foundation.Foundation.html#18-23" title="Go to source code"><var>$instance</var></a>
+				<a href="source-class-Xu.Foundation.Foundation.html#11-16" title="Go to source code"><var>$instance</var></a>
 
 			<div class="description short">
 				<p>Foundation instance.</p>
