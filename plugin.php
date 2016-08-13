@@ -6,7 +6,7 @@
  * Author: Fredrik Forsmo
  * Author URI: https://frozzare.com
  * Version: 2.0.0
- * Plugin URI: https://github.com/wp-xu/xu
+ * Plugin URI: https://github.com/frozzare/wp-xu
  * Textdomain: xu
  * Domain Path: /languages/
  */
