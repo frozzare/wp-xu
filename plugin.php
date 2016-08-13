@@ -5,7 +5,7 @@
  * Description: Collection of useful WordPress and PHP functions and classes.
  * Author: Fredrik Forsmo
  * Author URI: https://frozzare.com
- * Version: 2.0-dev
+ * Version: 2.0.0
  * Plugin URI: https://github.com/wp-xu/xu
  * Textdomain: xu
  * Domain Path: /languages/
