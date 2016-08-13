@@ -1,5 +1,5 @@
 {
-  "name": "wp-xu/xu",
+  "name": "frozzare/wp-xu",
   "type": "wordpress-muplugin",
   "license": "MIT",
   "description": "Collection of useful WordPress and PHP functions and classes",
