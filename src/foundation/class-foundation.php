@@ -9,13 +9,6 @@ use InvalidArgumentException;
 class Foundation extends Container {
 
 	/**
-	 * Components namespace.
-	 *
-	 * @var string
-	 */
-	protected $components_namespace = 'Xu\\Components\\';
-
-	/**
 	 * Foundation instance.
 	 *
 	 * @var \Xu\Foundation\Foundation
@@ -62,43 +55,6 @@ class Foundation extends Container {
 	}
 
 	/**
-	 * Call component class.
-	 *
-	 * @param  string $component
-	 * @param  mixed $arguments
-	 *
-	 * @throws \InvalidArgumentException if `$component` is not string.
-	 *
-	 * @return object|null
-	 */
-	public function component( $component, $arguments = [] ) {
-		if ( ! is_array( $arguments ) ) {
-			$arguments = [$arguments];
-		}
-
-		if ( ! is_string( $component ) ) {
-			throw new InvalidArgumentException( 'Invalid argument. `$component` must be string.' );
-		}
-
-		$component = $this->get_namespace( $component );
-
-		if ( ! $this->exists( $component ) ) {
-			$this->register_component( $component, $component );
-		}
-
-		$instance = $this->make( $component );
-
-		switch ( get_class( $instance ) ) {
-			case 'ReflectionClass':
-				return $instance->newInstanceArgs( $arguments );
-			case 'ReflectionFunction':
-				return $instance->invokeArgs( $arguments );
-			default:
-				return $instance;
-		}
-	}
-
-	/**
 	 * Get method that should be called.
 	 *
 	 * @param  string $fn
@@ -120,57 +76,6 @@ class Foundation extends Container {
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Get namespace.
-	 *
-	 * @param  string $namespace
-	 *
-	 * @return string
-	 */
-	protected function get_namespace( $namespace ) {
-		if ( strpos( $namespace, '\\' ) !== false ) {
-			return strpos( $namespace, $this->components_namespace ) === false ?
-				$this->components_namespace . ltrim( $namespace, '\\' ) : $namespace;
-		}
-
-		$parts = array_map( function( $part ) {
-			return strtolower( $part ) === $part ? ucfirst( $part ) : $part;
-		}, explode( '.', $namespace ) );
-
-		if ( count( $parts ) === 1 ) {
-			$parts[] = $parts[0];
-		}
-
-		return $this->components_namespace . implode( '\\', $parts );
-	}
-
-	/**
-	 * Register component.
-	 *
-	 * @param  string $component
-	 * @param  string $path
-	 *
-	 * @throws \Exception if component class does not exists or is not a instance of Component class.
-	 */
-	protected function register_component( $component, $path = '' ) {
-		if ( ! class_exists( $path ) ) {
-			throw new Exception( sprintf( '`%s` class does not exists.', $path ) );
-		}
-
-		if ( ! is_subclass_of( $path, 'Xu\\Components\\Component' ) ) {
-			throw new Exception( sprintf( '`%s` class is not a instance of Xu\\Components\\Component.', $path ) );
-		}
-
-		$instance = new $path( $this );
-		$value    = $instance->bootstrap();
-
-		if ( is_object( $value ) && class_exists( get_class( $value ) ) ) {
-			$this->singleton( $component, $value );
-		} else {
-			$this->singleton( $component, $instance );
-		}
 	}
 
 	/**

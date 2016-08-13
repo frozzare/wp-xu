@@ -8,7 +8,6 @@ class Utils_Test extends Unit_Test_Case {
 
 	public function test_xu_get_class_name() {
 		$this->assertSame( 'Say', xu_get_class_name( XU_FIXTURE_DIR . '/classes/class-say.php' ) );
-		$this->assertSame( '\Xu\Components\Stringx\Stringx', xu_get_class_name( XU_FIXTURE_DIR . '/components/class-stringx.php' )  );
 
 		try {
 			xu_get_class_name( false );
