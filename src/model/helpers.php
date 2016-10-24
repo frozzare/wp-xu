@@ -14,10 +14,17 @@ function xu_get_model( $model, array $args = [], $dir = 'models' ) {
 		return call_user_func_array( [$model, 'model'], $args );
 	}
 
+	$model = str_replace( '.', '/', $model );
+	$model = explode( '/', $model );
+	$name  = array_pop( $model );
+	$extra = implode( '/', $model );
+	$extra = empty( $extra ) ? $extra : $extra . '/';
+	$model = $name;
+
 	$file  = null;
 	$names = [
-		sprintf( '%s/class-%s.php', $dir, $model ),
-		sprintf( '%s/%s.php', $dir, $model )
+		sprintf( '%s/%sclass-%s.php', $dir, $extra, $model ),
+		sprintf( '%s/%s%s.php', $dir, $extra, $model )
 	];
 
 	foreach ( $names as $name ) {
