@@ -16,6 +16,13 @@ abstract class Model extends Jsonable implements ArrayAccess {
 	protected $attributes = [];
 
 	/**
+	 * Attributes merged or not.
+	 *
+	 * @var bool
+	 */
+	protected $merged_attributes = false;
+
+	/**
 	 * Determine if a attribute exists or not.
 	 *
 	 * @param  string $key
@@ -182,9 +189,17 @@ abstract class Model extends Jsonable implements ArrayAccess {
 	 * @return array
 	 */
 	public function get_attributes_array() {
+		if ( $this->merged_attributes ) {
+			return $this->attributes;
+		}
+
 		$attributes = $this->get_attributes();
 		$attributes = is_array( $attributes ) ? $attributes : [];
-		return array_merge( $attributes, $this->attributes );
+
+		$this->attributes = array_merge( $attributes, $this->attributes );
+		$this->merged_attributes = true;
+
+		return $attributes;
 	}
 
 	/**
