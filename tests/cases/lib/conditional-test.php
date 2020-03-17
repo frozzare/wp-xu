@@ -60,15 +60,4 @@ class Conditional_Test extends Unit_Test_Case {
 		$this->assertFalse( xu_is_xml( 'hello world' ) );
 		$this->invalidArgumentTest( 'xu_is_xml' );
 	}
-
-	public function test_xu_valid_personnummer() {
-		$this->assertTrue( xu_valid_personnummer( 6403273813 ) );
-		$this->assertTrue( xu_valid_personnummer( '19130401+2931' ) );
-		$this->assertFalse( xu_valid_personnummer( null ) );
-		$this->assertFalse( xu_valid_personnummer( array() ) );
-		$this->assertFalse( xu_valid_personnummer( true ) );
-		$this->assertFalse( xu_valid_personnummer( false ) );
-		$this->assertFalse( xu_valid_personnummer( 100101001 ) );
-		$this->assertFalse( xu_valid_personnummer( '112233-4455' ) );
-	}
 }
